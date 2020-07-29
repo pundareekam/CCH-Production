@@ -1,7 +1,7 @@
 public class EEO_Flow_VFC extends FlowBase {
 
     public Flow.Interview.EEO x_flow {get;set;}
-
+//test
     public Boolean showUpload {get{
         Boolean showIt = false;
         try { showIt = x_flow != null && (Boolean)x_flow.getVariableValue('ShowUpload'); } catch(Exception e) {}
