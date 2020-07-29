@@ -1,0 +1,99 @@
+<apex:page standardController="Case" extensions="TuitionReimbursementController" sidebar="false" showHeader="false">
+    <apex:pageMessages escape="false"/> 
+    <apex:form style="width:99%;" styleClass="form-css" >
+        <apex:pageblock id="CustomBlock" mode="{!editMode}">
+            <apex:pageblockButtons >
+                <apex:commandButton value="Save" action="{!save}"/>
+            </apex:pageblockButtons>
+            
+            <apex:pageBlockSection title="Case Information" columns="2" collapsible="false" >
+                <apex:outputField value="{!case.ContactName__c}"/>
+                <apex:outputField value="{!case.OwnerId}"/>
+                <apex:outputField value="{!case.CaseNumber}"/>
+                <apex:outputField value="{!case.CreatedDate}"/>
+                <apex:outputField value="{!case.status}"/>
+                <apex:outputField value="{!case.subject}"/>
+                
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection columns="2" title="Supervisor Approval Details" collapsible="false">
+                <apex:outputField value="{!case.Tuition_Reimbursement_Case_Status__c}"/>
+                <apex:outputField value="{!case.TR_Approve_Reject_Comments__c}"/>
+                <apex:outputField value="{!case.Supervisor__c}"/>
+                <apex:outputField value="{!case.TR_Supervisor_Approval_Date_Time__c}" />
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="2" title="Educational Information" collapsible="false">
+                <apex:outputField value="{!case.Semester_Total_Cost__c}"/>
+                <apex:outputField value="{!case.Class_Certification_Seminar__c}"/>
+                <apex:outputField value="{!case.Major__c}"/>
+                <apex:outputField value="{!case.Other_Major__c}" rendered="{!IF(ISBLANK(case.Other_Major__c), false, true)}"/>
+                <apex:outputField value="{!case.Educational_Institution__c}"/>
+                <apex:outputField value="{!case.Other_Educational_Institution__c}" rendered="{!IF(ISBLANK(case.Other_Educational_Institution__c), false, true)}"/>
+                <apex:outputField value="{!case.Intermittent_Leave__c}" />
+            </apex:pageBlockSection>
+            
+            
+            <apex:pageBlockSection columns="2" title="Course One Information" collapsible="false">
+                <apex:outputField value="{!case.Course_One_Number__c}"/>
+                <apex:outputField value="{!case.Course_One_Tuition_Cost__c}"/>
+                <apex:outputField value="{!case.Course_One_Title__c}"/>
+                <apex:outputField value="{!case.Course_One_Awards__c}"/>
+                <apex:outputField value="{!case.Course_One_Total_Cost__c}"/>
+                <apex:outputField value="{!case.Course_One_Registration_Fee__c}"/>
+                <apex:outputField value="{!case.Course_One_Beginning_Date__c}"/>
+                <apex:outputField value="{!case.Course_One_Lab_Books_Materials_Cost__c}"/>
+                <apex:outputField value="{!case.Course_One_Ending_Date__c}"/>
+                <apex:outputField value="{!case.Course_One_Other_Fees__c}"/>
+                <apex:outputField value="{!case.Course_One_Semester__c}"/>
+                <apex:outputField value="{!case.Course_One_Other_Fees_Description__c}" rendered="{!IF(ISBLANK(case.Course_One_Other_Fees_Description__c), false, true)}"/>
+                <apex:outputField value="{!case.Course_Official_Grade_Received__c}"/>
+                <apex:outputField value="{!case.Course_One_Cost_of_Books__c}"/>
+                <apex:outputText ></apex:outputText>
+                <apex:outputField value="{!case.Course_One_Books_Description__c}" />
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="2" title="Course Two Information" rendered="{!IF(ISBLANK(case.Course_Two_Number__c), false, true)}">
+                <apex:outputField value="{!case.Course_Two_Number__c}"/>
+                <apex:outputField value="{!case.Course_Two_Tuition_Cost__c}"/>
+                <apex:outputField value="{!case.Course_Two_Title__c}"/>
+                <apex:outputField value="{!case.Course_Two_Awards__c}"/>
+                <apex:outputField value="{!case.Course_Two_Total_Cost__c}"/>
+                <apex:outputField value="{!case.Course_Two_Registration_Fee__c}"/>
+                <apex:outputField value="{!case.Course_Two_Beginning_Date__c}"/>
+                <apex:outputField value="{!case.Course_Two_Lab_Book_Materials_Cost__c}"/>
+                <apex:outputField value="{!case.Course_Two_Ending_Date__c}"/>
+                <apex:outputField value="{!case.Course_Two_Other_Fees__c}"/>
+                <apex:outputField value="{!case.Course_Two_Semester__c}"/>
+                <apex:outputField value="{!case.Course_Two_Other_Fees_Description__c}"/>
+                <apex:outputField value="{!case.Course_Two_Grade_Received__c}"/>
+                <apex:outputField value="{!case.Course_Two_Cost_of_Books__c}"/>
+                <apex:outputText ></apex:outputText>
+                <apex:outputField value="{!case.Course_Two_Books_Description__c}"/>
+                
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="2" title="Course Three Information" rendered="{!IF(ISBLANK(case.Course_Three_Number__c), false, true)}">
+                <apex:outputField value="{!case.Course_Three_Number__c}"/>
+                <apex:outputField value="{!case.Course_Three_Tuition_Cost__c}"/>
+                <apex:outputField value="{!case.Course_Three_Title__c}"/>
+                <apex:outputField value="{!case.Course_Three_Awards__c}"/>
+                <apex:outputField value="{!case.Course_Three_Total_Cost__c}"/>
+                <apex:outputField value="{!case.Course_Three_Registration_Fee__c}"/>
+                <apex:outputField value="{!case.Course_Three_Beginning_Date__c}"/>
+                <apex:outputField value="{!case.Course_Three_Lab_Books_Materials_Cost__c}"/>
+                <apex:outputField value="{!case.Course_Three_Ending_Date__c}"/>
+                <apex:outputField value="{!case.Course_Three_Other_Fees__c}"/>
+                <apex:outputField value="{!case.Course_Three_Semester__c}"/>
+                <apex:outputField value="{!case.Course_Three_Other_Fees_Description__c}"/>
+                <apex:outputField value="{!case.Course_Three_Grade_Received__c}"/>
+                <apex:outputField value="{!case.Course_Three_Cost_of_Books__c}"/>
+                <apex:outputText ></apex:outputText>
+                <apex:outputField value="{!case.Course_Three_Books_Description__c}"/>
+                
+            </apex:pageBlockSection>
+ 
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

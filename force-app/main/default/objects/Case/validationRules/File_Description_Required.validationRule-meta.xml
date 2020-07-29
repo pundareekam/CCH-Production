@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>File_Description_Required</fullName>
+    <active>true</active>
+    <description>If Collateral Path is checked (true) File description is required</description>
+    <errorConditionFormula>AND(
+Collateral_Path__c = TRUE,
+OR(
+      ISBLANK( File_Description__c)
+)
+)</errorConditionFormula>
+    <errorDisplayField>File_Description__c</errorDisplayField>
+    <errorMessage>Collateral Path is checked. Please enter File Description</errorMessage>
+</ValidationRule>

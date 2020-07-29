@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Step1_Grievance_Due__c</fullName>
+    <description>Step1_Grievance_Due</description>
+    <externalId>false</externalId>
+    <formula>IF(TEXT(GrievanceCBA__c ) = &#39;HOUSE STAFF&#39;, Date_Grievance_Received__c + 10,
+IF(TEXT(GrievanceCBA__c ) = &#39;RWDSU&#39;, Date_Grievance_Received__c + 10,
+IF(TEXT(GrievanceCBA__c ) = &#39;NNOC&#39;, Date_Grievance_Received__c + 10,
+IF(TEXT(GrievanceCBA__c ) = &#39;Teamsters Local 700&#39;, Date_Grievance_Received__c + 10,
+IF(TEXT(GrievanceCBA__c ) = &#39;Teamsters Local 743&#39;, Date_Grievance_Received__c + 10,
+Date_Grievance_Received__c + 5
+)))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Step1 Supervisor response due</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

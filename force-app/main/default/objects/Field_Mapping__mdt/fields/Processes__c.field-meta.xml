@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Processes__c</fullName>
+    <description>Each field mapping can be part of many processes as long as the process from and to object are the same. Each process must be separated by a carriage return. For a list of processes please see the Case Process Mapping custom metadata type</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Each field mapping can be part of many processes as long as the process from and to object are the same. Each process must be separated by a carriage return. For a list of processes please see the Case Process Mapping custom metadata type</inlineHelpText>
+    <label>Processes</label>
+    <required>true</required>
+    <type>TextArea</type>
+</CustomField>

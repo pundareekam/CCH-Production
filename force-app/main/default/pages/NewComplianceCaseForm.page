@@ -1,0 +1,881 @@
+<!--00088579-->
+<apex:page standardController="Case" extensions="ComplianceCaseController" lightningStylesheets="true" sidebar="false">
+
+    <apex:form style="width:99%;" styleClass="form-css">
+        
+        <apex:pageblock id="CustomBlock" mode="inlineEdit">
+            <apex:pageblockButtons >
+                <apex:commandButton value="Save" action="{!save}"/>
+            </apex:pageblockButtons>
+            <div id="banner">
+                <img src="https://hrservicelink--c.na81.visual.force.com/resource/1567014978000/cchlogo" class="logo" />
+            </div>
+            <div class="area-outer">
+                <div class="area-inner">
+                    
+                    <div style="clear:both;">
+                        <h2 class="primary-color header">Case Information</h2>  
+                    </div>
+                    
+                    <apex:pageblockSection columns="2"> 
+                        <apex:pageBlockSectionItem dataStyleClass="compliancenumber hidden" labelStyleClass="compliancenumber hidden">
+                            <apex:outputLabel value="Compliance Case Number" for="Compliance_Case_Number__c"/>
+                            <apex:outputText value="{!case.Compliance_Case_Number__c}" />
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem dataStyleClass="ComplianceClosedDate hidden" labelStyleClass="ComplianceClosedDate hidden">
+                            <apex:outputLabel value="Closed Date" for="ComplianceClosedDate__c"/>
+                            <apex:inputField value="{!case.ComplianceClosedDate__c}" styleClass="hide-todays-date"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:inputField value="{!case.CaseNumber}" styleClass="casenumber" />
+                        <apex:inputField value="{!case.Status}" styleClass="remove-none status-field">
+                            <apex:actionsupport event="onchange" rerender="closed,closed2" />
+                        </apex:inputField>
+                        <apex:inputField value="{!case.Initiator__c}" html-disabled="true" />
+                        <apex:inputField value="{!case.Case_Owner__c}" id="Case_Owner_Compliance__c" required="false" styleClass="remove-none" />
+                        <apex:inputField value="{!case.Communication_Date__c}" required="false" styleClass="hide-todays-date" style=""/>
+                        <apex:inputField value="{!case.Proactive_Reactive__c}" required="false" styleClass="remove-none" />
+                    </apex:pageblockSection>
+                    
+                    <apex:pageblockSection columns="2" id="closed">
+                        <apex:inputField value="{!case.Resolution__c}" rendered="{!case.Status == "Closed"}" styleClass="remove-none"/>
+                        <apex:inputField value="{!case.Substantiation__c}" rendered="{!case.Status == "Closed"}" styleClass="remove-none"/>
+                    </apex:pageblockSection>
+                    
+                    <apex:pageblockSection columns="1" id="closed2"> 
+                        <apex:pageBlockSectionItem dataStyleClass="fullwidthtext" labelStyleClass="fullwidthtextlabel">
+                            <apex:outputLabel value="Summary" for="Summary__c" rendered="{!case.Status == "Closed"}"/>
+                            <apex:inputField value="{!case.Summary__c}" id="Summary__c" label="" rendered="{!case.Status == "Closed"}" />
+                        </apex:pageBlockSectionItem>
+                    </apex:pageblockSection>
+                      
+                    <apex:inputField value="{!case.RecordTypeId}" styleClass="hidden" />
+                </div>
+            </div>
+            
+            <div class="area-outer">
+                <div class="area-inner">
+                
+                    <div style="clear:both;">
+                        <h2 class="primary-color header">Category &amp; Organization</h2>  
+                    </div>
+                    
+                    <apex:pageblockSection columns="2"> 
+                        <apex:inputField value="{!case.Category__c}" id="category" required="false" styleClass="remove-none category maincategory" />
+                    </apex:pageblockSection>
+                    <apex:pageblockSection columns="2"> 
+                        <apex:pageBlockSectionItem labelStyleClass="first-indent">
+                            <apex:outputLabel value="Sub Category" for="Sub_Category__c"/>
+                            <apex:inputField value="{!case.Sub_Category__c}" id="subcategory" required="false" styleClass="remove-none category subcategory" />
+                        </apex:pageBlockSectionItem>
+                    </apex:pageblockSection>
+                    
+                    <div class="delayed-render">
+                         <div class="hipaa-breach" style="display:none">
+                              <apex:pageblockSection id="Hippa" columns="1" >
+                              
+                                  <apex:pageblockSection id="Hippa2" columns="1" >
+                                      <apex:pageblockSection columns="2">
+                                          <apex:inputField value="{!case.Was_Breach_Caused_by_Business_Associate__c}">
+                                              <apex:actionsupport event="onchange" rerender="Hippa2" />
+                                          </apex:inputField>
+                                      </apex:pageblockSection>
+                                      <apex:pageblockSection columns="2" rendered="{!case.Was_Breach_Caused_by_Business_Associate__c == true}">
+                                          <apex:inputField value="{!case.Business_Associate_Contact_Information_N__c}" />
+                                      </apex:pageblockSection>
+                                  </apex:pageblockSection>
+                                  
+                                  <apex:pageblockSection columns="2">   
+                                      <apex:inputField value="{!case.Number_of_Individuals_Affected_by_Breach__c}" styleClass="Number_of_Individuals_Affected_by_Breach" />
+                                      
+                                      <apex:inputField value="{!case.Date_of_Breach_Occurence__c}" styleClass="hide-todays-date" />
+                                      <apex:inputField value="{!case.Date_of_Breach_Discovery__c}" styleClass="hide-todays-date" />
+                                  </apex:pageblockSection>
+                                  
+                                  <apex:pageblockSection columns="1">
+                                      <apex:inputField value="{!case.Type_Of_Breach_List__c}" styleClass="test"/>
+                                      <apex:inputField value="{!case.Location_Of_Breach__c}" />
+                                  </apex:pageblockSection>
+                                  
+                                  <apex:pageblockSection columns="2" >  
+                                      <apex:inputField value="{!case.Clinical_Checkbox__c}" styleClass="Clinical__c_checkbox" />
+                                  </apex:pageblockSection>
+                                  
+                                  <apex:pageblockSection columns="1" >  
+                                        <apex:pageBlockSectionItem labelStyleClass="Clinical__c hidden" dataStyleClass="Clinical__c hidden">
+                                            <apex:outputLabel value="" for="Clinical__c"/>
+                                            <apex:inputField value="{!case.Clinical__c}"/>
+                                        </apex:pageBlockSectionItem>
+                                  </apex:pageblockSection>
+                                  
+                                  <apex:pageblockSection columns="2" >  
+                                      <apex:inputField value="{!case.Demographic_Checkbox__c}" styleClass="Demographic__c_checkbox" />
+                                  </apex:pageblockSection>
+                                  
+                                  <apex:pageblockSection columns="1" >  
+                                        <apex:pageBlockSectionItem labelStyleClass="Demographic__c hidden" dataStyleClass="Demographic__c hidden">
+                                            <apex:outputLabel value="" for="Demographic__c"/>
+                                            <apex:inputField value="{!case.Demographic__c}"/>
+                                        </apex:pageBlockSectionItem>
+                                  </apex:pageblockSection>
+                                  
+                                  <apex:pageblockSection columns="2" >  
+                                      <apex:inputField value="{!case.Financial_Checkbox__c}" styleClass="Financial__c_checkbox" />
+                                  </apex:pageblockSection>
+                                  
+                                  <apex:pageblockSection columns="1" >  
+                                        <apex:pageBlockSectionItem labelStyleClass="Financial__c hidden" dataStyleClass="Financial__c hidden">
+                                            <apex:outputLabel value="" for="Financial__c"/>
+                                            <apex:inputField value="{!case.Financial__c}"/>
+                                        </apex:pageBlockSectionItem>
+                                  </apex:pageblockSection>
+                                  
+                                  <apex:pageblockSection columns="2" >  
+                                      <apex:inputField value="{!case.Description_of_the_Breach__c}" />
+                                      <apex:inputField value="{!case.Date_Individual_Notice_Provided__c}" styleClass="hide-todays-date" />
+                                      <apex:inputField value="{!case.Was_Substitute_Notice_Provided__c}" styleClass="remove-none"/>
+                                      <apex:inputField value="{!case.Was_Media_notice_Required__c}" styleClass="remove-none"/>
+                                      <apex:inputField value="{!case.Action_Taken__c}" />
+                                  </apex:pageblockSection>
+                              </apex:pageblockSection>
+                          </div>
+                          
+                          <apex:pageblockSection columns="2"> 
+                              <apex:inputField value="{!case.Compliance_Organization__c}" required="false" id="organization" styleClass="remove-none"/>
+                          </apex:pageblockSection>
+                          <apex:pageblockSection columns="2"> 
+                                <apex:pageBlockSectionItem labelStyleClass="first-indent">
+                                    <apex:outputLabel value="Entity" for="entity"/>
+                                    <apex:inputField value="{!case.Compliance_Entity__c}" id="entity" label="" styleClass="remove-none entity"/>
+                                </apex:pageBlockSectionItem>
+                          </apex:pageblockSection>
+                          <apex:pageblockSection columns="2"> 
+                                <apex:pageBlockSectionItem labelStyleClass="second-indent">
+                                    <apex:outputLabel value="Department" for="entity"/>
+                                    <apex:inputField value="{!case.Compliance_Department__c}" id="department" label="" styleClass="remove-none department" >
+                                      <apex:actionsupport oncomplete="picklistchange"/>
+                                    </apex:inputField>
+                                </apex:pageBlockSectionItem>
+                          </apex:pageblockSection>
+                          
+                        </div>
+
+                </div>
+            </div>
+            
+            <div class="area-outer">
+                <div class="area-inner">
+                
+                    <div style="clear:both;">
+                        <h2 class="primary-color header">Case Details</h2>  
+                    </div>
+                    
+                    <apex:pageblockSection columns="1"> 
+                        <apex:pageBlockSectionItem dataStyleClass="fullwidthtext" labelStyleClass="fullwidthtextlabel">
+                            <apex:outputLabel value="Description" for="Compliance_Description__c" />
+                            <apex:inputField value="{!case.Compliance_Description__c}" id="Compliance_Description__c" />
+                        </apex:pageBlockSectionItem>
+                    </apex:pageblockSection>
+                    
+                    <apex:pageblockSection columns="1"> 
+                        <apex:pageBlockSectionItem dataStyleClass="fullwidthtext" labelStyleClass="fullwidthtextlabel">
+                            <apex:outputLabel value="Initial Communication" for="Initial_Communication__c"/>
+                            <apex:inputField value="{!case.Initial_Communication__c}" id="Initial_Communication__c" />
+                        </apex:pageBlockSectionItem>
+                    </apex:pageblockSection>
+                      
+                      <apex:pageblockSection columns="2">
+                          <apex:inputField value="{!case.Method_of_Contact__c}" styleClass="remove-none"/>
+                          <apex:inputField value="{!case.Contact__c}" label="Internal Contact Name" >
+                              <apex:actionsupport event="onchange" rerender="contact" action="{!updateContact}" />
+                          </apex:inputField>
+                          
+                          <apex:inputField value="{!case.Reporting_Party__c}" label="External Contact Name"/>
+                          <apex:inputField id="contact" value="{!case.Contact_Information__c}" label="Contact Information" style="height:100px;" />
+                          <apex:inputField value="{!case.Collateral_Path__c}" styleClass="external-doc" />
+                          <apex:inputField value="{!case.File_Description__c}" />
+                      </apex:pageblockSection>
+                </div>
+            </div>
+            
+            <div class="area-outer">
+                <div class="area-inner">
+                
+                    <div style="clear:both;">
+                        <h2 class="primary-color header">Additional Information</h2>  
+                    </div>
+                    
+                    <apex:pageblockSection columns="2">
+                      <apex:inputField value="{!case.COVID_19__c}" />
+                    </apex:pageblockSection>
+                    
+                    <apex:pageblockSection columns="2">
+                      <apex:inputField value="{!case.CCH_Policies__c}" label="Data Requests & Provider Alerts" >
+                          <apex:actionsupport event="onchange" rerender="CCHPolicies" />
+                      </apex:inputField>
+                       <apex:inputField value="{!case.CCH_Policies__c}" rendered="false" />
+                    </apex:pageblockSection>
+
+                    <apex:pageblockSection columns="2" id="CCHPolicies">
+                      <apex:inputField value="{!case.CCH_Policies_Name__c}" label="Agency" styleClass="CCH_Policies_Name" rendered="{!case.CCH_Policies__c == true}"/>
+                      <apex:inputField value="{!case.Next_Policy_Revision_Due_Date__c}" label="Due Date" styleClass="hide-todays-date" rendered="{!case.CCH_Policies__c == true}"/>
+                      <apex:inputField value="{!case.Uploaded_Completed_Request__c}" rendered="{!case.CCH_Policies__c == true}"/>
+                    </apex:pageblockSection>
+
+                    <apex:pageblockSection columns="2">
+                      <apex:inputField value="{!case.Corrective_Action_Plan_CAP__c}" >
+                          <apex:actionsupport event="onchange" rerender="CAP" />
+                      </apex:inputField>
+                       <apex:inputField value="{!case.Corrective_Action_Plan_CAP__c}" rendered="false" />
+                    </apex:pageblockSection>
+
+                    <apex:pageblockSection columns="2" id="CAP">
+                      <apex:inputField value="{!case.Date_Deficiency_Discovered__c}" styleClass="hide-todays-date Date_Deficiency_Discovered" rendered="{!case.Corrective_Action_Plan_CAP__c == true}"/>
+                          <apex:inputField value="{!case.Date_CAP_Initiated__c}" styleClass="hide-todays-date" rendered="{!case.Corrective_Action_Plan_CAP__c == true}"/>
+                          <apex:inputField value="{!case.Due_Date_of_CAP__c}" styleClass="hide-todays-date" rendered="{!case.Corrective_Action_Plan_CAP__c == true}"/>
+                          <apex:inputField value="{!case.Date_CAP_Completed__c}" styleClass="hide-todays-date" rendered="{!case.Corrective_Action_Plan_CAP__c == true}"/>
+                          <apex:inputField value="{!case.Number_Of_Deficient_Days_Tally_Counter__c}" rendered="{!case.Corrective_Action_Plan_CAP__c == true}"/>
+                          <apex:inputField value="{!case.CAP_Description__c}" rendered="{!case.Corrective_Action_Plan_CAP__c == true}"/>
+                    </apex:pageblockSection>
+
+                    <apex:pageblockSection columns="2">
+                      <apex:inputField value="{!case.Education__c}" styleClass="edCheckbox">
+                          <apex:actionsupport event="onchange" rerender="Education" />
+                      </apex:inputField>
+                    </apex:pageblockSection>
+
+                    <apex:pageblockSection columns="1" id="Education">
+                      <apex:pageblockSection columns="1" rendered="{!case.Education__c == true}">
+                          <apex:inputField value="{!case.Type_of_Education__c}" styleClass="Type_of_Education" onchange="edType(this)">
+                              <apex:actionsupport event="onchange" rerender="Education" />
+                          </apex:inputField>
+                      </apex:pageblockSection>
+                    </apex:pageblockSection>
+
+                    <div class="Conference_Call hidden edsection">
+                      <apex:pageblockSection columns="2">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Conference Call Date of Education" for="Conference_Call_Date_of_Education__c" />
+                            <apex:inputField value="{!case.Conference_Call_Date_of_Education__c}" id="Conference_Call_Date_of_Education__c" styleClass="hide-todays-date" />
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Conference Call Title" for="Conference_Call_Title__c"/>
+                            <apex:inputField value="{!case.Conference_Call_Title__c}" styleClass=""/>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Conference Call Number of Attendees" for="Conference_Call_Number_of_Attendees__c"/>
+                            <apex:inputField value="{!case.Conference_Call_Number_of_Attendees__c}" />
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Conference Call Number of Sessions" for="Conference_Call_Number_of_Sessions__c"/>
+                            <apex:inputField value="{!case.Conference_Call_Number_of_Sessions__c}" styleClass=""/>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Conference Call Presenters" for="Conference_Call_Presenters__c"/>
+                            <apex:inputField value="{!case.Conference_Call_Presenters__c}" styleClass=""/>
+                        </apex:pageBlockSectionItem>
+                      </apex:pageblockSection>
+                    </div>
+
+                    <div class="e_Learning hidden edsection">
+                      <apex:pageblockSection columns="2">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="e-Learning Date of Education" for="e_Learning_Date_of_Education__c" />
+                            <apex:inputField value="{!case.e_Learning_Date_of_Education__c}" id="e_Learning_Date_of_Education__c" styleClass="hide-todays-date" />
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="e-Learning Title" for="e_Learning_Title__c"/>
+                            <apex:inputField value="{!case.e_Learning_Title__c}" styleClass=""/>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="e-Learning Number of Attendees" for="e_Learning_Number_of_Attendees__c"/>
+                            <apex:inputField value="{!case.e_Learning_Number_of_Attendees__c}" />
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="e-Learning Number of Sessions" for="e_Learning_Number_of_Sessions__c"/>
+                            <apex:inputField value="{!case.e_Learning_Number_of_Sessions__c}" styleClass=""/>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="e-Learning Presenters" for="e_Learning_Presenters__c"/>
+                            <apex:inputField value="{!case.e_Learning_Presenters__c}" styleClass=""/>
+                        </apex:pageBlockSectionItem>
+                      </apex:pageblockSection>
+                    </div>
+
+                    <div class="Guidance hidden edsection">
+                      <apex:pageblockSection columns="2">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Guidance Date of Education" for="Guidance_Date_of_Education__c" />
+                            <apex:inputField value="{!case.Guidance_Date_of_Education__c}" id="Guidance_Date_of_Education__c" styleClass="hide-todays-date" />
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Guidance Title" for="Guidance_Title__c"/>
+                            <apex:inputField value="{!case.Guidance_Title__c}" styleClass=""/>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Guidance Number of Attendees" for="Guidance_Number_of_Attendees__c"/>
+                            <apex:inputField value="{!case.Guidance_Number_of_Attendees__c}" />
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Guidance Number of Sessions" for="Guidance_Number_of_Sessions__c"/>
+                            <apex:inputField value="{!case.Guidance_Number_of_Sessions__c}" styleClass=""/>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Guidance Presenters" for="Guidance_Presenters__c"/>
+                            <apex:inputField value="{!case.Guidance_Presenters__c}" styleClass=""/>
+                        </apex:pageBlockSectionItem>
+                      </apex:pageblockSection>
+                    </div>
+
+                    <div class="Live_In_Person hidden edsection">
+                      <apex:pageblockSection columns="2">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Live In Person Date of Education" for="Live_In_Person_Date_of_Education__c" />
+                            <apex:inputField value="{!case.Live_In_Person_Date_of_Education__c}" id="Live_In_Person_Date_of_Education__c" styleClass="hide-todays-date" />
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Live In Person Title" for="Live_In_Person_Title__c"/>
+                            <apex:inputField value="{!case.Live_In_Person_Title__c}" styleClass=""/>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Live In Person Number of Attendees" for="Live_In_Person_Number_of_Attendees__c"/>
+                            <apex:inputField value="{!case.Live_In_Person_Number_of_Attendees__c}" />
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Live In Person Number of Sessions" for="Live_In_Person_Number_of_Sessions__c"/>
+                            <apex:inputField value="{!case.Live_In_Person_Number_of_Sessions__c}" styleClass=""/>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Live In Person Presenters" for="Live_In_Person_Presenters__c"/>
+                            <apex:inputField value="{!case.Live_In_Person_Presenters__c}" styleClass=""/>
+                        </apex:pageBlockSectionItem>
+                      </apex:pageblockSection>
+                    </div>
+
+                    <div class="Webinar hidden edsection">
+                      <apex:pageblockSection columns="2">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Webinar Date of Education" for="Webinar_Date_of_Education__c" />
+                            <apex:inputField value="{!case.Webinar_Date_of_Education__c}" id="Webinar_Date_of_Education__c" styleClass="hide-todays-date" />
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Webinar Title" for="Webinar_Title__c"/>
+                            <apex:inputField value="{!case.Webinar_Title__c}" styleClass=""/>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Webinar Number of Attendees" for="Webinar_Number_of_Attendees__c"/>
+                            <apex:inputField value="{!case.Webinar_Number_of_Attendees__c}" />
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Webinar Number of Sessions" for="Webinar_Number_of_Sessions__c"/>
+                            <apex:inputField value="{!case.Webinar_Number_of_Sessions__c}" styleClass=""/>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Webinar Presenters" for="Webinar_Presenters__c"/>
+                            <apex:inputField value="{!case.Webinar_Presenters__c}" styleClass=""/>
+                        </apex:pageBlockSectionItem>
+                      </apex:pageblockSection>
+                    </div>
+
+                </div>
+            </div>
+        </apex:pageblock>
+    </apex:form>
+    
+    <style>
+        .hidden {
+            display:none !important;
+        }
+        label, bold { 
+            font-weight:600 !important;
+        }
+        .primary-color {
+            color:#3ac1cc;
+        }
+        .header {
+            font-weight: 400;
+            font-size: 1.75rem;
+            line-height: 1.25;
+            margin:0 0 0 5px;
+            padding-bottom:15px;
+        }
+    .hide-todays-date {     
+        background: url(/projRes/ui-global-components/img/event.svg) no-repeat right 6px top 8px;
+        max-width: 15% !important;
+        min-width: 20rem !important;
+    }
+    .hide-todays-date + .dateFormat{
+        visibility:hidden;
+    }
+    .delayed-render {
+        display:none;
+    }
+    input, select {
+        margin-bottom: 5px !important;
+    }
+    select{
+        min-width:200px;
+    }
+    input[type="checkbox"] {
+        margin-top:4px !important;
+    }
+    .first-indent { 
+        width:23% !important;
+    }
+        
+    .second-indent { 
+        width:28% !important;
+    }
+    label, input, select, textarea, option, span {
+        font-size:14px !important;
+    }
+    label { 
+        
+    }
+    .required::after {
+        content: '*'; color:red;
+    }
+    .edsection {
+        margin-bottom:15px;
+    }
+    .custom-label {
+        width:21.8%;
+        text-align:right;
+        float:left;
+    }
+    .custom-input {
+        width: 26%;
+        float:left;
+        margin-bottom:10px;
+    }
+    .custom-input input, .custom-input textarea {
+        width:100%;
+    }
+    
+    @media (max-width: 48em) {
+        .custom-label {
+            text-align: left;
+            width: 100%;
+            margin-top: .25rem;
+        }
+        .custom-input {
+            width: 98%;
+            margin-bottom: .25rem;
+        }
+    }
+    .textarea {
+        width: 77%;
+    }
+    .textarea textarea {
+        width:99%;
+        height:100px;
+    }
+    .pbHeader {
+        margin-top:-40px;
+    }
+    .custom-textarea {
+        width:100%;
+    }
+    th {
+        padding:0 !important;
+        
+    }
+    th.last {
+        margin-bottom:0 !important;
+        padding-bottom:0 !important;
+    }
+    .dataCol {
+        padding-bottom:0 !important; 
+    }
+    .casenumber {
+        margin-top:3px !important;
+        display:block;
+    }
+    .compliancenumber {
+        padding-top:8px !important;
+    }
+    .labelCol {
+        padding-top:5px !important;
+        /*width:22% !important;*/
+    }
+    .pbSubsection {
+        padding:0 !important;
+    }
+    .multiSelectPicklistRow select {
+        width:25rem !important;
+    }
+    .fullwidthtextlabel {
+        width:13.7% !important;
+    }
+    .fullwidthtext {
+        width:62% !important;
+    }
+    .fullwidthtext textarea{
+        width:100%;
+    }
+    body .pbBody, .slds-vf-scope .pbBody {
+        overflow:visible;
+    }
+    label, textarea, select, input {
+        color:#0c2340 !important;
+    }
+    .bPageBlock{
+        background: #0c2340 url('https://hrservicelink--c.na81.visual.force.com/resource/1567014311000/ComplianceBackground?') !important;
+        border: 0 !important;
+        border-radius: 10px;
+    }
+    .area-outer {
+        padding:10px;background:#eee; border-radius: 10px; margin-bottom:15px;
+    }
+    .area-inner {
+        padding:10px;background:#fff;    border-radius: 10px;border:1px solid #3ac1cc;
+    }
+    .errorMsg {
+        color:#f58672 !important;
+    }
+    .errorMsg::before {
+        background:#f58672 !important;
+    }
+    input.error {
+        border-color:#f58672 !important;
+    }
+    #banner{
+        text-align:center;
+        margin-bottom:10px;
+        background:url('https://hrservicelink--c.na81.visual.force.com/resource/1567014951000/ComplianceBanner?') ;
+        background-size: cover;
+        background-position: -35px 0;
+        height:215px;
+        border-radius: 10px;
+    }
+    #banner img {
+        position: absolute;
+        top: 100px;
+        right: 168px;
+    }
+    </style>
+    
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+  
+  <script>
+      setInterval(function () {
+          $('.remove-none option:contains("--None--")').text('');
+          $('label:contains("Communication Date"), label:contains("Proactive Reactive"), label:contains("Case Owner"), label:contains("Initiator"), label:contains("Organization"), label:contains("Category"):first, label:contains("Description"):not(:contains("File Description"), :contains("Description of the Breach"))').addClass('required');
+          $('label:contains("Date of Education"), label:contains("Number of Attendees"), label:contains("Number of Sessions"), label:contains("Substantiation"), label:contains("Resolution")').addClass('required');
+          picklistchange();
+      }, 10);
+      
+      function edType(el) {
+        $('.edsection').removeAttr('data-wasvisible');
+          if($('select.Type_of_Education:eq(2) option[value="0"]').length > 0)
+              $('.Conference_Call').removeClass('hidden');
+          else
+              $('.Conference_Call').addClass('hidden');
+              
+          if($('select.Type_of_Education:eq(2) option[value="1"]').length > 0)
+              $('.e_Learning').removeClass('hidden');
+          else
+              $('.e_Learning').addClass('hidden');
+              
+         if($('select.Type_of_Education:eq(2) option[value="2"]').length > 0)
+              $('.Guidance').removeClass('hidden');
+          else
+              $('.Guidance').addClass('hidden');
+              
+          if($('select.Type_of_Education:eq(2) option[value="3"]').length > 0)
+              $('.Live_In_Person').removeClass('hidden');
+          else
+              $('.Live_In_Person').addClass('hidden');
+              
+          if($('select.Type_of_Education:eq(2) option[value="4"]').length > 0)
+              $('.Webinar').removeClass('hidden');
+          else
+              $('.Webinar').addClass('hidden');
+      }
+      
+    function picklistchange() {
+        var $category = $('.category');
+        var $subcategory = $('.subcategory');
+        
+        var $entity = $('.entity');
+        var $department = $('.department');
+        
+        var categoryVal = $category.val();
+        var subcategoryVal = $subcategory.val();
+        
+        var entitytVal = $entity.val();
+        var departmentVal = $department.val();
+
+        if(entitytVal == "ACHN" && departmentVal != "Admitting & Registration")
+            $department.find('[value="Admitting & Registration"]').remove();
+        if(entitytVal == "ACHN" && departmentVal != "ATN Study")
+            $department.find('[value="ATN Study"]').remove();
+        if(entitytVal == "ACHN" && departmentVal != "Clinic G")
+            $department.find('[value="Clinic G"]').remove();
+        if(entitytVal == "ACHN" && departmentVal != "Dental Clinic")
+            $department.find('[value="Dental Clinic"]').remove();
+        if(entitytVal == "ACHN" && departmentVal != "Fantus Clinic")
+            $department.find('[value="Fantus Clinic"]').remove();
+        if(entitytVal == "ACHN" && departmentVal != "Imaging Services")
+            $department.find('[value="Imaging Services"]').remove();
+        if(entitytVal == "ACHN" && departmentVal != "Medical Staff/Residents/Students")
+            $department.find('[value="Medical Staff/Residents/Students"]').remove();
+        if(entitytVal == "ACHN" && departmentVal != "Nursing")
+            $department.find('[value="Nursing"]').remove();
+        if(entitytVal == "ACHN" && departmentVal != "Outpatient Clinics")
+            $department.find('[value="Outpatient Clinics"]').remove();
+        if(entitytVal == "ACHN" && departmentVal != "Pharmacy")
+            $department.find('[value="Pharmacy"]').remove();
+        
+        if(entitytVal == "Correctional Health" && departmentVal != "Health Information Management")
+            $department.find('[value="Health Information Management"]').remove();
+        if(entitytVal == "Correctional Health" && departmentVal != "Human Resources")
+            $department.find('[value="Human Resources"]').remove();
+        if(entitytVal == "Correctional Health" && departmentVal != "Medical Staff/Residents/Students")
+            $department.find('[value="Medical Staff/Residents/Students"]').remove();
+        if(entitytVal == "Correctional Health" && departmentVal != "Nursing")
+            $department.find('[value="Nursing"]').remove();
+        if(entitytVal == "Correctional Health" && departmentVal != "Pharmacy")
+            $department.find('[value="Pharmacy"]').remove();
+        if(entitytVal == "Correctional Health" && departmentVal != "Security Services")
+            $department.find('[value="Security Services"]').remove();
+            
+        if(entitytVal == "Department of Public Health" && departmentVal != "Admitting & Registration")
+            $department.find('[value="Admitting & Registration"]').remove();
+        if(entitytVal == "Department of Public Health" && departmentVal != "Medical Staff/Residents/Students")
+            $department.find('[value="Medical Staff/Residents/Students"]').remove();
+        if(entitytVal == "Department of Public Health" && departmentVal != "Nursing")
+            $department.find('[value="Nursing"]').remove();
+        if(entitytVal == "Department of Public Health" && departmentVal != "Outpatient Clinics")
+            $department.find('[value="Outpatient Clinics"]').remove();
+            
+        if(entitytVal == "John H. Stroger, Jr. Hospital" && departmentVal != "Health Education")
+            $department.find('[value="Health Education"]').remove();
+        if(entitytVal == "John H. Stroger, Jr. Hospital" && departmentVal != "Hospice")
+            $department.find('[value="Hospice"]').remove();
+        if(entitytVal == "John H. Stroger, Jr. Hospital" && departmentVal != "Materials Management")
+            $department.find('[value="Materials Management"]').remove();
+        if(entitytVal == "John H. Stroger, Jr. Hospital" && departmentVal != "NICU")
+            $department.find('[value="NICU"]').remove();
+        if(entitytVal == "John H. Stroger, Jr. Hospital" && departmentVal != "Orthopedics")
+            $department.find('[value="Orthopedics"]').remove();
+        if(entitytVal == "John H. Stroger, Jr. Hospital" && departmentVal != "Plant Operations")
+            $department.find('[value="Plant Operations"]').remove();
+        if(entitytVal == "John H. Stroger, Jr. Hospital" && departmentVal != "Psychiatry")
+            $department.find('[value="Psychiatry"]').remove();
+        if(entitytVal == "John H. Stroger, Jr. Hospital" && departmentVal != "Radiology")
+            $department.find('[value="Radiology"]').remove();
+        if(entitytVal == "John H. Stroger, Jr. Hospital" && departmentVal != "Volunteer Services")
+            $department.find('[value="Volunteer Services"]').remove();
+            
+        if(entitytVal == "Provident" && departmentVal != "Health Information Management")
+            $department.find('[value="Health Information Management"]').remove();
+            
+        if(entitytVal == "CountyCare Administration" && departmentVal != "Senior Leadership")
+            $department.find('[value="Senior Leadership"]').remove();
+            
+        if(categoryVal != "CC-Project")
+            $category.find('[value="CC-Project"]').remove();
+        if(categoryVal != "Grievances & Appeals")
+            $category.find('[value="Grievances & Appeals"]').remove();
+        
+        if(subcategoryVal != "Data Entry")
+            $subcategory.find('[value="Data Entry"]').remove();
+        if(subcategoryVal != "Other")
+            $subcategory.find('[value="Other"]').remove();
+        if(subcategoryVal != "CC - Investigation")
+            $subcategory.find('[value="CC - Investigation"]').remove();
+        if(subcategoryVal != "Fraud - Financial")
+            $subcategory.find('[value="Fraud - Financial"]').remove();
+        if(subcategoryVal != "Fraud - Vendor")
+            $subcategory.find('[value="Fraud - Vendor"]').remove();
+        if(subcategoryVal != "Other")
+            $subcategory.find('[value="Other"]').remove();
+        if(subcategoryVal != "Sanction - Vendor")
+            $subcategory.find('[value="Sanction - Vendor"]').remove();
+        if(subcategoryVal != "Auditing/Monitoring")
+            $subcategory.find('[value="Auditing/Monitoring"]').remove();
+        if(subcategoryVal != "Identity Theft")
+            $subcategory.find('[value="Identity Theft"]').remove();
+        if(subcategoryVal != "Complaint")
+            $subcategory.find('[value="Complaint"]').remove();
+        if(subcategoryVal != "Concern")
+            $subcategory.find('[value="Concern"]').remove();
+        if(subcategoryVal != "Question")
+            $subcategory.find('[value="Question"]').remove();
+        if(subcategoryVal != "Auditing/Monitoring")
+            $subcategory.find('[value="Auditing/Monitoring"]').remove();
+        if(subcategoryVal != "Education/Training")
+            $subcategory.find('[value="Education/Training"]').remove();
+        if(subcategoryVal != "Anti-Kickback")
+            $subcategory.find('[value="Anti-Kickback"]').remove();
+        if(subcategoryVal != "Operations")
+            $subcategory.find('[value="Operations"]').remove();
+        if(subcategoryVal != "Procurement")
+            $subcategory.find('[value="Procurement"]').remove();
+        if(subcategoryVal != "Stark Law")
+            $subcategory.find('[value="Stark Law"]').remove();
+        if(subcategoryVal != "CountyCare")
+            $subcategory.find('[value="CountyCare"]').remove();
+        if(subcategoryVal != "Other")
+            $subcategory.find('[value="Other"]').remove();
+        if(subcategoryVal != "Provider")
+            $subcategory.find('[value="Provider"]').remove();
+        if(subcategoryVal != "Shakman Decree")
+            $subcategory.find('[value="Shakman Decree"]').remove();
+        if(subcategoryVal != "Question")
+            $subcategory.find('[value="Question"]').remove();
+        if(subcategoryVal != "Equipment")
+            $subcategory.find('[value="Equipment"]').remove();
+        if(subcategoryVal != "Pharmaceuticals")
+            $subcategory.find('[value="Pharmaceuticals"]').remove();
+        if(subcategoryVal != "Supplies")
+            $subcategory.find('[value="Supplies"]').remove();    
+    }      
+
+      $(function () {
+          setTimeout(function () {
+              edType();
+              $('.remove-none option:contains("--None--")').text('');
+              
+              $('.delayed-render').show();
+              if({!case.id == null})
+                  $('.classnumber, label:contains("Case Number")').hide();
+          }, 35);
+          
+          // remove top save button
+          $('[value="Save"]:eq(0)').hide();
+          
+          $('.external-doc').change(function () {
+              if($(this).is(':checked')) {
+                  $('label:contains("File Description")').addClass('required');
+              } else {
+                  $('label:contains("File Description")').removeClass('required');
+              }
+          }).change();
+          
+       
+        $('body').on('change', '.edCheckbox', function () {
+            if($('.edCheckbox').is(':checked')) {
+                $('.edsection[data-wasvisible="true"]').removeClass('hidden');
+                //setTimeout(edType, 1500)
+            } else {
+                $('.edsection:visible').attr('data-wasvisible', "true").addClass('hidden');
+            }
+        });
+        
+        $('body').on('change', '.subcategory', function () {
+            if($(this).val() == 'HIPAA Breach')
+                $('.hipaa-breach').show();
+            else 
+                $('.hipaa-breach').hide();
+        });
+        
+        $('.subcategory').change();
+        
+        $('body').on('change', '.maincategory', function () {
+            $('.subcategory').change();
+        });
+        
+        $('.Clinical__c_checkbox').change(function () {
+            if($(this).is(':checked')) {
+                $('.Clinical__c').removeClass('hidden');
+            } else {
+                $('.Clinical__c').addClass('hidden');
+            }
+        }).change();
+        
+        $('.Demographic__c_checkbox').change(function () {
+            if($(this).is(':checked')) {
+                $('.Demographic__c').removeClass('hidden');
+            } else {
+                $('.Demographic__c').addClass('hidden');
+            }
+        }).change();
+        
+        $('.Financial__c_checkbox').change(function () {
+            if($(this).is(':checked')) {
+                $('.Financial__c').removeClass('hidden');
+            } else {
+                $('.Financial__c').addClass('hidden');
+            }
+        }).change();
+        
+        $('.status-field').change(function () {
+            checkClosed();
+        });
+        checkClosed();
+        
+        function checkClosed() {
+            if($('.status-field').val() == "Closed") {
+                var today = new Date();
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                var yyyy = today.getFullYear();
+                
+                today = mm + '/' + dd + '/' + yyyy;
+                $('.ComplianceClosedDate').removeClass('hidden');
+                
+                if($('.ComplianceClosedDate input').val().length == 0)
+                    $('.ComplianceClosedDate input').val(today);
+            } else {
+                $('.ComplianceClosedDate').addClass('hidden');
+                $('.ComplianceClosedDate input').val('');
+            }
+        }
+        
+        if({!case.Id != null }) {
+            $('.compliancenumber').removeClass('hidden');
+        }
+        
+        if({!case.Status == 'Closed'} == true && $('.errorMsg').length == 0) {
+            $('.form-css').submit(function () {
+                $(':input').removeAttr('disabled');
+            });
+            
+            $(':input:not(.status-field):not([type="submit"])').attr('disabled', 'disabled');
+            setTimeout(function () {
+               $(':input:not(.status-field):not([type="submit"])').attr('disabled', 'disabled');
+            }, 135);
+        }
+    });
+    
+    if (!String.prototype.padStart) {
+        String.prototype.padStart = function padStart(targetLength,padString) {
+            targetLength = targetLength>>0; //truncate if number or convert non-number to 0;
+            padString = String((typeof padString !== 'undefined' ? padString : ' '));
+            if (this.length > targetLength) {
+                return String(this);
+            }
+            else {
+                targetLength = targetLength-this.length;
+                if (targetLength > padString.length) {
+                    padString += padString.repeat(targetLength/padString.length); //append to original to ensure we are longer than needed
+                }
+                return padString.slice(0,targetLength) + String(this);
+            }
+        };
+    }
+  </script>
+
+</apex:page>

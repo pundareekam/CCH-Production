@@ -1,0 +1,21 @@
+<apex:page >
+
+<b>1st Time Dual Employment Survey Link:</b>
+<br/>
+<apex:outputLink value="https://hrservicelink.my.salesforce.com/apex/DualEmploymentSurvey">https://DualEmploymentSurvey</apex:outputLink><br/>
+<br/>
+
+<b>Update Your Dual Employment Survey:</b><br/>
+
+<apex:outputLink value="https://hrservicelink.my.salesforce.com/apex/DualEmploymentSurvey?entry=true">https://DualEmploymentSurveyUpdate</apex:outputLink><br/>
+
+<br/>
+
+<b>Leadership Survey Review and Approval Link:</b> <br/>
+<apex:outputLink value="https://hrservicelink.lightning.force.com/lightning/n/Dual_Employment_Survey">https://DualEmploymentSurveyLeadership</apex:outputLink><br/>
+
+<b>(If this link does not work, here is the direct url: </b><br/>
+"https://hrservicelink.my.salesforce.com" and goto DualEmployment Survey Application) <br/>
+
+
+</apex:page>

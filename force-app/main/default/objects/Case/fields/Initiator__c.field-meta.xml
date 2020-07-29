@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Initiator__c</fullName>
+    <defaultValue>$User.FirstName+ &quot; &quot;+$User.LastName</defaultValue>
+    <description>Compliance. meant to grab user at the start of a case and never be changed</description>
+    <externalId>false</externalId>
+    <label>Initiator</label>
+    <length>50</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

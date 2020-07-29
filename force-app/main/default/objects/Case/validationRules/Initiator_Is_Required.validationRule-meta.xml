@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Initiator_Is_Required</fullName>
+    <active>true</active>
+    <description>Validation created due to custom compliance page.</description>
+    <errorConditionFormula>AND(RecordType.Name = &#39;Compliance Case&#39;,ISBLANK( Initiator__c  ))</errorConditionFormula>
+    <errorDisplayField>Initiator__c</errorDisplayField>
+    <errorMessage>Please input Initiator</errorMessage>
+</ValidationRule>

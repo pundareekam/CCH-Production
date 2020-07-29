@@ -1,0 +1,288 @@
+<apex:page standardController="DualEmploymentSurvey__c" extensions="DualEmploymentApprovalProcessController" standardStylesheets="true" lightningStylesheets="true" showHeader="false" sidebar="false" >
+    <c:Dual_Employment_FlowHeader FlowName="Dual Employment Approval" />
+    
+    <apex:form styleClass="form">
+        <apex:pageBlock rendered="{!CanView = true}">
+            <apex:pageblockButtons location="bottom">
+                <apex:commandButton value="Save" action="{!save}" rendered="{!isAssigned = true}"/>
+            </apex:pageblockButtons>
+        
+
+            <apex:pageBlockSection columns="1">
+                <p>Summary of Dual Employment:</p>    
+                <apex:outputField value="{!Owner.Name}" label="Employee Name:"/>
+                <apex:outputField value="{!survey.CreatedDate}" label="Completion Date/Time:"/>
+
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Is_A_Dual_Employee__c}" label="Has Dual Employment:"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.On_Call_Or_Rotate_Shifts__c}" label="On Call Or Rotate Shifts:" rendered="{!survey.On_Call_Or_Rotate_Shifts__c !=null}"/>       
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Outside_Employer__c}" label="Outside Employer:" rendered="{!survey.Outside_Employer__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Outside_Employer_Job_Title__c}" label="Outside Employer Job Title:" rendered="{!survey.Outside_Employer_Job_Title__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Outside_Employer_Address__c}" label="Outside Employer Address:" rendered="{!survey.Outside_Employer_Address__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Outside_Employer_City__c}" label="Outside Employer City:" rendered="{!survey.Outside_Employer_City__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Outside_Employer_State__c}" label="Outside Employer State:" rendered="{!survey.Outside_Employer_State__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Outside_Employer_Zip_Code__c}" label="Outside Employer Zip Code:" rendered="{!survey.Outside_Employer_Zip_Code__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Outside_Employer_Brief_Job_Description__c}" label="Outside Employer Brief Job Description:" rendered="{!survey.Outside_Employer_Brief_Job_Description__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Outside_Employer_Job_Status__c}" label="Outside Employer Job Status:" rendered="{!survey.Outside_Employer_Job_Status__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Outside_Employer_Hire_Date__c}" label="Outside Employer Hire Date:" rendered="{!survey.Outside_Employer_Hire_Date__c!= null}"/>
+                <apex:outputLabel value="Job 1 Average Schedule:" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes'}"/>
+                <apex:pageBlockSection columns="1" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes'}" >
+                    <apex:outputPanel >
+                        <table>
+                            <tr>
+                                <th></th>
+                                <th>Monday</th>
+                                <th>Tuesday</th> 
+                                <th>Wednesday</th>
+                                <th>Thursday</th>
+                                <th>Friday</th>
+                                <th>Saturday</th>
+                                <th>Sunday</th>
+                            </tr>
+                            <tr>
+                                <td>Start</td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer1MonStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer1TueStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer1WedStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer1ThurStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer1FriStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer1SatStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer1SunStartTime__c}"/></td>
+                                
+                            </tr>
+                            <tr>
+                                <td>End</td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer1MonEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer1TueEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer1WedEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer1ThurEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer1FriEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer1SatEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer1SunEndTime__c}"/></td>
+                                
+                            </tr>
+                        </table>
+                    </apex:outputPanel>
+                </apex:pageBlockSection>
+                <apex:outputText value="{!survey.OutsideEmployer1TotalHours__c}" label="Outside Employer 1 Total Hours:" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Has_Second_Outside_Employer__c}" label="Second Outside Employer" rendered="{!survey.Has_Second_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Second_Outside_Employer__c}" label="2nd Outside Employer:" rendered="{!survey.Has_Second_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Second_Outside_Employer_Job_Title__c}" label="2nd Outside Employer Job Title:" rendered="{!survey.Has_Second_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Second_Outside_Employer_Address__c}" label="2nd Outside Employer Address:" rendered="{!survey.Has_Second_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Second_Outside_Employer_City__c}" label="2nd Outside Employer City:" rendered="{!survey.Has_Second_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Second_Outside_Employer_State__c}" label="2nd Outside Employer State:" rendered="{!survey.Has_Second_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Second_Outside_Employer_Zip_Code__c}" label="2nd Outside Employer Zip Code:" rendered="{!survey.Has_Second_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Second_Outside_Employer_Brief_Job__c}" label="2nd Outside Employer Brief Job Description:" rendered="{!survey.Has_Second_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Second_Outside_Employer_Job_Status__c}" label="2nd Outside Employer Job Status:" rendered="{!survey.Has_Second_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Second_Outside_Employer_Hire_Date__c}" label="2nd Outside Employer Hire Date:" rendered="{!survey.Has_Second_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputLabel value="Job 2 Average Schedule:" rendered="{!survey.Has_Second_Outside_Employer__c = 'Yes'}"/>
+                <apex:pageBlockSection columns="1" rendered="{!survey.Has_Second_Outside_Employer__c = 'Yes'}">
+                    <apex:outputPanel >
+                        <table>
+                            <tr>
+                                <th></th>
+                                <th>Monday</th>
+                                <th>Tuesday</th> 
+                                <th>Wednesday</th>
+                                <th>Thursday</th>
+                                <th>Friday</th>
+                                <th>Saturday</th>
+                                <th>Sunday</th>
+                            </tr>
+                            <tr>
+                                <td>Start</td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer2MonStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer2TueStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer2WedStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer2ThurStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer2FriStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer2SatStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer2SunStartTime__c}"/></td>
+                                
+                            </tr>
+                            <tr>
+                                <td>End</td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer2MonEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer2TueEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer2WedEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer2ThurEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer2FriEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer2SatEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer2SunEndTime__c}"/></td>
+                                
+                            </tr>
+                        </table>
+                    </apex:outputPanel>
+                </apex:pageBlockSection>
+                <apex:outputText value="{!survey.OutsideEmployer2TotalHours__c}" label="Outside Employer 2 Total Hours:" rendered="{!survey.Has_Second_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Has_Third_Outside_Employer__c}" label="3rd Outside Employer" rendered="{!survey.Has_Third_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Third_Outside_Employer__c}" label="3rd Outside Employer:" rendered="{!survey.Has_Third_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Third_Outside_Employer_Job_Title__c}" label="3rd Outside Employer Job Title:" rendered="{!survey.Has_Third_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Third_Outside_Employer_Address__c}" label="3rd Outside Employer Address:" rendered="{!survey.Has_Third_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Third_Outside_Employer_City__c}" label="3rd Outside Employer City:" rendered="{!survey.Has_Third_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Third_Outside_Employer_State__c}" label="3rd Outside Employer State:" rendered="{!survey.Has_Third_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Third_Outside_Employer_Zip_Code__c}" label="3rd Outside Employer Zip Code:" rendered="{!survey.Has_Third_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Third_Outside_Employer_Brief_Job__c}" label="3rd Outside Employer Brief Job Description:" rendered="{!survey.Has_Third_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Third_Outside_Employer_Job_Status__c}" label="3rd Outside Employer Job Status:" rendered="{!survey.Has_Third_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Third_Outside_Employer_Hire_Date__c}" label="3rd Outside Employer Hire Date:" rendered="{!survey.Has_Third_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputLabel value="Job 3 Average Schedule:" rendered="{!survey.Has_Third_Outside_Employer__c = 'Yes'}"/>
+                <apex:pageBlockSection columns="1" rendered="{!survey.Has_Third_Outside_Employer__c = 'Yes'}">
+                    <apex:outputPanel >
+                        <table>
+                            <tr>
+                                <th></th>
+                                <th>Monday</th>
+                                <th>Tuesday</th> 
+                                <th>Wednesday</th>
+                                <th>Thursday</th>
+                                <th>Friday</th>
+                                <th>Saturday</th>
+                                <th>Sunday</th>
+                            </tr>
+                            <tr>
+                                <td>Start</td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer3MonStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer3TueStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer3WedStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer3ThurStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer3FriStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer3SatStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer3SunStartTime__c}"/></td>
+                                
+                            </tr>
+                            <tr>
+                                <td>End</td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer3MonEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer3TueEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer3WedEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer3ThurEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer3FriEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer3SatEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer3SunEndTime__c}"/></td>
+                                
+                            </tr>
+                        </table>
+                    </apex:outputPanel>
+                </apex:pageBlockSection>
+                <apex:outputText value="{!survey.OutsideEmployer3TotalHours__c}" label="Outside Employer 3 Total Hours:" rendered="{!survey.Has_Third_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Has_Fourth_Outside_Employer__c}" label="4th Outside Employer" rendered="{!survey.Has_Fourth_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Fourth_Outside_Employer__c}" label="4th Outside Employer:" rendered="{!survey.Has_Fourth_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Fourth_Outside_Employer_Job_Title__c}" label="4th Outside Employer Job Title:" rendered="{!survey.Has_Fourth_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Fourth_Outside_Employer_Address__c}" label="4th Outside Employer Address:" rendered="{!survey.Has_Fourth_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Fourth_Outside_Employer_City__c}" label="4th Outside Employer City:" rendered="{!survey.Has_Fourth_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Fourth_Outside_Employer_State__c}" label="4th Outside Employer State:" rendered="{!survey.Has_Fourth_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Fourth_Outside_Employer_Zip_Code__c}" label="4th Outside Employer Zip Code:" rendered="{!survey.Has_Fourth_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Fourth_Outside_Employer_Brief_Job__c}" label="4th Outside Employer Brief Job Description:" rendered="{!survey.Has_Fourth_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Fourth_Outside_Employer_Job_Status__c}" label="4th Outside Employer Job Status:" rendered="{!survey.Has_Fourth_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Fourth_Outside_Employer_Hire_Date__c}" label="4th Outside Employer Hire Date:" rendered="{!survey.Has_Fourth_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputLabel value="Job 4 Average Schedule:" rendered="{!survey.Has_Fourth_Outside_Employer__c = 'Yes'}"/>
+                <apex:pageBlockSection columns="1" rendered="{!survey.Has_Fourth_Outside_Employer__c = 'Yes'}">
+                    <apex:outputPanel >
+                        <table>
+                            <tr>
+                                <th></th>
+                                <th>Monday</th>
+                                <th>Tuesday</th> 
+                                <th>Wednesday</th>
+                                <th>Thursday</th>
+                                <th>Friday</th>
+                                <th>Saturday</th>
+                                <th>Sunday</th>
+                            </tr>
+                            <tr>
+                                <td>Start</td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer4MonStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer4TueStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer4WedStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer4ThurStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer4FriStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer4SatStartTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer4SunStartTime__c}"/></td>
+                                
+                            </tr>
+                            <tr>
+                                <td>End</td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer4MonEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer4TueEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer4WedEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer4ThurEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer4FriEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer4SatEndTime__c}"/></td>
+                                <td><apex:outputText value="{!survey.OutsideEmployer4SunEndTime__c}"/></td>
+                                
+                            </tr>
+                        </table>
+                    </apex:outputPanel>
+                </apex:pageBlockSection>
+                <apex:outputText value="{!survey.OutsideEmployer4TotalHours__c}" label="Outside Employer 4 Total Hours:" rendered="{!survey.Has_Fourth_Outside_Employer__c = 'Yes'}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Participated_In_The_Procurement_Process__c}" label="Participated in Purchasing Decisions?"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Received_Gifts__c}" label="Did You Receive Any Gifts?"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Received_Gifts_From__c}" label="Who Did You Receive Gifts?" rendered="{!survey.Received_Gifts_From__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Description_of_Gifts__c}" label="Description Of The Gift or Gifts?" rendered="{!survey.Description_of_Gifts__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Participated_In_Academic_Activities__c}" label="Participated In Academic Activities?"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Academic_Organizations__c}" label="Name Of Organization?" rendered="{!survey.Academic_Organizations__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Received_Compensation_From_Activities__c}" label="Did You Receive Compensation From These Activities?" rendered="{!survey.Received_Compensation_From_Activities__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Served_In_A_Position_Of_Responsibility__c}" label="Did You Or A Family Member Serve In A Position Of Responsibility?"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Name_Of_Responsibility_Organization__c}" label="Name Of Organization?" rendered="{!survey.Name_Of_Responsibility_Organization__c!= null}"/>        
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Responsibility_Relationship__c}" label="Was It YOU Or A Family Member?" rendered="{!survey.Responsibility_Relationship__c!= null}"/>                                       
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Responsibility_Position__c}" label="Position Within The Organization?" rendered="{!survey.Responsibility_Position__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Owned_Or_Controled_An_Organization__c}" label="Did You Own Or Control An Organization?"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Organization_Name__c}" label="Organization Name?" rendered="{!survey.Organization_Name__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Owner_Was_You_Or_Family__c}" label="Was It YOU Or A Family Member?" rendered="{!survey.Owner_Was_You_Or_Family__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Position_Within_Organization__c}" label="Position Within The Organization?" rendered="{!survey.Position_Within_Organization__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Involved_In_Sponsored_Research__c}" label="Were You Involved In Sponsored Research?"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Research_Sponsor_Name__c}" label="Research Sponsor Name?" rendered="{!survey.Research_Sponsor_Name__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Research_Role__c}" label="Research Role?" rendered="{!survey.Research_Role__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Research_Project_Title__c}" label="Research Project Title?" rendered="{!survey.Research_Project_Title__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Institutional_Review_Board_Info__c}" label="Institutional Review Board Information?" rendered="{!survey.Institutional_Review_Board_Info__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Under_Current_Research_Conflict_Mgt_Plan__c}" label="Are You Under A Current Research Conflict Management Plan?" rendered="{!survey.Under_Current_Research_Conflict_Mgt_Plan__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Conflict_Management_Plan_Assigned_By__c}" label="Who Placed You On The Conflict Management Plan?" rendered="{!survey.Conflict_Management_Plan_Assigned_By__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Changes_Required_To_Conflict_Plan__c}" label="Are Changes Required For Your Conflict Management Plan?" rendered="{!survey.Changes_Required_To_Conflict_Plan__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Following_Conflict_Mgt_Plans__c}" label="Do You Follow The Requirements Described In The Plan?" rendered="{!survey.Following_Conflict_Mgt_Plans__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Notified_Assigning_Organization__c}" label="Did You Notify The Assigning Organization Of Such Changes?" rendered="{!survey.Notified_Assigning_Organization__c!= null}"/>
+                <apex:outputText styleClass="PageFullWidth" value="{!survey.Has_Other_Conflicts__c}" label="Other Conflicts Of Interest?"/>
+                    
+
+            
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection columns="1" id="comments" rendered="{!isAssigned = true}">
+                <apex:inputField value="{!survey.ApproveDeny__c}" required="true">
+                    <apex:actionsupport event="onchange" rerender="comments" />
+                </apex:inputField>
+                <apex:inputField value="{!survey.Denial_Comment__c}" rendered="{!survey.ApproveDeny__c = "Deny"}" />
+                <apex:outputText label="Warning" value="Your comment will be viewable by the employee" rendered="{!survey.ApproveDeny__c = "Deny"}" />
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection columns="1" rendered="{!isAssigned = false}">
+                <apex:outputText label="Please Note:" value="This survey can only be approved/denied by the employee's manager..."/>
+            </apex:pageBlockSection>    
+
+        </apex:pageBlock>
+        
+        <apex:pageBlock rendered="{!CanView = false}">
+            <apex:pageBlockSection columns="1">
+                <apex:outputText value="This survey can only be approved by the employee's manager..." />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    
+    <style>
+        .form { width: 1000px; margin:0 auto; }
+        #progress-bar { padding:10px; background:#fff; }
+        #progress-bar .w3-container { line-height:; }
+        .w3-container { background-color: #0099a8 !important }
+        .data2Col { float:left; }
+        body { background:#0c2340 url('/resource/1564164006000/ComplianceBackground?') !important;}
+        label { color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif; }
+        .noticeName {color:orange; font-weight:bold;}
+        .noticereview{font-weight:bold text-decoration: underline; font-size:1.35em; font-family: 'Salesforce Sans',Arial,sans-serif;}
+        .notice {font-weight:bold; color:orange; text-decoration: underline;}
+        .tableLabel{color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif;}
+        th {color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif;}
+        h1, h2, h3 {font-family: 'Salesforce Sans',Arial,sans-serif;}
+        p, ol, ul, li {font-family: 'Salesforce Sans',Arial,sans-serif; font-size: 1.1em;}
+        .PageFullWidth {width:100%; align:left;}
+        .jobHoursMatrix {width:100%;}
+        .empInfo { color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif; }
+    </style>
+</apex:page>

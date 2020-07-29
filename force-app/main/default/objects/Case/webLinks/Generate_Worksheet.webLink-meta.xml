@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Generate_Worksheet</fullName>
+    <availability>online</availability>
+    <displayType>link</displayType>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Generate Worksheet</masterLabel>
+    <openType>newWindow</openType>
+    <position>fullScreen</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>https://hrservicelink.my.salesforce.com/apex/TRworksheet?id={!Case.Id}</url>
+    <width>600</width>
+</WebLink>

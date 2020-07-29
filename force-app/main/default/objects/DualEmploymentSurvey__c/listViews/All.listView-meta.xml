@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>Is_A_Dual_Employee__c</columns>
+    <columns>Survey_Status_Description__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+    <sharedTo>
+        <role>Comliance_Team</role>
+        <role>Compliance_Team_Administrator</role>
+    </sharedTo>
+</ListView>

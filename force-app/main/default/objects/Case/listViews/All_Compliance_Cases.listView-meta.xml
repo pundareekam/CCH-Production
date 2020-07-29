@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Compliance_Cases</fullName>
+    <columns>Compliance_Case_Number__c</columns>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>Communication_Date__c</columns>
+    <columns>Case_Owner__c</columns>
+    <columns>Category__c</columns>
+    <columns>Compliance_Description__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Case.Compliance_Case</value>
+    </filters>
+    <label>All Compliance Cases</label>
+    <sharedTo>
+        <role>Comliance_Team</role>
+        <role>Compliance_Team_Administrator</role>
+        <role>Top</role>
+    </sharedTo>
+</ListView>

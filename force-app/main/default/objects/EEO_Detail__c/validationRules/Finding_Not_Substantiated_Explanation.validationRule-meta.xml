@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Finding_Not_Substantiated_Explanation</fullName>
+    <active>true</active>
+    <description>If the finding is not substantiated, there needs to be an explanation</description>
+    <errorConditionFormula>ISPICKVAL(Finding_Field__c,&quot;Not Substantiated&quot;)</errorConditionFormula>
+    <errorDisplayField>Not_Substantiated_Explanation__c</errorDisplayField>
+    <errorMessage>Not substantiated requires an explanation</errorMessage>
+</ValidationRule>

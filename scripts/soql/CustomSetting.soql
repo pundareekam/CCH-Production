@@ -1,0 +1,13 @@
+/**
+ * @File Name          : CustomSetting.soql
+ * @Description        : 
+ * @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @Group              : 
+ * @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @Last Modified On   : 12/10/2019, 12:57:45 PM
+ * @Modification Log   : 
+ * Ver       Date            Author      		    Modification
+ * 1.0    12/10/2019   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+**/
+SELECT Processes__c, From_Object__c, From_Field__c, To_Object__c, To_Field__c
+				FROM Field_Mapping__mdt ORDER BY Processes__c

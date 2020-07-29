@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Description_of_the_Breach_Required</fullName>
+    <active>true</active>
+    <description>Checks picklist value and makes field required</description>
+    <errorConditionFormula>AND( ISPICKVAL(Sub_Category__c, &#39;HIPAA Breach&#39;), RecordType.Name = &#39;Compliance Case&#39;, ISBLANK(  Description_of_the_Breach__c), NOT (ISBLANK( Type_Of_Breach_List__c )))</errorConditionFormula>
+    <errorDisplayField>Description_of_the_Breach__c</errorDisplayField>
+    <errorMessage>HIPAA Breach has been selected, please fill in  &#39;Description of Breach&#39; value.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TriggerSwitchOn__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Turn on Trigger Switch functionality</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Turn on Trigger Switch functionality</inlineHelpText>
+    <label>Trigger Switch Custom Setting On</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

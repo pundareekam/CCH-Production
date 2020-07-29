@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status</fullName>
+    <picklist>
+        <picklistValues>
+            <fullName>Open</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>New</fullName>
+            <default>true</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Working</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Escalated</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Closed</fullName>
+            <default>false</default>
+            <closed>true</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Submitted to HR</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>In Progress</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Part 1 Open</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Part 1 Closed</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Part 2 Open</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Part 2 Closed</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Sent for Supervisor Review (14)</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Sent for Supervisor Review (10)</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Sent for Supervisor Review (5)</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Review and Approved by Supervisor</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Employee Notification of no response (4)</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Rejected 14 days or Supervisor Rejected</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>45 Day Awaiting Grade</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Step1</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Step2</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>step3</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Contact Closed</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Contact Closed - (File closed without investigation)</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Investigation in progress (Actively Investigating)</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Parking Lot (Investigations waiting for other agencies, departments, or litigation to conclude)</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Drafting Incident Report</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Pending EPO Review</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Pending HR Response</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Investigation Closed</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Investigation closed with pending recommendations</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Closed - VOE</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Drafting Memo to Close</fullName>
+            <default>false</default>
+            <closed>false</closed>
+        </picklistValues>
+        <sorted>false</sorted>
+    </picklist>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

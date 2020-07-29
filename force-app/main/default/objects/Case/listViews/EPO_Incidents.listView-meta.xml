@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EPO_Incidents</fullName>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>EPO__c</columns>
+    <columns>EPO_INV__c</columns>
+    <columns>OWNER_NAME</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>CASES.STATUS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Case.EPO_Incident</value>
+    </filters>
+    <label>EPO Incidents</label>
+</ListView>

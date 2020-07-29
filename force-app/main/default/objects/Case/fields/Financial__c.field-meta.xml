@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Financial__c</fullName>
+    <description>Compliance: Sits inside of Type Of PHI involved in Breach</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Please select all that apply.</inlineHelpText>
+    <label>Financial</label>
+    <picklist>
+        <picklistValues>
+            <fullName>Claims Information</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Credit Card/ Bank Account Number</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Other Financial Information</fullName>
+            <default>false</default>
+        </picklistValues>
+        <restrictedPicklist>true</restrictedPicklist>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <visibleLines>4</visibleLines>
+</CustomField>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Course_Start_Date__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( 
+AND( 
+ISBLANK(Course_One_Beginning_Date__c), 
+ISBLANK(Course_Two_Beginning_Date__c), 
+ISBLANK(Course_Three_Beginning_Date__c ) 
+), 
+NULL, 
+DATE(2998,1,1) - MAX( 
+DATE(2998,1,1) - BLANKVALUE(Course_One_Beginning_Date__c, DATE(2998,1,1)), 
+DATE(2998,1,1) - BLANKVALUE(Course_Two_Beginning_Date__c, DATE(2998,1,1)), 
+DATE(2998,1,1) - BLANKVALUE(Course_Three_Beginning_Date__c ,DATE(2998,1,1)) 
+) 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Course Start Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ResponsibleNonUnionLeadership__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Responsible Non-Union Leadership</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>EEO Details (Responsible Non-Union Leadership)</relationshipLabel>
+    <relationshipName>Responsible_Non_Union_Leaderships</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

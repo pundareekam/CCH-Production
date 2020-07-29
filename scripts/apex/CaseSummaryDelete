@@ -1,0 +1,18 @@
+List<Case_Summary__c> cs = new List<Case_Summary__c>([Select Id, 
+                                                             Case__c 
+                                                        From Case_Summary__c 
+                                                        Where Case__r.RecordTypeName__c = 'Grievance']);
+List<Case> cases = new List<Case>();
+for (Case_Summary__c c: cs) {
+    Case a = new Case();
+    a.Id = c.Case__c;
+    cases.add(a);
+    System.Debug('CS ID: ' + c.id);
+    System.Debug('Case ID: ' + c.Case__c);
+}
+
+//delete cs;
+//delete cases;
+
+System.Debug('No of case:'+cases.size());
+System.Debug('No of CS: ' + cs.size());

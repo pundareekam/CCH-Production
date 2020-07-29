@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Preferred_Time_to_Contact__c</fullName>
+    <externalId>false</externalId>
+    <label>Preferred Time to Contact</label>
+    <picklist>
+        <picklistValues>
+            <fullName>Morning (7:00-11:59am)</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Afternoon  (12:00-3:59pm)</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Evening (4:00-7:00pm)</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>TBD</fullName>
+            <default>false</default>
+        </picklistValues>
+        <restrictedPicklist>true</restrictedPicklist>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Record_Types__c</fullName>
+    <description>Use the DeveloperName for the various Record Types. If you enter one that doesn&#39;t exist, this row will not be functional and there will be a debug statement in the code for record types that don&#39;t exist.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Use the DeveloperName for the various Record Types. If you enter one that doesn&#39;t exist, this row will not be functional and there will be a debug statement in the code for record types that don&#39;t exist.</inlineHelpText>
+    <label>Case Record Types</label>
+    <required>true</required>
+    <type>TextArea</type>
+</CustomField>

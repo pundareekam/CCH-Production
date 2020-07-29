@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Compliance_description_is_required</fullName>
+    <active>true</active>
+    <description>created for custom Compliance page</description>
+    <errorConditionFormula>AND(ISBLANK( Compliance_Description__c  ),RecordType.Name = &#39;Compliance Case&#39;)</errorConditionFormula>
+    <errorDisplayField>Compliance_Description__c</errorDisplayField>
+    <errorMessage>Please enter in Description</errorMessage>
+</ValidationRule>

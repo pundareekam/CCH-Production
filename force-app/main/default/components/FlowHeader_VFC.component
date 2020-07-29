@@ -1,0 +1,60 @@
+<apex:component >
+
+    <link href="{!URLFOR($Resource.flow_css, '/flow.css')}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js" />
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" />
+
+    <apex:attribute name="FlowName" 
+                    description="Write the name of the flow how you want it to appear on the page" 
+                    type="String" 
+                    required="true"/>
+                    
+    <apex:attribute name="IconPath" 
+                    description="" 
+                    type="String" 
+                    required="false"/>
+
+    <style>
+        .FlowName h1 {
+                padding: 25px 0 15px 0;
+                margin:0;
+                float:left
+        }
+        body { background-color:#0a2240;}
+        #logo{ float:right; margin-top:15px; }
+        .FlowName h2 { float:left }
+        .FlowName { border-bottom:1px solid #eee;  height:100px;  }
+        .bottomLink, .FlowName, .FlowContainer, .Container, .docStyle{ width:1000px; padding:25px; background-color:#fff; margin:0 auto; }
+        .bottomLink { border-top: 1px solid #eee; }
+        .FlowPageBlockBtns input { background-color:#0a2240; color:#fff; margin-right:5px;}
+        .icon { height: 100px; float: left; padding-right:10px; }
+        #page-table th { background:#0a2240; color:#fff; padding:10px;  }
+        #page-table td { font-size:.9em; line-height: 1.3em; padding:10px; vertical-align: top; }
+        #page-table, #page-table th, #page-table td { border:1px solid #36648b; border-collapse: collapse; }
+        .styled-link { display: inline-block; margin-top:5px;  padding:6px; background:#0a2240; color:#fff; text-decoration:none; }
+    </style>
+
+    <div class="FlowName">
+        <div id="logo">
+            <apex:image value="{!$Resource.smallLogo}"/>
+        </div>
+            <img class="icon" src="{!IconPath}" />
+        <h1>{!FlowName}</h1>
+    </div>
+
+    <script>
+        // some jQuery making calendar widgets happen
+        $(function() {
+            var nodes = $("span.dateInput > input");
+            for (var i = nodes.length - 1; i >= 0; i--) {
+                $(nodes[i]).datepicker({
+                    changeMonth: true,
+                    changeYear: true
+                });
+            }
+        });
+    </script>
+
+</apex:component>

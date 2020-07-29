@@ -1,0 +1,13 @@
+<!-- PRO-TIP WHEN COPYING: for everything but the title, you can do a find and replace on the flow name -->
+<!--         change this       \/          -->
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false">
+
+    <c:FlowHeader_VFC FlowName="Leave of Absence FAQ" IconPath="/resource/1539713260000/HR_Self_Help_Icon_FMLA"/>
+    
+    <apex:outputPanel id="interviewSection">
+        <!--           change this \/     -->
+        <flow:interview name="ADA_FMLA_Workflow" buttonLocation="bottom" finishLocation="{!URLFOR('/lightning/page/home')}"/>
+    </apex:outputPanel>
+
+    <c:FlowFooter_VFC />
+</apex:page>

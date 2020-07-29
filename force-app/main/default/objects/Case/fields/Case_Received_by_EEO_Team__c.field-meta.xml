@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Received_by_EEO_Team__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Date the Case is received by the EEO team.</description>
+    <externalId>false</externalId>
+    <label>Case Received by EEO Team</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

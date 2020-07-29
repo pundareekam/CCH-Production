@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TurnAllTriggersOff__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This will turn off ALL triggers and will supercede Trigger Switch settings</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This will turn off ALL triggers and will supercede Trigger Switch settings</inlineHelpText>
+    <label>Turn All Triggers Off</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

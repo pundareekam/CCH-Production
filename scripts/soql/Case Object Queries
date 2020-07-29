@@ -1,0 +1,22 @@
+Select Id, RecordTypeName__c from Case limit 10
+Select RecordTypeId, Count(Id) From Case GROUP BY RecordTypeId
+Select Id, Name, SobjectType from RecordType where Id IN ('01236000000ni6jAAA',
+'0121Q000001I4MrQAK',
+'0121Q000000oFtlQAE',
+'01236000000ni6lAAA',
+'01236000000ni6kAAA',
+'01236000000ni6mAAA',
+'01236000000xr0cAAA',
+'01236000000ni6oAAA',
+'01236000001DqqyAAC')
+Select Id, Name, SobjectType from RecordType
+Select Id, RecordTypeName__c From Case Where RecordTypeId = '01236000000xr0cAAA'
+Select Id From Case_Summary__c where Case__c = '5001Q00000ur8FZQAY'
+Select Id, Case__c From Case_Summary__c Where Case__r.RecordTypeName__c = 'Grievance'
+Select Id, Contact__c, ContactName__c From Case where RecordTypeName__c = 'Grievance'
+SELECT Id, Name FROM RecordType WHERE SObjectType = 'Case' And Name <> 'GoneGone'
+Select Count(Id) From Case where Status = 'Closed'
+Select Id From Case Where Course_Three_Title__c != null
+Select Id, CreatedDate From Case Where RecordTypeName__c = 'Tuition Reimbursement'
+Select Id, EPO_Date_Entered__c From Case Where CaseNumber = '00014324'
+Select Id, Case_Owner__c, OwnerId From Case Where CaseNumber = '00014614'

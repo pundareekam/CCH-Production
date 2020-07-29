@@ -1,0 +1,12 @@
+List<User> users = new List<User>([Select Id, Name From User Where Id NOT IN (SELECT OwnerId From DualEmploymentSurvey__c) AND isActive = true AND Profile_Name__c = 'Cook County Health Employee' LIMIT 100 ]);
+List<DualEmploymentSurvey__c> duals = new List<DualEmploymentSurvey__c>();
+for (User u : users) { 
+DualEmploymentSurvey__c d = new DualEmploymentSurvey__c();
+d.Current_Step__c = 1;
+d.Survey_Status__c = 9;
+d.OwnerId = u.Id;
+System.debug('New Employee'+ u.Name);
+duals.add(d);	
+}
+insert duals;
+System.debug('Total Records inserted: '+ duals.size());

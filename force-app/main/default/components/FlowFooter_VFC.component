@@ -1,0 +1,14 @@
+<apex:component >
+    <apex:attribute name="department" description="Allows Footer to be Dynamic" type="String" required="false" />
+    <style>
+        
+    </style>
+    <div class="bottomLink">
+        <a href="/home/home.jsp">
+            Click here to cancel this case
+        </a>
+        <!--<br/>
+        <br/>
+        {!$Label.Flow_Footer_Contact_Msg} {!IF(department != null && department == 'EEO', $Label.EEO_Contact_Phone_Number, $Label.HR_Contact_Phone_Number)}.-->
+    </div>
+</apex:component>

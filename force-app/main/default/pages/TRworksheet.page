@@ -1,0 +1,94 @@
+<apex:page standardController="Case" renderAs="" showHeader="false">
+<div style="text-align:center;font-size:20px; font-weight: bold;">
+Cook County Bureau of Health<br/>
+Nurse's Tuition Reimbursement<br/>
+</div>
+<br/>
+Location: {!Case.Contact.User__r.FacilityDescription__c}<br/> 
+Department: {!Case.Contact.User__r.JobCodeDescription__c}<br/> 
+Date: 
+<apex:outputText value="{0, date, MMMM d','  yyyy}">
+    <apex:param value="{!NOW()}" />
+</apex:outputText>
+<apex:panelGrid width="100%" style="text-align:right;">
+   <apex:form >
+      <apex:commandLink value="Print" onclick="window.print();"/>
+   </apex:form>
+</apex:panelGrid>
+<apex:pageBlock title="Expense Worksheet for Tuition Reimbursement"  >
+ <apex:pageBlockSection columns="1" title="Employee Details">
+   <apex:outputText value="{!Case.ContactName__c}" label="Employee Name...: "/>
+   <apex:outputText value="{!Case.Contact.User__r.EmployeeID__c}"/>
+   <apex:outputText value="{!Case.Contact.User__r.Last_Four_SSN__c}"/>
+</apex:pageBlockSection>
+<apex:pageBlockSection title="Course One Details................................................Semester: {!Case.Semester__c}" columns="1">
+  <apex:outputText value="{!Case.Course_One_Number__c}"/>
+  <apex:outputText value="{!Case.Course_One_Title__c}"/>
+  <apex:outputText value="{!Case.Course_Official_Grade_Received__c}"/>
+  <apex:outputText value="({!Case.Course_One_Beginning_Date__c})" label="Course One Start Date"/>
+  <apex:outputText value="({!Case.Course_One_Ending_Date__c})" label="Course One End Date"/>
+  <apex:outputText value="${!Case.Course_One_Tuition_Cost__c}" label="Course One Tuition Cost"/>
+  <apex:outputText value="${!Case.Course_One_Awards__c}" label="Course One Awards/Scholarships/Refunds Received" rendered="{!IF((Case.Course_One_Awards__c != null),true,false)}"/>
+  <apex:outputText value="${!Case.Course_One_Registration_Fee__c}" label="Course One Registration Fees" rendered="{!IF((Case.Course_One_Registration_Fee__c != null),true,false)}"/>
+  <apex:outputText value="${!Case.Course_One_Lab_Books_Materials_Cost__c}" label="Course One Lab Fees" rendered="{!IF((Case.Course_One_Lab_Books_Materials_Cost__c != 0),true,false)}"/>
+  <apex:outputText value="${!Case.Course_One_Other_Fees__c}" label="Course One Other Fees" rendered="{!IF((Case.Course_One_Other_Fees__c != null),true,false)}"  />
+  <apex:outputText value="{!Case.Course_One_Other_Fees_Description__c}" rendered="{!IF((Case.Course_One_Other_Fees_Description__c != null),true,false)}"/>
+  <apex:outputText value="${!Case.Course_One_Cost_of_Books__c}" label="Course One Cost of Books" rendered="{!IF((Case.Course_One_Cost_of_Books__c != null),true,false)}"/>
+  <apex:outputText value="{!Case.Course_One_Books_Description__c}" rendered="{!IF((Case.Course_One_Books_Description__c != null),true,false)}"/>
+  <apex:outputText value="${!Case.Course_One_Total_Cost__c}" Label="Total Course One Cost"/> 
+</apex:pageBlockSection>
+
+<apex:pageBlockSection title="Course Two Details......................................................Semester: {!Case.Semester__c}" columns="1" rendered="{!IF((Case.Course_Two_Title__c != null),true,false)}">
+  <apex:outputText value="{!Case.Course_Two_Number__c}"/>
+  <apex:outputText value="{!Case.Course_Two_Title__c}"/>
+  <apex:outputText value="{!Case.Course_Two_Grade_Received__c}"/>
+  <apex:outputText value="({!Case.Course_Two_Beginning_Date__c})" label="Course Two Start Date"/>
+  <apex:outputText value="({!Case.Course_Two_Ending_Date__c})" label="Course Two End Date"/>
+  <apex:outputText value="${!Case.Course_Two_Tuition_Cost__c}" label="Course Two Tuition Cost"/>
+  <apex:outputText value="${!Case.Course_Two_Awards__c}" label="Course Two Awards/Scholarships/Refunds Received" rendered="{!IF((Case.Course_Two_Awards__c != null),true,false)}"/>
+  <apex:outputText value="${!Case.Course_Two_Registration_Fee__c}" label="Course Two Registration Fees" rendered="{!IF((Case.Course_Two_Registration_Fee__c != null),true,false)}"/>
+  <apex:outputText value="${!Case.Course_Two_Lab_Book_Materials_Cost__c}" label="Course Two Lab Fees" rendered="{!IF((Case.Course_Two_Lab_Book_Materials_Cost__c != 0),true,false)}"/>
+  <apex:outputText value="${!Case.Course_Two_Other_Fees__c}" label="Course Two Other Fees" rendered="{!IF((Case.Course_Two_Other_Fees__c != null),true,false)}"  />
+  <apex:outputText value="{!Case.Course_Two_Other_Fees_Description__c}" rendered="{!IF((Case.Course_Two_Other_Fees_Description__c != null),true,false)}"/>
+  <apex:outputText value="${!Case.Course_Two_Cost_of_Books__c}" label="Course Two Cost of Books" rendered="{!IF((Case.Course_Two_Cost_of_Books__c != null),true,false)}"/>
+  <apex:outputText value="{!Case.Course_Two_Books_Description__c}" rendered="{!IF((Case.Course_Two_Books_Description__c != null),true,false)}"/>
+  <apex:outputText value="${!Case.Course_Two_Total_Cost__c}" Label="Total Course Two Cost"/>
+</apex:pageBlockSection>
+
+<apex:pageBlockSection title="Course Three Details.....................................................Semester: {!Case.Semester__c}" columns="1" rendered="{!IF((Case.Course_Three_Title__c != null),true,false)}">
+  <apex:outputText value="{!Case.Course_Three_Number__c}"/>
+  <apex:outputText value="{!Case.Course_Three_Title__c}"/>
+  <apex:outputText value="{!Case.Course_Three_Grade_Received__c}"/>
+  <apex:outputText value="({!Case.Course_Three_Beginning_Date__c})" label="Course Three Start Date"/>
+  <apex:outputText value="({!Case.Course_Three_Ending_Date__c})" label="Course Three End Date"/>
+  <apex:outputText value="${!Case.Course_Three_Tuition_Cost__c}" label="Course Three Tuition Cost"/>
+  <apex:outputText value="${!Case.Course_Three_Awards__c}" label="Course Three Awards/Scholarships/Refunds Received" rendered="{!IF((Case.Course_Three_Awards__c != null),true,false)}"/>
+  <apex:outputText value="${!Case.Course_Three_Registration_Fee__c}" label="Course Three Registration Fees" rendered="{!IF((Case.Course_Three_Registration_Fee__c != null),true,false)}"/>
+  <apex:outputText value="${!Case.Course_Three_Lab_Books_Materials_Cost__c}" label="Course Three Lab Fees" rendered="{!IF((Case.Course_Three_Lab_Books_Materials_Cost__c != 0),true,false)}"/>
+  <apex:outputText value="${!Case.Course_Three_Other_Fees__c}" label="Course Three Other Fees" rendered="{!IF((Case.Course_Three_Other_Fees__c != null),true,false)}"  />
+  <apex:outputText value="{!Case.Course_Three_Other_Fees_Description__c}" rendered="{!IF((Case.Course_Three_Other_Fees_Description__c != null),true,false)}"/>
+  <apex:outputText value="${!Case.Course_Three_Cost_of_Books__c}" label="Course Three Cost of Books" rendered="{!IF((Case.Course_Three_Cost_of_Books__c != null),true,false)}"/>
+  <apex:outputText value="{!Case.Course_Three_Books_Description__c}" rendered="{!IF((Case.Course_Three_Books_Description__c != null),true,false)}"/>
+  <apex:outputText value="${!Case.Course_Three_Total_Cost__c}" Label="Total Course Three Cost"/>
+</apex:pageBlockSection>
+<br/>
+<h1>Total Semester Course Cost........:${!Case.Semester_Total_Cost__c}</h1>
+
+</apex:pageBlock>
+<br/><br/>
+I,.{!Case.ContactName__c}.., have carefully read and understand the policy and procedures regarding 
+the reimbursement of Tuition and have accurately answered all of the above questions to the best of my ability. I 
+understand that in order to be eligible for Tuition Reimbursement I must be an active, dues paying member of the 
+Nursing union; completed one full year of service; and not be in a leave status of any kind. I also understand 
+that failure to comply with any and/or all of the previously stated procedure and requirements will result in my 
+applicaton and/or Tuition being denied.
+<br/><br/><br/><br/>
+Name:.{!Case.ContactName__c}........&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eSignature:...{!Case.Electronic_Signature_Name__c}..............
+<br/>
+<br/><br/><br/>
+<h5>*FINANCE ONLY</h5><br/><br/><br/>
+CHECK#......................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Sent to Employee:........................................       
+
+
+        
+</apex:page>

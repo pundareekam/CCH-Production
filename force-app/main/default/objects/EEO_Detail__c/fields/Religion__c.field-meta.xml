@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Religion__c</fullName>
+    <externalId>false</externalId>
+    <label>Religion</label>
+    <picklist>
+        <picklistValues>
+            <fullName>Apostolic/New Apostolic</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Assemblies of God</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Baptist</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Born Again</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Buddhism</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Catholic</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Christian - No denomination supplied</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Christian Reform</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Christian Science</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Church of God</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Church of the Brethren</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Church of the Nazarene</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Churches of Christ</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Congregational/United Church of Christ</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Disciples of Christ</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Episcopalian/Anglican</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Evangelical</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Foursquare Gospel</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Full Gospel</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Fundamentalist</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Hinduism</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Holiness/Holy</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Independent Christian Church</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Islam</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Jehovah&apos;s Witness</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Judaism</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Lutheran</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Mennonite</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Methodist / Wesleyan</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Mormon / Latter-Day Saints</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Nondenominational</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Orthodox (Eastern)</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Pentecostal/Charismatic</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Presbyterian</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Protestant</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Quaker</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Reformed/Dutch Reform</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Salvation Army</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Seventh-Day Adventist</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>TBD</fullName>
+            <default>false</default>
+        </picklistValues>
+        <restrictedPicklist>true</restrictedPicklist>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

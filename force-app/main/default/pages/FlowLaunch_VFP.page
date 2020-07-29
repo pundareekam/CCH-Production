@@ -1,0 +1,144 @@
+<apex:page controller="FlowLaunch_VFC" showHeader="false" sidebar="false">
+    <style>
+
+        .bttn, a.bttn {
+            display: block;
+            padding: 6px 12px;
+            margin-bottom: 0.25em;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+                    touch-action: manipulation;
+            cursor: pointer;
+            -webkit-user-select: none;
+                -moz-user-select: none;
+                    -ms-user-select: none;
+                            user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+
+        .bttn:focus,
+        .bttn:active:focus,
+        .bttn.active:focus,
+        .bttn.focus,
+        .bttn:active.focus,
+        .bttn.active.focus {
+            background-color: #117190;
+            outline: 5px auto -webkit-focus-ring-color;
+            outline-offset: -2px;
+        }
+
+        .bttn:hover,
+        .bttn:focus,
+        .bttn.focus {
+            background-color: #117190;
+            color: #fff;
+        }
+
+        .bttn:active,
+        .bttn.active {
+            background-image: none;
+            outline: 0;
+            -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+            box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+        }
+
+        .bttn.disabled,
+        .bttn[disabled],
+        fieldset[disabled] .bttn {
+            cursor: not-allowed;
+            filter: alpha(opacity=65);
+            -webkit-box-shadow: none;
+                            box-shadow: none;
+            opacity: .65;
+        }
+
+        a.bttn.disabled,
+        fieldset[disabled] a.bttn {
+            pointer-events: none;
+        }
+
+        .bttn-default, a.bttn-default {
+            color: #fff;
+            background-color: #1798c1;
+            border-color: #4682b4;
+        }
+
+        .hideBtnNess {
+            text-decoration: none;
+        }
+
+        .hideBtnNess:hover {
+            text-decoration: none;
+        }
+        @media screen and (min-width: 1300px) {
+            .bttnSection {
+                width:25%;
+                padding: 2em 0em 0em 1em;
+            }
+        }
+
+        @media screen and (max-width: 1299px) {
+            .bttnSection {
+                width:50%;
+                padding: 2em 0em 0em 1em;
+            }
+        }
+
+        @media screen and (max-width: 780px) {
+            .bttnSection {
+                width:75%;
+                padding: 2em 0em 0em 1em;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+            .bttnSection {
+                width:75%;
+                padding: 2em 0em 0em 1em;
+            }
+        }
+                
+
+        .headerSection {
+            padding: 1em 0em 0em 1em;
+        }
+
+        .customHeader {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+    </style>
+    <div class="headerSection">
+     <!--   <span class="customHeader">CCHHS HR Case Management System</span> -->
+        <p>The cases are listed below. Please click the appropriate button to begin your filing.</p>
+        <p> <apex:outputtext value="View CCHHS Policies at: http://cchintranet.cchhs.local/Intranet/Main.aspx?tid=436&mtid=431"/> </p>
+        <p>Questions? Contact Human Resources at (312) 864-1810.</p>
+    </div>
+    <div class="bttnSection">
+        <apex:repeat value="{!flowsList}" var="fp">
+        <!-- <apex:repeat rendered="{!NOT(CurrentUser.UserRole.DeveloperName == 'Union_Steward')}" value="{!flowsList}" var="fp"> -->
+         <apex:outputPanel rendered="{!NOT(AND(fp.Name == 'Grievance_Flow_VFP')) }" layout="block">
+            <apex:outputPanel layout="block">
+ 
+                <a href="/apex/{!fp.Name}" class="bttn bttn-default hideBtnNess" target="_blank">
+                    <span>
+                        {!fp.Description}
+                    </span>
+                </a>
+            </apex:outputPanel>
+</apex:outputPanel>
+        </apex:repeat>
+        <apex:outputPanel layout="block" rendered="{!CurrentUser.UserRole.DeveloperName == 'Union_Steward'}">
+            <p>You do not have the ability to create cases. To view any assigned cases, please click on the Cases tab above.</p>
+            <!-- KTHXBYE -->
+        </apex:outputPanel>
+    </div>
+</apex:page>

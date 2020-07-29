@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Substantiation__c</fullName>
+    <description>Compliance</description>
+    <externalId>false</externalId>
+    <label>Substantiation</label>
+    <picklist>
+        <picklistValues>
+            <fullName>Validated</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Not Validated</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Inquiry Only</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Undetermined</fullName>
+            <default>false</default>
+        </picklistValues>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

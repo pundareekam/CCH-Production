@@ -1,0 +1,18 @@
+Map<Id, User> users = new Map<Id, User>([Select Id, Name, SUPERID__C, Supervisor_Full_Name__c From User ]);
+List<DualEmploymentSurvey__c> duals = new List<DualEmploymentSurvey__c>([select Id, OwnerID, Level2_Supervisor_Name__c from DualEmploymentSurvey__c]);
+List<DualEmploymentSurvey__c> dualsUpdate = new List<DualEmploymentSurvey__c>();
+for (DualEmploymentSurvey__c d : duals) {
+    If (d.OwnerID <> null ) {
+  System.debug('Employee Name: ' + users.get(d.OwnerID).Name);
+  System.debug('Level1 Supervisor Name: ' + users.get(d.OwnerID).Supervisor_Full_Name__c);
+  If (users.get(d.OwnerID).SUPERID__C <> null) {
+   System.debug('Level2 Supervisor Name: ' + users.get(users.get(d.OwnerID).SUPERID__C).Supervisor_Full_Name__c);
+   d.Level2_Supervisor_Name__c = users.get(users.get(d.OwnerID).SUPERID__C).Supervisor_Full_Name__c;
+   dualsUpdate.add(d);
+  }
+    }
+ 
+}
+
+update dualsUpdate;
+System.debug('Total Update Records: '+dualsUpdate.size());

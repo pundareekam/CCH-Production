@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Owner__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Created for Compliance and should only show users that are inside of the Compliance roles.</description>
+    <externalId>false</externalId>
+    <label>Case Owner</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Please enter Compliance team member. If user entered is on the Compliance Team, please contact your administrator</errorMessage>
+        <filterItems>
+            <field>User.Profile.Name</field>
+            <operation>equals</operation>
+            <value>Cook County Health Compliance Team, Cook County Health Compliance Administrator</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Cases1</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,8 @@
+<apex:page showHeader="false">
+<div style="width: 100vw; height: 100vh; background: rgb(0, 112, 210); display: flex; flex-direction: column; justify-content: center;">
+    <h1 style="text-align: center; font-size: 3em; color: white;">Welcome to HR ServiceLink</h1>
+    <p style="text-align: center; font-size: 1.5em; color: white; width: 80%; margin: 20px auto 10px;">HR ServiceLink is a self-service case management system to electronically process and streamline EEO, Employment Verification, Exit Packet, and Pay Rate / Accrual Error cases for CCHHS employees.</p>
+    <p style="text-align: center; font-size: 1.5em; color: white; margin-bottom: 0;">Please enter your Username and Password.</p>
+    <p style="text-align: center; font-size: 1.5em; color: white; margin-top: 0;">Your Username is your CCHHS email address.</p>
+</div>
+</apex:page>

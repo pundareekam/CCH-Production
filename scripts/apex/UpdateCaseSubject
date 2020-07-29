@@ -1,0 +1,24 @@
+List<Case> cases = new List<Case>([Select Id, 
+                                            EPO_Category__c,
+                                              EPO_Complaint_Employee__r.Name,
+                                              EPO_Date_Entered__c, 
+                                              Subject, 
+                                              EPO_Complaint_Employee__r.JobCodeDescription__c 
+                                         From Case Where RecordTypeName__c = 'EPO Incident'] );
+
+for (Case c : cases) {
+
+c.Subject = '';
+Datetime d  = c.EPO_Date_Entered__c;
+String dt = d.Format('MM/DD/YYYY');
+c.Subject = c.EPO_Complaint_Employee__r.Name + '-' 
+                          + dt + '-' 
+                          + c.EPO_Complaint_Employee__r.JobCodeDescription__c + '-'
+                          + c.EPO_Category__c;
+
+
+System.debug('Case Subject: '+ c.Subject);
+
+}
+Update cases;
+

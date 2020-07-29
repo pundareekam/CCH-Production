@@ -1,0 +1,1131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>CAP_Due_In_24_Hours</fullName>
+        <description>CAP Due In 24 Hours</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/X24_Hour_Notice_Of_CAP</template>
+    </alerts>
+    <alerts>
+        <fullName>CAP_Due_In_7_Days</fullName>
+        <description>CAP Due In 7 Days</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>hrservicelink@cookcountyhhs.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>CCHHS_Case_Email_Templates/CAP_Due_In_7_Days</template>
+    </alerts>
+    <alerts>
+        <fullName>CAP_Overdue</fullName>
+        <description>CAP Overdue</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/CAP_Deficient</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Closed</fullName>
+        <description>Case Closed</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>cjohnson@cchhs.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Case_Closed</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Created_Email_Alert</fullName>
+        <description>Case Created Email Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>cjohnson@cchhs.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Case_Created</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Owner_Updated</fullName>
+        <description>Case Owner Updated</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>cjohnson@cchhs.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Case_Owner_Updated</template>
+    </alerts>
+    <alerts>
+        <fullName>Compliance_Case_Not_Closed_By_Owner</fullName>
+        <description>Compliance: Case Not Closed By Owner</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>hrservicelink@cookcountyhhs.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>CCHHS_Case_Email_Templates/Compliance_Case_Not_Closed_By_Owner</template>
+    </alerts>
+    <alerts>
+        <fullName>EEO_Case_Closed_Email</fullName>
+        <description>EEO Case Closed Email</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>cjohnson@cchhs.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/EEO_Case_Closed</template>
+    </alerts>
+    <alerts>
+        <fullName>EEO_Send_Review_Recommendation_0</fullName>
+        <description>EEO Send Review Recommendation 0</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>cjohnson@cchhs.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/EEO_Review_Recommendation_0</template>
+    </alerts>
+    <alerts>
+        <fullName>EPO_new_Email_Alert</fullName>
+        <description>EPO new Email Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>cpramukvolk@cookcountyhhs.org</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>kimberly.craft@cookcountyhhs.org</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>EPO_Emails/New_EPO_Case</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Case_Owner</fullName>
+        <description>Email Case Owner - 8 Day Reminder</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Seven_Days_Left</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Case_Owner_14_Day_Reminder</fullName>
+        <description>Email Case Owner - 14 Day Reminder</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Two_Days_Left</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Case_Owner_Abandoned_Case</fullName>
+        <description>Email Case Owner - Abandoned Case</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>cjohnson@cchhs.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Case_Abandoned</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Case_Owner_New_Case</fullName>
+        <description>Email Case Owner - New Case</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>cjohnson@cchhs.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Case_Created</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Case_Owner_new</fullName>
+        <description>Email Case Owner - New Case</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>cjohnson@cchhs.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Case_Created</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_EEO_Group</fullName>
+        <description>Email EEO Group</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>nkrasucki@cookcountyhhs.org</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>hrservicelink@cookcountyhhs.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>CCHHS_Case_Email_Templates/Case_Assigned_to_Operations_Queue</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Grievance_Group</fullName>
+        <description>Email Grievance Group</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Grievances</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Case_Assigned_to_Grievances_Queue</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Operations_Group</fullName>
+        <description>Email Operations Group</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>catrice.groves@cookcountyhhs.org</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Case_Assigned_to_Operations_Queue</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Payroll</fullName>
+        <description>Email Payroll</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>cjohnson@cchhs.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>hrservicelink@cookcountyhhs.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>CCHHS_Case_Email_Templates/Case_Created</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Queue_when_escalated_to_step_2</fullName>
+        <description>Email Team when Escalated to Step 2</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Grievances</recipient>
+            <type>group</type>
+        </recipients>
+        <recipients>
+            <field>Current_Supervisor__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>Labor_HR__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>Union_Steward__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Grievance_Employee_Escalates_to_step_2</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Queue_when_escalated_to_step_3</fullName>
+        <description>Email Team when Escalated to Step 3</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Grievances</recipient>
+            <type>group</type>
+        </recipients>
+        <recipients>
+            <field>Current_Supervisor__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>Labor_HR__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>Union_Steward__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Grievance_Employee_Escalates_to_step_3</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Supervisor_Step_1</fullName>
+        <description>Email Supervisor - Step 1</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Current_Supervisor__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Grievance_Supervisor_Alert</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Supervisor_response_to_Employee_Step_1</fullName>
+        <description>Email Supervisor response to Employee - Step 1</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Employee</recipient>
+            <type>caseTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>Labor - HR</recipient>
+            <type>caseTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>Supervisor</recipient>
+            <type>caseTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>Union Steward</recipient>
+            <type>caseTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Grievance_Response_Alert</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Supervisor_response_to_Employee_Step_2</fullName>
+        <description>Email Supervisor response to Employee - Step 2</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactId</field>
+            <type>contactLookup</type>
+        </recipients>
+        <recipients>
+            <field>Current_Supervisor__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>Labor_HR__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>Union_Steward__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Grievance_Response_Alert_Step_2</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_to_LaborHR</fullName>
+        <description>Email to Labor - HR</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>cjohnson@cchhs.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Grievance_Union_Rep_Alert</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_to_New_Share</fullName>
+        <description>Email to Union Steward</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Union_Steward__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Grievance_Union_Rep_Alert</template>
+    </alerts>
+    <alerts>
+        <fullName>Exit_Email</fullName>
+        <description>Exit Email</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>catrice.groves@cookcountyhhs.org</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>hrservicelink@cookcountyhhs.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>CCHHS_Case_Email_Templates/Exit_Packet_Send_To_HR</template>
+    </alerts>
+    <alerts>
+        <fullName>Exit_Packet_Personal_Email_Case_Closed</fullName>
+        <description>Exit Packet - Personal Email Case Closed</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>cjohnson@cchhs.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Case_Closed_Exit_Packet</template>
+    </alerts>
+    <alerts>
+        <fullName>Grievances_Email_Downtown</fullName>
+        <ccEmails>steven.w.schnorr@gmail.com</ccEmails>
+        <description>Grievances - Email Downtown</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Labor_HR__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Grievance_Downtown</template>
+    </alerts>
+    <alerts>
+        <fullName>HIPAA_30_Day_Email_Notification</fullName>
+        <description>HIPAA 30 Day Email Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>hrservicelink@cookcountyhhs.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>CCHHS_Case_Email_Templates/HIPAA_30_Day_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>HIPAA_45_Day_Notification</fullName>
+        <description>HIPAA 45 Day Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>hrservicelink@cookcountyhhs.org</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>CCHHS_Case_Email_Templates/HIPAA_45_Day_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Policy_Revision_Reminder_30_Days</fullName>
+        <description>Policy Revision Reminder - 30 Days</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Policy_30_Day_Reminder</template>
+    </alerts>
+    <alerts>
+        <fullName>Policy_Revision_Reminder_60_Days</fullName>
+        <description>Policy Revision Reminder - 60 Days</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Policy_Due_In_60_Days</template>
+    </alerts>
+    <alerts>
+        <fullName>Policy_Revision_Reminder_7_Days</fullName>
+        <description>Policy Revision Reminder - 7 Days</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Policy_7_Days_Out</template>
+    </alerts>
+    <alerts>
+        <fullName>Policy_revision_Reminder_Deficient</fullName>
+        <description>Policy revision Reminder - Deficient</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Policy_Revision_Reminder_Deficient</template>
+    </alerts>
+    <alerts>
+        <fullName>Tuition_Reimbursement_To_Employee_Case_Created</fullName>
+        <description>Tuition Reimbursement - To Employee Case Created</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CCHHS_Case_Email_Templates/Tuition_Reimbursement_Case_Created</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Assign_to_EEO_Queue</fullName>
+        <description>Assigns a case to the EEO queue</description>
+        <field>OwnerId</field>
+        <lookupValue>EEO</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Assign to EEO Queue</name>
+        <notifyAssignee>true</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Assign_to_Operations_Queue</fullName>
+        <field>OwnerId</field>
+        <lookupValue>Operations</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Assign to Operations Queue</name>
+        <notifyAssignee>true</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Close_Case</fullName>
+        <field>Status</field>
+        <literalValue>Closed</literalValue>
+        <name>Close Case</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Close_Case_after_5_days</fullName>
+        <field>Status</field>
+        <literalValue>Closed</literalValue>
+        <name>Close Case after 5 days</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Close_the_Case</fullName>
+        <field>Status</field>
+        <literalValue>Closed</literalValue>
+        <name>Close the case</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Close_the_case_2</fullName>
+        <field>Status</field>
+        <literalValue>Closed</literalValue>
+        <name>Close the case_2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Grievances_Assign_to_queue</fullName>
+        <field>OwnerId</field>
+        <lookupValue>Grievances</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Grievances - Assign to queue</name>
+        <notifyAssignee>true</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Timestamp_Date_EEO_Received_Case</fullName>
+        <field>Date_Time_EEO_Team_Received_Case__c</field>
+        <formula>NOW()</formula>
+        <name>Timestamp Date EEO Received Case</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Timestamp_Date_Submitted_to_Comptroller</fullName>
+        <field>Date_Returned_from_Payroll__c</field>
+        <formula>NOW()</formula>
+        <name>Timestamp Date Submitted to Comptroller</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Actual_Date_of_Closure</fullName>
+        <field>Actual_Date_of_Closure__c</field>
+        <formula>Now()</formula>
+        <name>Update Actual Date of Closure</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Date_Grant_Deny</fullName>
+        <field>Date_Grant_Deny__c</field>
+        <formula>LastModifiedDate</formula>
+        <name>Update Date Grant/Deny</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Date_Grant_Deny_Step_2</fullName>
+        <field>Date_Grant_Deny_Step2__c</field>
+        <formula>LastModifiedDate</formula>
+        <name>Update Date Grant Deny Step 2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Owner</fullName>
+        <field>OwnerId</field>
+        <lookupValue>Grievances</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Update Owner</name>
+        <notifyAssignee>true</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Owner_2</fullName>
+        <field>OwnerId</field>
+        <lookupValue>Grievances</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Update Owner</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Sent_to_Payroll_Date</fullName>
+        <field>DateForwardedtoPayroll__c</field>
+        <formula>NOW()</formula>
+        <name>Update Sent to Payroll Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>CAP Deficient</fullName>
+        <actions>
+            <name>CAP_Overdue</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>rule that checks to make sure that a case is Compliance and to see if Date Completed is Today</description>
+        <formula>AND( RecordTypeName__c = &apos;Compliance Case&apos;, Due_Date_of_CAP__c &lt; TODAY() ,ISBLANK(Date_CAP_Completed__c ))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>CAP Due In 24 Hours</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.RecordTypeName__c</field>
+            <operation>equals</operation>
+            <value>Compliance Case</value>
+        </criteriaItems>
+        <description>Rule to be sent out 24 hours before CAP is deficient</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>CAP_Due_In_24_Hours</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.Due_Date_of_CAP__c</offsetFromField>
+            <timeLength>-1</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>CAP Due In 7 Days</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.RecordTypeName__c</field>
+            <operation>equals</operation>
+            <value>Compliance Case</value>
+        </criteriaItems>
+        <description>sends an email that says cap is due in 7 days</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>CAP_Due_In_7_Days</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.Due_Date_of_CAP__c</offsetFromField>
+            <timeLength>-7</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Owner Updated</fullName>
+        <actions>
+            <name>Case_Owner_Updated</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <formula>ISCHANGED(OwnerId)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Close Grievance 5 days after Grant%2FDeny</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Step_1_Answer__c</field>
+            <operation>equals</operation>
+            <value>Grant,Deny</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Close_Case</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Case.Date_Grant_Deny__c</offsetFromField>
+            <timeLength>5</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Close Grievance after 5 days</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.Step_1_Answer__c</field>
+            <operation>equals</operation>
+            <value>Grant,Deny</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Close_the_Case</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Case.Date_Grant_Deny__c</offsetFromField>
+            <timeLength>5</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Close Grievance after 5 days Step 2</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.Step_2_Answer__c</field>
+            <operation>equals</operation>
+            <value>Grant,Deny</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Close_the_case_2</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Case.Date_Grant_Deny_Step2__c</offsetFromField>
+            <timeLength>5</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Compliance%3ACase Not Closed By Owner</fullName>
+        <actions>
+            <name>Compliance_Case_Not_Closed_By_Owner</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Used when a compliance case is closed by someone other than its owner</description>
+        <formula>AND (RecordTypeName__c = &apos;Compliance Case&apos;, IsClosed = true , OwnerId &lt;&gt; $User.Id)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Date EEO Received Case</fullName>
+        <actions>
+            <name>Timestamp_Date_EEO_Received_Case</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.Case_Received_by_EEO_Team__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>EEO Assign to Queue</fullName>
+        <actions>
+            <name>Email_EEO_Group</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Assign_to_EEO_Queue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.RecordTypeName__c</field>
+            <operation>equals</operation>
+            <value>EEO</value>
+        </criteriaItems>
+        <description>Assign new EEO Cases to the EEO Queue</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>EEO Case Closed</fullName>
+        <actions>
+            <name>EEO_Case_Closed_Email</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.IsClosed</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>EEO Review Recommendation 0</fullName>
+        <actions>
+            <name>EEO_Send_Review_Recommendation_0</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.RecordTypeName__c</field>
+            <operation>equals</operation>
+            <value>EEO</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Recommendation Review</value>
+        </criteriaItems>
+        <description>Sends the first email when a case is ready for review</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>EPO New case</fullName>
+        <actions>
+            <name>EPO_new_Email_Alert</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeName__c</field>
+            <operation>equals</operation>
+            <value>EPO Incident</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Case_Owner__c</field>
+            <operation>equals</operation>
+            <value>00G1Q0000037mqgUAA</value>
+        </criteriaItems>
+        <description>EPO New case alert</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Exit Packet Send Email To HR</fullName>
+        <actions>
+            <name>Exit_Email</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Submitted to HR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Received_Written_Notice_of_Resignation__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>This will send an email to HR to complete the case</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Grievance - Assign to queue</fullName>
+        <actions>
+            <name>Grievances_Assign_to_queue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>RecordType.Name = &quot;Grievance&quot;</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Grievance - New Case Notification</fullName>
+        <active>false</active>
+        <formula>RecordType.Name = &quot;Grievance&quot;</formula>
+        <triggerType>onCreateOnly</triggerType>
+        <workflowTimeTriggers>
+            <offsetFromField>Case.CreatedDate</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>HIPAA 30 Days</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.RecordTypeName__c</field>
+            <operation>equals</operation>
+            <value>Compliance Case</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Sub_Category__c</field>
+            <operation>equals</operation>
+            <value>HIPAA Breach</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Open</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>HIPAA_30_Day_Email_Notification</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.Communication_Date__c</offsetFromField>
+            <timeLength>30</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>HIPAA 45 Day Notification</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.RecordTypeName__c</field>
+            <operation>equals</operation>
+            <value>Compliance Case</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Sub_Category__c</field>
+            <operation>equals</operation>
+            <value>HIPAA Breach</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Open</value>
+        </criteriaItems>
+        <description>Checks to see</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>HIPAA_45_Day_Notification</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.Communication_Date__c</offsetFromField>
+            <timeLength>45</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Operations Assign Cases To Queue</fullName>
+        <actions>
+            <name>Email_Operations_Group</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Assign_to_Operations_Queue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
+        <criteriaItems>
+            <field>Case.RecordTypeName__c</field>
+            <operation>equals</operation>
+            <value>Pay Rate Error</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeName__c</field>
+            <operation>equals</operation>
+            <value>Accrural Error</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeName__c</field>
+            <operation>equals</operation>
+            <value>Tuition Reimbursement</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeName__c</field>
+            <operation>equals</operation>
+            <value>Employment Verification</value>
+        </criteriaItems>
+        <description>Assign Employment Verification, Exit Packet, Pay Rate / Accrual to Queue</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Policy Revision Reminder - 30 Days</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.RecordTypeName__c</field>
+            <operation>equals</operation>
+            <value>Compliance Case</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Policy_Revision_Reminder_30_Days</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.Next_Policy_Revision_Due_Date__c</offsetFromField>
+            <timeLength>-30</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Policy Revision Reminder - 60 Days</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.RecordTypeName__c</field>
+            <operation>equals</operation>
+            <value>Compliance Case</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Policy_Revision_Reminder_60_Days</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.Next_Policy_Revision_Due_Date__c</offsetFromField>
+            <timeLength>-60</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Policy Revision Reminder - 7 Days</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.RecordTypeName__c</field>
+            <operation>equals</operation>
+            <value>Compliance Case</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Policy_Revision_Reminder_7_Days</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.Next_Policy_Revision_Due_Date__c</offsetFromField>
+            <timeLength>-7</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Policy Revision Reminder - Deficient</fullName>
+        <actions>
+            <name>Policy_revision_Reminder_Deficient</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( RecordTypeName__c = &apos;Compliance Case&apos;,  Next_Policy_Revision_Due_Date__c  &lt; TODAY())</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Time Based Reminder Emails</fullName>
+        <actions>
+            <name>Case_Created_Email_Alert</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.CreatedDate</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Email_Case_Owner_14_Day_Reminder</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.CreatedDate</offsetFromField>
+            <timeLength>14</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <offsetFromField>Case.CreatedDate</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Email_Case_Owner</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.CreatedDate</offsetFromField>
+            <timeLength>8</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Timestamp Date Grant%2FDeny</fullName>
+        <actions>
+            <name>Update_Date_Grant_Deny</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Grant_Deny__c</field>
+            <operation>equals</operation>
+            <value>Grant,Deny</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Timestamp Date Grant%2FDeny- Step 1</fullName>
+        <actions>
+            <name>Update_Date_Grant_Deny</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Step_1_Answer__c</field>
+            <operation>equals</operation>
+            <value>Grant,Deny</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Timestamp Date Grant%2FDeny- Step 2</fullName>
+        <actions>
+            <name>Update_Date_Grant_Deny_Step_2</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Step_2_Answer__c</field>
+            <operation>equals</operation>
+            <value>Grant,Deny</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Timestamp Date Sent to Payroll</fullName>
+        <actions>
+            <name>Update_Sent_to_Payroll_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Sent to Payroll</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Timestamp Date Submitted to Comptroller</fullName>
+        <actions>
+            <name>Timestamp_Date_Submitted_to_Comptroller</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Submitted to Comptroller</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Actual Date of Closure</fullName>
+        <actions>
+            <name>Update_Actual_Date_of_Closure</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.IsClosed</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

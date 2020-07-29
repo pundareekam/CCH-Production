@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Standard_Description__c</fullName>
+    <description>Used in compliance cases and used to describe case</description>
+    <externalId>false</externalId>
+    <label>Standard Description</label>
+    <picklist>
+        <picklistValues>
+            <fullName>Employee reported HR policy violation</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Employee reported violation of anti kickback laws</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Employee reported violation of FWA regulations</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Internal employee complaint of a HIPAA violation involving paper or electronic records</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Patient advocate complaint</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Patient complaint of a HIPAA violation involving paper or electronic records</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Patient complaint of EMTALA violation</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Proposed policy requires research for possible compliance implications</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>SIU algorithm based allegation of fraudulent medical billing practices</fullName>
+            <default>false</default>
+        </picklistValues>
+        <restrictedPicklist>true</restrictedPicklist>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

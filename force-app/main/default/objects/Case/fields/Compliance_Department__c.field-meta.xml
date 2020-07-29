@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Compliance_Department__c</fullName>
+    <description>Compliance: list of all departments within CCH</description>
+    <externalId>false</externalId>
+    <label>Department</label>
+    <picklist>
+        <controllingField>Compliance_Entity__c</controllingField>
+        <picklistValues>
+            <fullName>Admitting &amp; Registration</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+            <controllingFieldValues>Department of Public Health</controllingFieldValues>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+            <controllingFieldValues>Provident</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Arlington Heights Health Center</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>ATN Study</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Austin Health Center</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Case Mgmt &amp; UM</fullName>
+            <default>false</default>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+            <controllingFieldValues>Provident</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Central Scheduling</fullName>
+            <default>false</default>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Cermak</fullName>
+            <default>false</default>
+            <controllingFieldValues>Correctional Health</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Children&apos;s Advocacy Center</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Cicero Health Center</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Communications</fullName>
+            <default>false</default>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Compliance</fullName>
+            <default>false</default>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Cook County Jail</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Cottage Grove Health Center</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>CORE Center</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>CountyCare Administration</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Dental Clinic</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Emergency Department/Trauma</fullName>
+            <default>false</default>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+            <controllingFieldValues>Provident</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Employee Health Services</fullName>
+            <default>false</default>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Englewood Health Center</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Environmental Services</fullName>
+            <default>false</default>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+            <controllingFieldValues>Provident</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Fantus Clinic</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Finance</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Finance/Revenue Cycle</fullName>
+            <default>false</default>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Food Services</fullName>
+            <default>false</default>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+            <controllingFieldValues>Provident</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>General Counsel</fullName>
+            <default>false</default>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Health Education</fullName>
+            <default>false</default>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Health Information Management</fullName>
+            <default>false</default>
+            <controllingFieldValues>Correctional Health</controllingFieldValues>
+            <controllingFieldValues>Provident</controllingFieldValues>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Hospice</fullName>
+            <default>false</default>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Human Resources</fullName>
+            <default>false</default>
+            <controllingFieldValues>Correctional Health</controllingFieldValues>
+            <controllingFieldValues>Provident</controllingFieldValues>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Imaging Services</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+            <controllingFieldValues>Provident</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Information Services</fullName>
+            <default>false</default>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Internal Audit</fullName>
+            <default>false</default>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Interpreter Services</fullName>
+            <default>false</default>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+            <controllingFieldValues>Provident</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>JTDC</fullName>
+            <default>false</default>
+            <controllingFieldValues>Correctional Health</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Lab</fullName>
+            <default>false</default>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+            <controllingFieldValues>Provident</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Logan Square Health Center</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Mail Room</fullName>
+            <default>false</default>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Materials Management</fullName>
+            <default>false</default>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Medical Records</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Medical Staff</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Medical Staff/Residents/Students</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+            <controllingFieldValues>Correctional Health</controllingFieldValues>
+            <controllingFieldValues>Department of Public Health</controllingFieldValues>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+            <controllingFieldValues>Provident</controllingFieldValues>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Morton East Adolescent Health Center</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Multicultural Affairs</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Near South Health Center</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>NICU</fullName>
+            <default>false</default>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Nursing</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+            <controllingFieldValues>Correctional Health</controllingFieldValues>
+            <controllingFieldValues>Department of Public Health</controllingFieldValues>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+            <controllingFieldValues>Provident</controllingFieldValues>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Oak Forest Health Center</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Operator Services</fullName>
+            <default>false</default>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+            <controllingFieldValues>Provident</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Orthopedics</fullName>
+            <default>false</default>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Outpatient Clinics</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+            <controllingFieldValues>Department of Public Health</controllingFieldValues>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+            <controllingFieldValues>Professional Building</controllingFieldValues>
+            <controllingFieldValues>Provident</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Patient Relations</fullName>
+            <default>false</default>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Patient Support</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Perioperative Services</fullName>
+            <default>false</default>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+            <controllingFieldValues>Provident</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Pharmacy</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+            <controllingFieldValues>Correctional Health</controllingFieldValues>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+            <controllingFieldValues>Provident</controllingFieldValues>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Plant Operations</fullName>
+            <default>false</default>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Police</fullName>
+            <default>false</default>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Prieto Health Center</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Procurement</fullName>
+            <default>false</default>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Psychiatry</fullName>
+            <default>false</default>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>PT/OT</fullName>
+            <default>false</default>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+            <controllingFieldValues>Provident</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Quality/Patient Safety</fullName>
+            <default>false</default>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Radiology</fullName>
+            <default>false</default>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Research</fullName>
+            <default>false</default>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Risk Management</fullName>
+            <default>false</default>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Robbins Health Center</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Security Services</fullName>
+            <default>false</default>
+            <controllingFieldValues>Correctional Health</controllingFieldValues>
+            <controllingFieldValues>Provident</controllingFieldValues>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Sengstacke Health Center</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Senior Leadership</fullName>
+            <default>false</default>
+            <controllingFieldValues>CountyCare Administration</controllingFieldValues>
+            <controllingFieldValues>System Administration</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Specialty Care Center</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>SSHARC</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Surgical Administration</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Third Party Administrator</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Volunteer Services</fullName>
+            <default>false</default>
+            <controllingFieldValues>John H. Stroger, Jr. Hospital</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Woodlawn Health Center</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Clinic G</fullName>
+            <default>false</default>
+            <controllingFieldValues>ACHN</controllingFieldValues>
+        </picklistValues>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

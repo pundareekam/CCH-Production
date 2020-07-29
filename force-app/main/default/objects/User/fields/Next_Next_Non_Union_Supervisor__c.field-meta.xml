@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Next_Next_Non_Union_Supervisor__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(
+    FirstNonUnionSupervisorStep__c + 1,
+    2, Manager.ManagerId,
+    3, Manager.Manager.ManagerId,
+    4, Manager.Manager.Manager.ManagerId,
+    5, Manager.Manager.Manager.Manager.ManagerId,
+    &quot;&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Next Next Non-Union Supervisor</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GrievanceCBA__c</fullName>
+    <externalId>false</externalId>
+    <label>CBA</label>
+    <picklist>
+        <picklistValues>
+            <fullName>AFSCME</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>COUPE</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>FOP</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>HOUSE STAFF</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>NNOC</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Operating Engineers</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>RWDSU</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Teamsters Local 700</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Teamsters Local 743</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>SEIU Local 1 Fireman &amp; Oilers</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>SEIU Local 20</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>SEIU 73</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>SEIU</fullName>
+            <default>false</default>
+        </picklistValues>
+        <restrictedPicklist>true</restrictedPicklist>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

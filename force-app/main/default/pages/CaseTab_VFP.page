@@ -1,0 +1,4 @@
+<apex:page tabStyle="Case" showHeader="true" sidebar="true">
+	<div style="width=100%;padding:4em"><center>Loading... <apex:image value="/img/loading.gif"/></center></div>
+	<script>window.location = '/{!$ObjectType.Case.keyPrefix}';</script>
+</apex:page>

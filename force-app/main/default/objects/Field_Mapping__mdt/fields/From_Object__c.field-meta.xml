@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>From_Object__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>From Object</label>
+    <picklist>
+        <picklistValues>
+            <fullName>Case</fullName>
+            <default>true</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>User</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Contact</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Case_Summary__c</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Charge__c</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>EEO_Detail__c</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Witness__c</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Similarly_Treated_Ind__c</fullName>
+            <default>false</default>
+        </picklistValues>
+        <restrictedPicklist>true</restrictedPicklist>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <type>Picklist</type>
+</CustomField>

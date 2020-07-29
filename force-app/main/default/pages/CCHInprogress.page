@@ -1,0 +1,7 @@
+<apex:page >
+<apex:image value="{!$Resource.HR_Self_Help_Icon_Space_Filler}" width="300" height="150"/>
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>This page is under Construction..</h1>
+ 
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Proactive_Reactive_Required_For_Complian</fullName>
+    <active>true</active>
+    <description>If compliance case and proactive reactive is blank, throw error.</description>
+    <errorConditionFormula>AND(RecordType.Name = &#39;Compliance Case&#39;, ISPICKVAL( Proactive_Reactive__c , &#39;&#39;))</errorConditionFormula>
+    <errorDisplayField>Proactive_Reactive__c</errorDisplayField>
+    <errorMessage>Please select value</errorMessage>
+</ValidationRule>

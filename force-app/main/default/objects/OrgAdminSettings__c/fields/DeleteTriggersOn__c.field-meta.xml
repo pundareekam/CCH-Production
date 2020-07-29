@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DeleteTriggersOn__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Turn on ALL delete triggers</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Turn on ALL delete triggers</inlineHelpText>
+    <label>Delete Triggers On</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

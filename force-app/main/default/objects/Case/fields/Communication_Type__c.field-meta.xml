@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Communication_Type__c</fullName>
+    <description>Compliance: Used for backdate</description>
+    <externalId>false</externalId>
+    <label>Communication Type</label>
+    <picklist>
+        <picklistValues>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>In Person</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Telephone (received)</fullName>
+            <default>false</default>
+        </picklistValues>
+        <restrictedPicklist>true</restrictedPicklist>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

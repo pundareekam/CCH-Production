@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guidance_Number_of_Attendees_Required</fullName>
+    <active>true</active>
+    <description>If Education is selected and Type of education is not blank, and type of education picklist includes guidance, and guidance date of education is blank, make field required.</description>
+    <errorConditionFormula>AND(Education__c  = TRUE, RecordType.Name = &#39;Compliance Case&#39;, NOT(ISBLANK( Type_of_Education__c )), 
+INCLUDES(Type_of_Education__c, &#39;Guidance&#39;),
+ISBLANK( Guidance_Number_of_Attendees__c ) 
+)</errorConditionFormula>
+    <errorDisplayField>Guidance_Number_of_Attendees__c</errorDisplayField>
+    <errorMessage>Education is checked. Please enter Guidance Number of Attendees</errorMessage>
+</ValidationRule>

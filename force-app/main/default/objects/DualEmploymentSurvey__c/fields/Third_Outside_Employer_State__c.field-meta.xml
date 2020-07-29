@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Third_Outside_Employer_State__c</fullName>
+    <externalId>false</externalId>
+    <globalPicklist>States</globalPicklist>
+    <label>Third_Outside_Employer_State</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

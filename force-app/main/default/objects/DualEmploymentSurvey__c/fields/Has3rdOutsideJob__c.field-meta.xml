@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Has3rdOutsideJob__c</fullName>
+    <externalId>false</externalId>
+    <globalPicklist>Yes_No</globalPicklist>
+    <label>Has3rdOutsideJob</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

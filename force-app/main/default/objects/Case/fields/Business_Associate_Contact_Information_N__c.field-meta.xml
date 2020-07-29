@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Associate_Contact_Information_N__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Compliance</description>
+    <externalId>false</externalId>
+    <label>Contact Information N</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Cases2</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

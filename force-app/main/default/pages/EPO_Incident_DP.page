@@ -1,0 +1,39 @@
+<apex:page standardController="Case">
+<apex:pageBlock title="Employment Plan Office Incident Page" mode="inlineEdit">
+    <apex:pageBlockSection columns="2" title="Case Information">
+        <apex:outputField value="{!case.CaseNumber}"/>
+        <apex:outputField value="{!case.OwnerId}"/>
+        <apex:outputField value="{!case.Subject}"/>
+        <apex:outputField value="{!case.Status}"/>
+        <apex:outputField value="{!case.Priority}"/>
+    </apex:pageBlockSection>
+    <apex:pageBlockSection columns="2" title="EPO Incident Information">
+        <apex:outputField value="{!case.CaseNumber}"/>
+        <apex:outputField value="{!case.OwnerId}"/>
+        <apex:outputField value="{!case.Subject}"/>
+        <apex:outputField value="{!case.Status}"/>
+        <apex:outputField value="{!case.Priority}"/>
+    </apex:pageBlockSection>    
+    <apex:pageBlockSection columns="2" title="Complainant Information">
+        <apex:outputField value="{!case.EPO_Complaint_Employee__c}"/>
+        <apex:outputField value="{!case.EPO_Complainant_Non_Employee__c}"/>
+        <apex:outputField value="{!case.EPO_Complainant2_Employee__c}"/>
+        <apex:outputField value="{!case.EPO_Complainant2_Non_Employee__c}"/>
+        <apex:outputField value="{!case.EPO_Complainant3_Employee__c}"/>
+        <apex:outputField value="{!case.EPO_Complainant3_Non_Employee__c}"/>
+        <apex:outputField value="{!case.EPO_Complainant4_Employee__c}"/>
+        <apex:outputField value="{!case.EPO_Accused2_Non_Employee__c}"/>
+        <apex:outputField value="{!case.EPO_Complainant5_Employee__c}"/>
+        <apex:outputField value="{!case.EPO_Accused3_Non_Employee__c}"/>
+    
+    </apex:pageBlockSection>
+    <apex:pageBlockSection columns="2" title="Accused Information">
+        <apex:outputField value="{!case.CaseNumber}"/>
+      
+    </apex:pageBlockSection>
+    <apex:pageBlockSection columns="2" title="Witness Information">
+        <apex:outputField value="{!case.CaseNumber}"/>
+      
+    </apex:pageBlockSection>
+</apex:pageBlock>
+</apex:page>

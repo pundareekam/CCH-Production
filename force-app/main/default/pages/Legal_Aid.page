@@ -1,0 +1,57 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false">
+  <c:FlowHeader_VFC FlowName="Benefits Information" IconPath="/resource/1539713095000/HR_Self_Help_Icon_Benefits"/>
+  <div class="Container">
+         
+        <a href="http://www.cookcountyhealth.org/about-cchhs/human-resources"><img src="/resource/1537448709000/Benefits_Connect" /></a>
+        <br/><br/>
+        
+        <img src="/resource/1543602013000/creditunion1" /><br/>
+        <strong>Credit Union 1 Membership - An Exciting Benefit for You and Your Money!</strong><br/>
+        <p>Credit Union 1 is a not-for-profit financial cooperative, owned by our members. Since we’re not in business to make a profit, you benefit with lower loan rates, lower fees, and higher returns on savings.</p>
+        <p>
+        Below are ways in which you benefit as a Credit Union 1 member:
+        <ul>
+        <li>Multiple Savings options</li>
+        <li>Checking solutions for a variety of needs</li>
+        <li>Use nearly 30,000 Surcharge-free CO-OP ATMs</li>
+        <li>Visit 5,000+ Shared Branch locations nationwide</li>
+        <li>HomeAdvantage® is a free member service that can help you search, buy, sell and save on your next home. Plus earn Cash Rewards!</li>
+        <li>Auto Loans, Credit Cards, Home Loans, and more</li>
+        <li>Extended Vehicle Warranties up to 50% off dealer pricing</li>
+        <li>Free Online Banking with Bill Pay</li>
+        <li>Mobile App with Mobile Deposit</li>
+        <li>1-touch, 24/7 toll-free phone banking for personal service</li>
+        <li>CardValet® - manage the card in your wallet with the phone in your pocket</li>
+        <li>Chip enabled Visa® Debit and Credit Cards</li>
+        <li>Pay easy and secure with Apple Pay®</li>
+        <li>Sprint Credit Union Member Cash Rewards Program</li>
+        <li>Membership eligibility is extended to family </li>
+        </ul>
+        <strong>Become a member today to earn more and save more!</strong>
+        <ul>
+        <li>Apply Online at <a href="http://www.creditunion1.org">www.creditunion1.org</a>
+            <ul>
+            <li>Click “Get Started” below the “Open an Account” icon</li>
+            <li>Verify Registration Code</li>
+            <li>Click “I’m eligible for membership through” and then select “Employer or Group” and follow the prompts</li>
+            <li><i>You'll need your Driver's License and SSN to apply</i></li>
+            </ul>
+        </li>
+        <li>Or visit your local <b>Credit Union 1 Branch</b></li>
+        </ul>
+        <div>
+          <img src="/resource/1550680547000/AmericanShare" />
+          <img src="/resource/1550680559000/CoOpBlue" height="100" width="100"/>
+          <img src="/resource/1550680570000/CoOpRed"  height="100" width="100"/>
+        </div>
+        </p>
+        <p>For more information or additional questions, contact our Business Development Department at: 800-252-6950 Ext.7316 or e-mail <a href="mailto:cu1select@creditunion1.org">CU1Select@CreditUnion1.org</a>.</p>
+        <br/><br/>
+        <div style="margin-bottom:40px;">
+          <img src="/resource/1537448709000/Legal_Shield" width="200" />
+        </div>
+        Customer Service: <strong>1-260-580-2636</strong> | <strong>1-708-205-7573</strong>
+        <br/><br/>
+        Through payroll deductions, you can participate in this plan that provides assistance with a variety of planned and unplanned legal issues.
+  </div>
+</apex:page>

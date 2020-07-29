@@ -1,0 +1,61 @@
+<apex:component >
+
+    <link href="{!URLFOR($Resource.flow_css, '/flow.css')}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js" />
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" />
+
+    <apex:attribute name="FlowName" 
+                    description="Write the name of the flow how you want it to appear on the page" 
+                    type="String" 
+                    required="true"/>
+                    
+    <apex:attribute name="IconPath" 
+                    description="" 
+                    type="String" 
+                    required="false"/>
+
+    <style>
+        .FlowName h1 {
+                padding: 25px 0 15px 0;
+                margin:0;
+                float:left
+        }
+        body { background:#0c2340 url('/resource/1564164006000/ComplianceBackground?') !important;}
+        #logo{ float:right; margin-top:15px; }
+        .FlowName h2 { float:left }
+        .FlowName { border-bottom:1px solid #eee;  height:100px;  }
+        .bottomLink, .FlowName, .FlowContainer, .Container, .docStyle{ width:1000px; padding:25px; background-color:#fff; margin:0 auto; }
+        .bottomLink { border-top: 1px solid #eee; }
+        .FlowPageBlockBtns input { background-color:#0a2240; color:#fff; margin-right:5px;}
+        .icon { height: 100px; float: left; padding-right:10px; }
+        #page-table th { background:#0a2240; color:#fff; padding:10px;  }
+        #page-table td { font-size:.9em; line-height: 1.3em; padding:10px; vertical-align: top; }
+        #page-table, #page-table th, #page-table td { border:1px solid #36648b; border-collapse: collapse; }
+        .styled-link { display: inline-block; margin-top:5px;  padding:6px; background:#0a2240; color:#fff; text-decoration:none; }
+        .labelCol { width:30% !important; font-weight:bold !important; }
+        #banner {
+    text-align: center;
+    margin-bottom: 10px;
+    background: url(/resource/1569617742000/DualEmployment_ApprovalBanner?);
+    background-size: cover;
+    background-position: -10px 0;
+    height: 118px;
+        width: 1000px;margin:0 auto;
+        position:relative;
+}
+#banner img {
+        position: absolute;
+    top: 40px;
+    right: 20px;
+    width: 215px;
+}
+    </style>
+
+    <div id="banner">
+        <img class="logo" src="/resource/1567014541000/cchlogo?" />
+    </div>
+
+
+</apex:component>

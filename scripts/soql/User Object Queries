@@ -1,0 +1,7 @@
+Select Id, Name, SupervisorEmployeeID__c from User Where SupervisorEmployeeID__c < 10000 And isActive = true
+Select Id, Name, ContactId, Profile_Name__c from User Where isActive = true limit 10
+Select Id, Name From User Where Union_Representative__c = true
+Select Id, Name, Union_ID__c, Union_Description__c From User Where Is_Union__c = true
+Select Id, Name, superid__c, EmployeeID__c, OriginalHireDate__c, Supervisor_Full_Name__c, SupervisorEmployeeID__c From User Where Id = '005360000047YPE'
+Select Id, Name, BusinessUnitDescription__c, BusinessUnitID__c From User Where isActive = true
+Select Count(Id) From User Where isActive = true

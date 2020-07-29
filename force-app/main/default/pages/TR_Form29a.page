@@ -1,0 +1,363 @@
+<apex:page standardController="Case" showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" >
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <!-- Import the Design System style sheet -->
+        <apex:slds />
+        
+        <div class="slds-scope">
+            <div class="slds-align_absolute-center">
+                <div class="slds-no-print">
+                    <apex:panelGrid width="100%" style="text-align:right;">
+                        <apex:form >
+                            <apex:commandLink value="Print" onclick="window.print();"/>
+                        </apex:form>
+                    </apex:panelGrid>
+                </div>
+            </div>
+            
+            <div class="slds-text-align_right">(Form 29A)</div>
+            
+            <div class="slds-text-heading_medium">
+                <div class="slds-page-header">
+                    <div class="slds-align_absolute-center">
+                        <div class="slds-text-heading--large" style="font-weight: 900;">VOUCHER FORM</div>
+                    </div>
+                    <div class="slds-align_absolute-center">
+                        <div class="slds-text-heading--large" style="font-weight: 900;">COOK COUNTY GOVERNMENT</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slds-box slds-box_xx-small">
+                
+                
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-6">Employee Id</div>
+                    <div class="slds-col slds-size_1-of-6">{!Case.Contact.User__r.EmployeeID__c}</div>
+                    <div class="slds-col slds-size_1-of-6"></div>
+                    <div class="slds-col slds-size_1-of-6"></div>
+                    <div class="slds-col slds-size_2-of-6">Date:
+                        <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                            <apex:param value="{!NOW()}" />
+                        </apex:outputText>
+                    </div>
+                    <div class="slds-col slds-size_1-of-6"></div>
+                </div>
+                
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-6">Employee Name</div>
+                    <div class="slds-col slds-size_1-of-6">{!Case.ContactName__c}</div>
+                </div>
+                
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-6">Emp Last 4 SSN</div>
+                    <div class="slds-col slds-size_1-of-6">{!Case.Contact.User__r.Last_Four_SSN__c}</div>
+                </div>
+                
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-6">Facility Id</div>
+                    <div class="slds-col slds-size_1-of-6">{!Case.Contact.User__r.FacilityID__c}</div>
+                </div>
+                
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-6">Facility Description</div>
+                    <div class="slds-col slds-size_2-of-6">{!Case.Contact.User__r.FacilityDescription__c}</div>
+                    <div class="slds-col slds-size_1-of-6"></div>
+                    <div class="slds-col slds-size_2-of-6">Supplier/Vendor No:{!RIGHT(Case.Contact.User__r.FacilityID__c,3)}</div>
+                    
+                </div>
+                
+            </div>
+            <div class="slds-box slds-box_xx-small">
+                <!--Course One Information Below -->  
+                <div class="slds-text-align_center" style="font-weight: 900; font-size: large;">Course One Details</div>
+                <div class="slds-box slds-box_xx-small">   
+                    <div class="slds-box slds-box_xx-small slds-theme_shade">
+                        <div class="slds-grid slds-theme_shade">
+                            <div class="slds-col slds-size_2-of-6">Course One Number</div>
+                            <div class="slds-col slds-size_1-of-6">{!Case.Course_One_Number__c}</div>
+                        </div> 
+                    </div>
+                    <div class="slds-box slds-box_xx-small">
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_2-of-6">Course One Title</div>
+                            <div class="slds-col slds-size_1-of-6">{!Case.Course_One_Title__c}</div>
+                        </div> 
+                    </div>
+                    <div class="slds-box slds-box_xx-small slds-theme_shade">
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_2-of-6">Grade Received</div>
+                            <div class="slds-col slds-size_1-of-6">{!Case.Course_Official_Grade_Received__c}</div>
+                        </div> 
+                    </div>
+                    
+                    <div class="slds-box slds-box_xx-small slds-theme_alert-texture">
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_2-of-6">Course One Tuition Cost</div>
+                            <div class="slds-col slds-size_1-of-6"></div>
+                            <div class="slds-col slds-size_1-of-6"></div>
+                            <div class="slds-col slds-size_1-of-6">${!Case.Course_One_Tuition_Cost__c}</div>
+                        </div>
+                    </div>
+                    <div class="slds-box slds-box_xx-small slds-theme_shade">
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_2-of-6">Awards/Scholarships/Refunds Received</div>
+                            <div class="slds-col slds-size_1-of-6"></div>
+                            <div class="slds-col slds-size_1-of-6"></div>
+                            <div class="slds-col slds-size_1-of-6">$({!Case.Course_One_Awards__c})</div>
+                        </div>
+                    </div>
+                    <div class="slds-box slds-box_xx-small">
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_2-of-6">Registration Fees</div>
+                            <div class="slds-col slds-size_1-of-6"></div>
+                            <div class="slds-col slds-size_1-of-6"></div>
+                            <div class="slds-col slds-size_1-of-6">${!Case.Course_One_Registration_Fee__c}</div>
+                        </div>
+                    </div>
+                    <div class="slds-box slds-box_xx-small slds-theme_shade">
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_2-of-6">Lab Fees</div>
+                            <div class="slds-col slds-size_1-of-6"></div>
+                            <div class="slds-col slds-size_1-of-6"></div>
+                            <div class="slds-col slds-size_1-of-6">${!Case.Course_One_Lab_Books_Materials_Cost__c}</div>
+                        </div>
+                    </div>
+                    <div class="slds-box slds-box_xx-small">
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_2-of-6">Cost of Books</div>
+                            <div class="slds-col slds-size_1-of-6"></div>
+                            <div class="slds-col slds-size_1-of-6"></div>
+                            <div class="slds-col slds-size_1-of-6">${!Case.Course_One_Cost_of_Books__c}</div>
+                        </div>
+                    </div>
+                    <div class="slds-box slds-box_xx-small slds-theme_shade">
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_2-of-6">Other Fees</div>
+                            <div class="slds-col slds-size_1-of-6"></div>
+                            <div class="slds-col slds-size_1-of-6"></div>
+                            <div class="slds-col slds-size_1-of-6">${!Case.Course_One_Other_Fees__c}</div>
+                        </div>
+                    </div>
+                    <div class="slds-box slds-box_xx-small">
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_2-of-6">Course One Total Cost</div>
+                            <div class="slds-col slds-size_1-of-6"></div>
+                            <div class="slds-col slds-size_1-of-6"></div>
+                            <div class="slds-col slds-size_1-of-6">${!Case.Course_One_Total_Cost__c}</div>
+                        </div>
+                    </div>
+                    
+                </div>    
+                
+                <!--Course Two Information Below -->
+                
+                <div class="{!IF((Case.Course_Two_Title__c == null),"slds-hide","slds-show")}">
+                    
+                    <div class="slds-text-align_center" style="font-weight: 900; font-size: large;">Course Two Details</div>
+                    <div class="slds-box slds-box_xx-small">   
+                        <div class="slds-box slds-box_xx-small slds-theme_shade">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-6">Course Two Number</div>
+                                <div class="slds-col slds-size_1-of-6">{!Case.Course_Two_Number__c}</div>
+                            </div> 
+                        </div>
+                        <div class="slds-box slds-box_xx-small">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-6">Course Two Title</div>
+                                <div class="slds-col slds-size_1-of-6">{!Case.Course_Two_Title__c}</div>
+                            </div> 
+                        </div>
+                        <div class="slds-box slds-box_xx-small slds-theme_shade">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-6">Grade Received</div>
+                                <div class="slds-col slds-size_1-of-6">{!Case.Course_Two_Grade_Received__c}</div>
+                            </div> 
+                        </div>
+                        
+                        <div class="slds-box slds-box_xx-small">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-6">Course Two Tuition Cost</div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6">${!Case.Course_Two_Tuition_Cost__c}</div>
+                            </div>
+                        </div>
+                        <div class="slds-box slds-box_xx-small slds-theme_shade">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-6">Awards/Scholarships/Refunds Received</div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6">$({!Case.Course_Two_Awards__c})</div>
+                            </div>
+                        </div>
+                        <div class="slds-box slds-box_xx-small">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-6">Registration Fees</div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6">${!Case.Course_Two_Registration_Fee__c}</div>
+                            </div>
+                        </div>
+                        <div class="slds-box slds-box_xx-small slds-theme_shade">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-6">Lab Fees</div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6">${!Case.Course_Two_Lab_Book_Materials_Cost__c}</div>
+                            </div>
+                        </div>
+                        <div class="slds-box slds-box_xx-small">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-6">Cost of Books</div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6">${!Case.Course_Two_Cost_of_Books__c}</div>
+                            </div>
+                        </div>
+                        <div class="slds-box slds-box_xx-small slds-theme_shade">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-6">Other Fees</div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6">${!Case.Course_Two_Other_Fees__c}</div>
+                            </div>
+                        </div>
+                        <div class="slds-box slds-box_xx-small">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-6">Course Two Total Cost</div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6">${!Case.Course_Two_Total_Cost__c}</div>
+                            </div>
+                        </div>
+                        
+                    </div>                  
+                    
+                </div> 
+                
+                <!--Course Three Information Below -->
+                
+                <div class="{!IF((Case.Course_Three_Title__c == null),"slds-hide","slds-show")}">
+                    
+                    <div class="slds-text-align_center" style="font-weight: 900; font-size: large;">Course Three Details</div>
+                    <div class="slds-box slds-box_xx-small">   
+                        <div class="slds-box slds-box_xx-small slds-theme_shade">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-6">Course Three Number</div>
+                                <div class="slds-col slds-size_1-of-6">{!Case.Course_Three_Number__c}</div>
+                            </div> 
+                        </div>
+                        <div class="slds-box slds-box_xx-small">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-6">Course Three Title</div>
+                                <div class="slds-col slds-size_1-of-6">{!Case.Course_Three_Title__c}</div>
+                            </div> 
+                        </div>
+                        <div class="slds-box slds-box_xx-small slds-theme_shade">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-6">Grade Received</div>
+                                <div class="slds-col slds-size_1-of-6">{!Case.Course_Three_Grade_Received__c}</div>
+                            </div> 
+                        </div>
+                        
+                        <div class="slds-box slds-box_xx-small">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-6">Course Three Tuition Cost</div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6">${!Case.Course_Three_Tuition_Cost__c}</div>
+                            </div>
+                        </div>
+                        <div class="slds-box slds-box_xx-small slds-theme_shade">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-6">Awards/Scholarships/Refunds Received</div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6">$({!Case.Course_Three_Awards__c})</div>
+                            </div>
+                        </div>
+                        <div class="slds-box slds-box_xx-small">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-6">Registration Fees</div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6">${!Case.Course_Three_Registration_Fee__c}</div>
+                            </div>
+                        </div>
+                        <div class="slds-box slds-box_xx-small slds-theme_shade">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-6">Lab Fees</div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6">${!Case.Course_Three_Lab_Books_Materials_Cost__c}</div>
+                            </div>
+                        </div>
+                        <div class="slds-box slds-box_xx-small">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-6">Cost of Books</div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6">${!Case.Course_Three_Cost_of_Books__c}</div>
+                            </div>
+                        </div>
+                        <div class="slds-box slds-box_xx-small slds-theme_shade">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-6">Other Fees</div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6">${!Case.Course_Three_Other_Fees__c}</div>
+                            </div>
+                        </div>
+                        <div class="slds-box slds-box_xx-small">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-6">Course Three Total Cost</div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6">${!Case.Course_Three_Total_Cost__c}</div>
+                            </div>
+                        </div>
+                        
+                    </div>                  
+                    
+                </div> 
+                <div class="slds-box slds-box_xx-small slds-theme_info">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_2-of-6" style="font-weight: 900; font-size: large;">Total Semester Course Cost</div>
+                        <div class="slds-col slds-size_1-of-6"></div>
+                        <div class="slds-col slds-size_1-of-6"></div>
+                        <div class="slds-col slds-size_1-of-6" style="font-weight: 900; font-size: large;">${!Case.Semester_Total_Cost__c}</div>
+                    </div>
+                </div>  
+                <div class="slds-text-align_Right" style="font-weight: 900;">*Approval Details</div>
+                <div class="slds-box slds-box_xx-small">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_2-of-6" style="font-weight: 900;">HR APPROVAL(PRINT NAME)</div>
+                        <div class="slds-col slds-size_2-of-6" style="font-weight: 900;">HR APPROVAL eSIGNATURE</div>
+                        <div class="slds-col slds-size_2-of-6" style="font-weight: 900;">FINANCE APPROVAL</div>
+                    </div>
+                </div>
+                <div class="slds-box slds-box_xx-small">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_2-of-6" style="font-weight: 900;">__{!Case.LastModifiedBy.Name}________</div>
+                        <div class="slds-col slds-size_2-of-6" style="font-weight: 900;">__{!Case.LastModifiedBy.Name}________</div>
+                        <div class="slds-col slds-size_2-of-6" style="font-weight: 900;">_________________________________</div>
+                    </div>
+                </div>                
+          <div class="slds-box slds-box_xx-small">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_2-of-6" style="font-weight: 900;">EMPLOYEE NAME(PRINT NAME)</div>
+                        <div class="slds-col slds-size_2-of-6" style="font-weight: 900;">EMPLOYEE eSIGNATURE</div>
+                        <div class="slds-col slds-size_2-of-6" style="font-weight: 900;"></div>
+                    </div>
+                </div>
+                <div class="slds-box slds-box_xx-small">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_2-of-6" style="font-weight: 900;">__{!Case.ContactName__c}________</div>
+                        <div class="slds-col slds-size_2-of-6" style="font-weight: 900;">__{!Case.Electronic_Signature_Name__c}______</div>
+                        <div class="slds-col slds-size_2-of-6" style="font-weight: 900;"></div>
+                    </div>
+                </div>                 
+            </div>
+        </div>
+    </html>     
+</apex:page>

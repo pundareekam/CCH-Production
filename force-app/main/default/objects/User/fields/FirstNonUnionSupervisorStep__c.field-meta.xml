@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FirstNonUnionSupervisorStep__c</fullName>
+    <description>Gives the location, 1-5, of the next non-union supervisor</description>
+    <externalId>false</externalId>
+    <formula>IF(
+    AND(
+        NOT(ISBLANK(ManagerId)),
+        ISBLANK(Manager.UnionID__c)
+    ),
+    1,
+    IF(
+        AND(
+            NOT(ISBLANK(Manager.ManagerId)),
+            ISBLANK(Manager.Manager.UnionID__c)
+        ),
+        2,
+        IF(
+            AND(
+                NOT(ISBLANK(Manager.Manager.ManagerId)),
+                ISBLANK(Manager.Manager.Manager.UnionID__c)
+            ),
+            3,
+            IF(
+                AND(
+                    NOT(ISBLANK(Manager.Manager.Manager.ManagerId)),
+                    ISBLANK(Manager.Manager.Manager.Manager.UnionID__c)
+                ),
+                4,
+                IF(
+                    AND(
+                        NOT(ISBLANK(Manager.Manager.Manager.Manager.ManagerId)),
+                        ISBLANK(Manager.Manager.Manager.Manager.Manager.UnionID__c)
+                    ),
+                    5,
+                    0
+                )
+            )
+        )
+    )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Gives the location, 1-5, of the next non-union supervisor</inlineHelpText>
+    <label>First Non-Union Supervisor Step</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

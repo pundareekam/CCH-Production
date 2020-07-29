@@ -1,0 +1,1322 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="true" lightningStylesheets="true" controller="DualEmploymentController" id="page" >
+    <apex:form id="form" styleClass="form">
+        <apex:pageBlock id="section1">
+            <apex:pageBlockButtons location="bottom" rendered="{!survey.Current_Step__c != 13}">
+                <apex:commandButton action="{!save}" value="Save" rendered="{!survey.Current_Step__c != 1}" />
+                <apex:commandButton action="{!previous}" immediate="true" rendered="{!survey.Current_Step__c != 1}"  value="Previous" reRender="section1"/>
+                <apex:commandButton action="{!next}" value="Submit" rendered="{!survey.Current_Step__c != 1}" reRender="section1"/>
+                <apex:commandButton action="{!next}" value="Continue" style="margin-top:-110px;" rendered="{!survey.Current_Step__c = 1}" reRender="section1"/>
+                <apex:commandButton action="{!startOver}" value="Go Back to Make Changes" rendered="{!survey.Current_Step__c = 11}" reRender="section1"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection columns="1" rendered="{!survey.Current_Step__c = 1}" id="landing">
+                <div class="landing Container">
+                    <p>
+                        Welcome, <span class = "noticeName">{!CurrentUser.Name}</span> to the Cook County Health (CCH) annual dual employment and disclosure survey. All CCH employees are required to complete this annually. 
+                    </p>
+                    <p>
+                        <strong>Transparency</strong> is a critical component to our mission as a public, safety-net health provider and health plan. We are steadfastly dedicated to serving our community, this includes our professional and business activities. The purpose of this survey is to protect the interests and assets of CCH, the people who seek health services through our integrated health system, the County of Cook, the taxpayers of Cook County, and the public at large. This reporting tool promotes transparency. 
+                    </p>
+                    <p style="font-size:15px;">
+                        All responses are subject to the Freedom of Information Act. 
+                    </p>
+                </div>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection columns="1" rendered="{!survey.Current_Step__c != 1}" id="header">
+                <div id="banner">
+                    <img class="logo" src="/resource/1567014541000/cchlogo?" />
+                </div>
+
+                <div id="progress-bar">
+                    <div class="w3-light-gray">
+                        <div class="w3-container" style="width:{!(survey.Current_Step__c-2)/11*100}%">
+                            <div class="w3-center w3-text-white">{!ROUND((survey.Current_Step__c-2)/11*100, 0)}%</div>
+                        </div>
+                    </div>
+                </div>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection columns="1" rendered="{!survey.Current_Step__c = 2}" id="agreement">
+                
+                <h1>Accept Policies</h1><br/>
+                <h3>Review The Rules</h3>
+
+                <p>You are responsible for adherence to the policies listed below. You must review, acknowledge, and agree to comply with the terms of the policies and the Personnel Rules to move forward. For any questions, please click on the frequently asked questions (FAQs) listed below.</p>
+                
+                <apex:outputLink value="{!$Resource.PersonnelRules}" target="_blank">Personnel Rules</apex:outputLink> 
+                <apex:outputLink value="{!$Resource.ConflictOfInterestPolicy}" target="_blank">Conflict Of Interest Policy</apex:outputLink>
+                <apex:outputLink value="{!$Resource.DualEmploymentPolicy2019}" target="_blank">Dual Employment Policy</apex:outputLink>
+                <apex:outputLink value="{!$Resource.DualEmploymentSurveyFAQ2019}" target="_blank">Frequently Asked Questions (FAQs)</apex:outputLink>
+
+                <h3>The Conflict of Interest Policy Summary</h3>
+
+                <p>This policy applies to everyone! It covers the following areas:</p>
+
+                <ol>
+                    <li>Conflicts of Interest in Day-to-Day Business Operations of CCH including CountyCare.</li>
+                    <li>Conflicts of Interest in Patient Care.</li>
+                    <li>Conflicts of Interest in Research Activities.</li>
+                    <li>Conflicts of Interest in Educational Activities.</li>
+                </ol>
+
+                <p>In summary, you must avoid any situations or circumstances that would cause you to have a Conflict of Interest. YOU are personally responsible for addressing Conflicts of Interest, whether actual or  those that have the appearance of a Conflict of Interest.  You have a duty  to disclose the existence of a possible Conflict of Interest and all facts relating to the possible Conflict of Interest.</p> 
+
+                <p>Do not accept gifts from any entity, or an employee, contractor, or agent of entity, with which CCH or its operating units is doing business or with which CCH has done business within the past three years.</p>
+
+                <h3>Dual Employment Summary</h3>
+
+                <p>Dual Employment for CCH employees may be permissible when approved by the employee's Department Head in advance and when the expectations related to dual employment activities outlined in this policy are strictly respected. Review the Dual Employment policy for the specific limitations.</p>
+
+                <p>You must complete the e-survey:</p>
+
+                <ol>
+                    <li>Every year,</li>
+                    <li>When you initially enter County service and are assigned to work at CCH,</li>
+                    <li>Whenever you begin any outside Dual Employment,</li>
+                    <li>Anytime your CCH work schedule or outside activity schedule changes, and</li>
+                    <li>When you discontinue your outside activities.</li>
+                </ol>
+
+                <p>In addition to complying with these policies, I hereby authorize my outside Employer(s) to furnish my Department Head or CCH Chief of Human Resources any additional information pertaining to my activity.</p>
+                <br/>
+
+                <apex:PageBlockSection columns="1">
+                    <apex:inputField style="width:50%;" value="{!survey.Has_Agreed_To_Comply_With_Policies__c}" label="Do You Agree To Comply With The Policies?" required="true">
+                        <apex:actionsupport event="onchange" rerender="agreement" />
+                    </apex:inputField>
+                    <br/>
+                </apex:PageBlockSection>
+
+                <apex:outputText value="You must agree to continue the survey. Failure to do so will result in termination." style="color:red;" rendered="{!survey.Has_Agreed_To_Comply_With_Policies__c = 'Disagree'}" />
+            </apex:pageBlockSection>
+
+            <apex:PageBlockSection columns="1" rendered="{!survey.Current_Step__c = 3}" id="dualemp"> 
+                <apex:actionRegion >
+                    <apex:pageBlockSection columns="1">
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Is_A_Dual_Employee__c}" required="true" label="Do You Have Dual Employment?" id="HasDualEmployment">
+                            <apex:actionSupport event="onchange" rerender="dualemp"/>
+                        </apex:inputField> 
+                    </apex:PageBlockSection>
+                </apex:actionRegion>
+
+                <apex:PageBlockSection columns="1" id="DualEmpAnswers">
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.On_Call_Or_Rotate_Shifts__c}" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes'}" required="true" label="Do You Rotate Or Are You On Call?"/>
+                    <apex:inputField styleClass="PageFullWidth"  value="{!survey.Outside_Employer__c}" required="true" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes'}" label="Outside Employer Name:" />
+                    <apex:inputField styleClass="PageFullWidth"  value="{!survey.Outside_Employer_Job_Title__c}" required="true" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes'}" label="Outside Employer Job Title:"/>
+                    <apex:inputField styleClass="PageFullWidth"  value="{!survey.Outside_Employer_Address__c}" required="false" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes'}" label="Outside Employer Address:"/> 
+                    <apex:inputField styleClass="PageFullWidth"  value="{!survey.Outside_Employer_City__c}" required="true" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes'}" label="Outside Employer City:"/> 
+                    <apex:inputField styleClass="PageFullWidth"  value="{!survey.Outside_Employer_State__c}" required="true" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes'}" label="Outside Employer State:"/>
+                    <apex:inputField styleClass="PageFullWidth"  value="{!survey.Outside_Employer_Zip_Code__c}" required="false" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes'}" label="Outside Employer Zip Code:"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Outside_Employer_Brief_Job_Description__c}" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes'}" required="true" label="Outside Employer Brief Job Description:"/> 
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Outside_Employer_Job_Status__c}" required="true" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes'}" label="Outside Employer Job Status:"/> 
+                    <apex:inputField styleClass="PageFullWidth"  value="{!survey.Outside_Employer_Hire_Date__c}" required="true" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes'}" label="Outside Employer Hire Date:"/> 
+                </apex:PageBlockSection>
+
+                <apex:PageBlockSection columns="1" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes'}" >
+                    <apex:outputPanel >
+                    <br/>
+                    <p class = "tableLabel">For An Average Week, Please Enter Your Start And End Time For Outside Employer One.</p>
+                    <table class = "jobHoursMatrix">
+                        <tr>
+                            <th></th>
+                            <th>Monday</th>
+                            <th>Tuesday</th> 
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                            <th>Saturday</th>
+                            <th>Sunday</th>
+                        </tr>
+                        <tr>
+                            <td style="color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif;">Start Time</td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer1MonStartTime__c}" label="" required="false">
+                                        <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer1TueStartTime__c}" label="" required="false">
+                                        <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer1WedStartTime__c}" label="" required="false">
+                                        <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer1ThurStartTime__c}" label="" required="false">
+                                        <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer1FriStartTime__c}" label="" required="false">
+                                        <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer1SatStartTime__c}" label="" required="false">
+                                        <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer1SunStartTime__c}" label="" required="false">
+                                        <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule"/>
+                                </apex:inputField>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif;">End Time</td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer1MonEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer1TueEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                            <apex:inputField value="{!survey.OutsideEmployer1WedEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                            <apex:inputField value="{!survey.OutsideEmployer1ThurEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                            <apex:inputField value="{!survey.OutsideEmployer1FriEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                            <apex:inputField value="{!survey.OutsideEmployer1SatEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                            <apex:inputField value="{!survey.OutsideEmployer1SunEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule"/>
+                                </apex:inputField>
+                            </td>
+                        </tr>
+                        </table>
+                    </apex:outputPanel>    
+                </apex:PageBlockSection>
+                <apex:PageBlockSection columns="2" id="workSchedule">
+                    <apex:outputText value="{!survey.OutsideEmployer1TotalHours__c}" label="Job 1 Total Weekly Hours:" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes'}"/>  
+                </apex:PageBlockSection>  
+
+                <apex:actionRegion >
+                    <apex:PageBlockSection columns="1">    
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes'}" value="{!survey.Has_Second_Outside_Employer__c}" required="false" label="Do You Have A 2nd Outside Job?">
+                            <apex:actionsupport event="onchange" rerender="secondEmployerInfo, thirdEmployerInfo, forthEmployerInfo"/>
+                        </apex:inputField><br/>
+                    </apex:PageBlockSection>
+                </apex:actionRegion>
+                
+                <apex:pageBlockSection columns="1" id="secondEmployerInfo">
+                    <apex:PageBlockSection columns="1">    
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes'}" value="{!survey.Second_Outside_Employer__c}" required="true" label="2nd Outside Employer Name?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes'}" value="{!survey.Second_Outside_Employer_Job_Title__c}" required="true" label="2nd Outside Employer Job Title?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes'}" value="{!survey.Second_Outside_Employer_Address__c}" required="false" label="2nd Outside Employer Address?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes'}" value="{!survey.Second_Outside_Employer_City__c}" required="true" label="2nd Outside Employer City?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes'}" value="{!survey.Second_Outside_Employer_State__c}" required="true" label="2nd Outside Employer State?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes'}" value="{!survey.Second_Outside_Employer_Zip_Code__c}" required="false" label="2nd Outside Employer Zip Code?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes'}" value="{!survey.Second_Outside_Employer_Brief_Job__c}" required="true" label="2nd Outside Employer Brief Job Description?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes'}" value="{!survey.Second_Outside_Employer_Job_Status__c}" required="true" label="2nd Outside Employer Job Status" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes'}" value="{!survey.Second_Outside_Employer_Hire_Date__c}" required="true" label="2nd Outside Employer Hire Date?" />
+                    </apex:PageBlockSection>
+
+                    <apex:PageBlockSection columns="1" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes'}">
+                        <apex:outputPanel >
+                        <p class = "tableLabel">For An Average Week, Please Enter Your Start And End Time For Outside Employer For Two.</p>
+                        <table class ="jobHoursMatrix">
+                        <tr>
+                            <th></th>
+                            <th>Monday</th>
+                            <th>Tuesday</th> 
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                            <th>Saturday</th>
+                            <th>Sunday</th>
+                        </tr>
+                        <tr>
+                            <td style="color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif;">Start Time</td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer2MonStartTime__c}" label="" required="false">
+                                        <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer2TueStartTime__c}" label="" required="false">
+                                        <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer2WedStartTime__c}" label="" required="false">
+                                        <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer2ThurStartTime__c}" label="" required="false">
+                                        <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer2FriStartTime__c}" label="" required="false">
+                                        <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer2SatStartTime__c}" label="" required="false">
+                                        <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer2SunStartTime__c}" label="" required="false">
+                                        <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif;">End Time</td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer2MonEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer2TueEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                            <apex:inputField value="{!survey.OutsideEmployer2WedEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                            <apex:inputField value="{!survey.OutsideEmployer2ThurEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                            <apex:inputField value="{!survey.OutsideEmployer2FriEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                            <apex:inputField value="{!survey.OutsideEmployer2SatEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                            <apex:inputField value="{!survey.OutsideEmployer2SunEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                        </tr>
+                        </table>
+                        </apex:outputPanel>
+                        <apex:PageBlockSection columns="2" id="employer2TotalHours">
+                            <apex:outputText value="{!survey.OutsideEmployer2TotalHours__c}" label="Job 2 Total Weekly Hours:" rendered="{!survey.Has_Second_Outside_Employer__c = 'Yes'}"/>  
+                        </apex:PageBlockSection>  
+                    </apex:PageBlockSection>
+
+                        <apex:actionRegion >
+                        <apex:PageBlockSection columns="1">    
+                            <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes'}" value="{!survey.Has_Third_Outside_Employer__c}" required="false" label="Do You Have A 3rd Outside Job?">
+                                <apex:actionsupport event="onchange" rerender="thirdEmployerInfo, forthEmployerInfo"/>
+                            </apex:inputField><br/>
+                        </apex:PageBlockSection>
+                        </apex:actionRegion>
+                </apex:PageBlockSection>
+
+                <apex:pageBlockSection columns="1" id="thirdEmployerInfo">
+                    <apex:PageBlockSection columns="1">    
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No'}" value="{!survey.Third_Outside_Employer__c}" required="true" label="3rd Outside Employer Name?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No'}" value="{!survey.Third_Outside_Employer_Job_Title__c}" required="true" label="3rd Outside Employer Job Title?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No'}" value="{!survey.Third_Outside_Employer_Address__c}" required="false" label="3rd Outside Employer Address?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No'}" value="{!survey.Third_Outside_Employer_City__c}" required="true" label="3rd Outside Employer City?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No'}" value="{!survey.Third_Outside_Employer_State__c}" required="true" label="3rd Outside Employer State?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No'}" value="{!survey.Third_Outside_Employer_Zip_Code__c}" required="false" label="3rd Outside Employer Zip Code?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No'}" value="{!survey.Third_Outside_Employer_Brief_Job__c}" required="true" label="3rd Outside Employer Brief Job Description?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No'}" value="{!survey.Third_Outside_Employer_Job_Status__c}" required="true" label="3rd Outside Employer Job Status" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No'}" value="{!survey.Third_Outside_Employer_Hire_Date__c}" required="true" label="3rd Outside Employer Hire Date?" />
+                    </apex:PageBlockSection>
+
+                    <apex:PageBlockSection columns="1" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No'}">
+                        <apex:outputPanel >
+                        <p class = "tableLabel">For An Average Week, Please Enter Your Start And End Time For Outside Employer Three.</p>
+                        <table class ="jobHoursMatrix">
+                        <tr>
+                            <th></th>
+                            <th>Monday</th>
+                            <th>Tuesday</th> 
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                            <th>Saturday</th>
+                            <th>Sunday</th>
+                        </tr>
+                        <tr>
+                            <td style="color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif;">Start Time</td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer3MonStartTime__c}" label="" required="false">
+                                        <apex:actionSupport action="{!calcJob3Hours}" event="onchange" rerender="employer3TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer3TueStartTime__c}" label="" required="false">
+                                        <apex:actionSupport action="{!calcJob3Hours}" event="onchange" rerender="employer3TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer3WedStartTime__c}" label="" required="false">
+                                        <apex:actionSupport action="{!calcJob3Hours}" event="onchange"  rerender="employer3TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer3ThurStartTime__c}" label="" required="false">
+                                        <apex:actionSupport action="{!calcJob3Hours}" event="onchange"  rerender="employer3TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer3FriStartTime__c}" label="" required="false">
+                                        <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer3SatStartTime__c}" label="" required="false">
+                                        <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer3SunStartTime__c}" label="" required="false">
+                                        <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif;">End Time</td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer3MonEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer3TueEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                            <apex:inputField value="{!survey.OutsideEmployer3WedEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                            <apex:inputField value="{!survey.OutsideEmployer3ThurEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                            <apex:inputField value="{!survey.OutsideEmployer3FriEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                            <apex:inputField value="{!survey.OutsideEmployer3SatEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                            <apex:inputField value="{!survey.OutsideEmployer3SunEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                        </tr>
+                        </table>
+                        </apex:outputPanel>
+                        <apex:PageBlockSection columns="2" id="employer3TotalHours">
+                            <apex:outputText value="{!survey.OutsideEmployer3TotalHours__c}" label="Job 3 Total Weekly Hours:" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Is_A_Dual_Employee__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No'}"/>  
+                        </apex:PageBlockSection>  
+                    </apex:PageBlockSection>
+
+                        <apex:actionRegion >
+                        <apex:PageBlockSection columns="1">    
+                            <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No'}" value="{!survey.Has_Fourth_Outside_Employer__c}" required="false" label="Do You Have A 4th Outside Job?">
+                                <apex:actionsupport event="onchange" rerender="forthEmployerInfo"/>
+                            </apex:inputField><br/>
+                        </apex:PageBlockSection>
+                        </apex:actionRegion>
+                </apex:PageBlockSection>
+
+                <apex:pageBlockSection columns="1" id="forthEmployerInfo">
+                    <apex:PageBlockSection columns="1">    
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Fourth_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No'}" value="{!survey.Fourth_Outside_Employer__c}" required="true" label="4th Outside Employer Name?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Fourth_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No'}" value="{!survey.Fourth_Outside_Employer_Job_Title__c}" required="true" label="4th Outside Employer Job Title?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Fourth_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No'}" value="{!survey.Fourth_Outside_Employer_Address__c}" required="false" label="4th Outside Employer Address?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Fourth_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No'}" value="{!survey.Fourth_Outside_Employer_City__c}" required="true" label="4th Outside Employer City?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Fourth_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No'}" value="{!survey.Fourth_Outside_Employer_State__c}" required="true" label="4th Outside Employer State?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Fourth_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No'}" value="{!survey.Fourth_Outside_Employer_Zip_Code__c}" required="false" label="4th Outside Employer Zip Code?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Fourth_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No'}" value="{!survey.Fourth_Outside_Employer_Brief_Job__c}" required="true" label="4th Outside Employer Brief Job Description?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Fourth_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No'}" value="{!survey.Fourth_Outside_Employer_Job_Status__c}" required="true" label="4th Outside Employer Job Status" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Fourth_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No'}" value="{!survey.Fourth_Outside_Employer_Hire_Date__c}" required="true" label="4th Outside Employer Hire Date?" />
+                    </apex:PageBlockSection>
+
+                    <apex:PageBlockSection columns="1" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Fourth_Outside_Employer__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No'}">
+                        <apex:outputPanel >
+                        <p class = "tableLabel">For An Average Week, Please Enter Your Start And End Time For Outside Employer Four.</p>
+                        <table class ="jobHoursMatrix">
+                        <tr>
+                            <th></th>
+                            <th>Monday</th>
+                            <th>Tuesday</th> 
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                            <th>Saturday</th>
+                            <th>Sunday</th>
+                        </tr>
+                        <tr>
+                            <td style="color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif;">Start Time</td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer4MonStartTime__c}" label="" required="false">
+                                        <apex:actionSupport action="{!calcJob4Hours}" event="onchange" rerender="employer4TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer4TueStartTime__c}" label="" required="false">
+                                        <apex:actionSupport action="{!calcJob4Hours}" event="onchange" rerender="employer4TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer4WedStartTime__c}" label="" required="false">
+                                        <apex:actionSupport action="{!calcJob4Hours}" event="onchange"  rerender="employer4TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer4ThurStartTime__c}" label="" required="false">
+                                        <apex:actionSupport action="{!calcJob4Hours}" event="onchange"  rerender="employer4TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer4FriStartTime__c}" label="" required="false">
+                                        <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer4SatStartTime__c}" label="" required="false">
+                                        <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer4SunStartTime__c}" label="" required="false">
+                                        <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif;">End Time</td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer4MonEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                                <apex:inputField value="{!survey.OutsideEmployer4TueEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                            <apex:inputField value="{!survey.OutsideEmployer4WedEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                            <apex:inputField value="{!survey.OutsideEmployer4ThurEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                            <apex:inputField value="{!survey.OutsideEmployer4FriEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                            <apex:inputField value="{!survey.OutsideEmployer4SatEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                            <td>
+                            <apex:inputField value="{!survey.OutsideEmployer4SunEndTime__c}" label="" required="false">
+                                    <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours"/>
+                                </apex:inputField>
+                            </td>
+                        </tr>
+                        </table>
+                        </apex:outputPanel>
+                        <apex:PageBlockSection columns="2" id="employer4TotalHours">
+                            <apex:outputText value="{!survey.OutsideEmployer4TotalHours__c}" label="Job 4 Total Weekly Hours:" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Is_A_Dual_Employee__c = 'Yes' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No'}"/>  
+                        </apex:PageBlockSection>  
+                    </apex:PageBlockSection>
+
+                </apex:PageBlockSection>
+
+
+            </apex:PageBlockSection>
+
+            <apex:PageBlockSection columns="1" rendered="{!survey.Current_Step__c = 4}" id="procurement">
+
+                <p>In the calendar year 2018 and year-to-date 2019, did YOU actively participate in the procurement (purchasing) process at CCH by:</p>
+                <ul>
+                    <li>identifying a supply, product or vendor for use at CCH, evaluating a RFP (Request for Proposal),</li>
+                    <li>participating in the Drug and Formulary Committee or a Value Analysis Committee through Supply Chain, and/or </li>
+                    <li>participating in any other CCH product or vendor evaluation committee.</li>
+                </ul>
+                <br/>
+                <apex:PageBlockSection columns="1">
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Participated_In_The_Procurement_Process__c}" required="true" label="Did You Participate In Purchasing Decisions?"/>
+                    <br/>        
+                </apex:PageBlockSection>   
+            </apex:PageBlockSection>
+
+            <apex:PageBlockSection columns="1" rendered="{!survey.Current_Step__c = 5}" id="gifts">
+                <p>In the calendar year 2018 and year-to-date 2019, did YOU or any of your <span class ="notice">Immediate Family Members</span> receive a <span class ="notice">Gift</span> from:</p>
+                <ul>
+                <li>An organization that does business, or could potentially do business, with CCH?</li>
+                <li>An organization that sponsors your research?</li>
+                </ul>
+
+                <p>A <span class ="notice">Gift</span> is any gratuity, discount, entertainment, hospitality, loan, forbearance, or other tangible or intangible item having monetary value including, but not limited to, cash, food and drink, and honoraria for external speaking engagements related to or attributable to a person’s status as a Covered Person.</p>
+                
+
+                <p><span class ="notice">Immediate Family Members</span> include your spouse, domestic partner, and any relative by blood, marriage, or adoption.  This would also include anyone living at the same residence or any person of significant influence.</p>
+
+                <apex:pageBlockSection columns="1">
+                    <apex:actionRegion >
+                        <apex:pageBlockSection columns="1">
+                            <apex:inputField styleClass="PageFullWidth" value="{!survey.Received_Gifts__c}" required="true" label="Did You Receive Any Gifts?">
+                                <apex:actionsupport event="onchange" rerender="gifts" />
+                            </apex:inputField>
+                        </apex:pageBlockSection>
+                    </apex:actionRegion>
+                    
+                    <apex:PageBlockSection columns="1">                                                                                        
+                            <apex:inputField styleClass="PageFullWidth" value="{!survey.Received_Gifts_From__c}" required="true" label="Name Of Organization" rendered="{!survey.Received_Gifts__c = 'Yes'}" /><br/>
+                            <apex:inputField styleClass="PageFullWidth" value="{!survey.Description_of_Gifts__c}" required="true" label="Description Of Gifts?" rendered="{!survey.Received_Gifts__c = 'Yes'}" />
+                    </apex:PageBlockSection>
+                </apex:pageBlockSection>
+            </apex:PageBlockSection>
+
+            <apex:PageBlockSection columns="1" rendered="{!survey.Current_Step__c = 6}" id="academic">
+            
+                <p>Beyond your duties at CCH, for the calendar year 2018 and year-to-date 2019, did you participate in any academic activities such as instructing, consulting or providing educational programs that were <span class = "notice">NOT</span> affiliated with CCH?</p>
+                
+                <apex:PageBlockSection columns="1">
+                    <apex:actionRegion >
+                    <apex:PageBlockSection columns="1">
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Participated_In_Academic_Activities__c}" required="true" label="Did You Participate In Any Academic Activities?"> 
+                            <apex:actionsupport event="onchange" rerender="academic"/>
+                        </apex:inputField><br/>
+                    </apex:PageBlockSection>
+                    </apex:actionRegion>
+                    
+                    <apex:pageBlockSection columns="1">
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Academic_Organizations__c}" rendered="{!survey.Participated_In_Academic_Activities__c = 'Yes'}" required="true" label="Name Of Organization?"/><br/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Received_Compensation_From_Activities__c}"  rendered="{!survey.Participated_In_Academic_Activities__c = 'Yes'}" required="true" label="Did You Receive Compensation?"/><br/>
+                    </apex:PageBlockSection>
+                </apex:PageBlockSection>
+            </apex:PageBlockSection>
+            
+            <apex:PageBlockSection columns="1" rendered="{!survey.Current_Step__c = 7}" id="responsibility">
+                
+                <p>In the calendar year 2018 and year-to-date 2019, did YOU or any <span class = "notice">Immediate Family Members </span> serve in a position of responsibility, such as a board member/director, officer, or trustee, for an organization that falls into one of the following categories?</p>
+                
+                <ul>
+                    <li>An organization that does business, or could potentially do business, with CCH</li>
+                    <li>An organization that sponsors your research</li>
+                </ul>
+
+                <p> <span class = "notice">Immediate Family Members</span> include your spouse, domestic partner, and any relative by blood, marriage, or adoption.  This would also include anyone living at the same residence or any person of significant influence.</p>
+
+                <apex:PageBlockSection columns="1">
+
+                    <apex:actionRegion >
+                    <apex:PageBlockSection columns="1">    
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Served_In_A_Position_Of_Responsibility__c}" required="true" label="Did You Or A Family Member Serve In A Position Of Responsibility?"> 
+                            <apex:actionSupport event="onchange" rerender="responsibility" />
+                        </apex:inputField><br/>
+                    </apex:PageBlockSection>
+                    </apex:actionRegion>
+
+                    <apex:PageBlockSection columns="1">
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Name_Of_Responsibility_Organization__c}" required="true" label="Name Of Organization?" rendered="{!survey.Served_In_A_Position_Of_Responsibility__c = 'Yes'}"/><br/>
+                            
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Served_In_A_Position_Of_Responsibility__c = 'Yes'}" value="{!survey.Responsibility_Relationship__c}" required="true" label="Was It YOU Or A Family Member?"/><br/>
+
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Served_In_A_Position_Of_Responsibility__c = 'Yes'}" value="{!survey.Responsibility_Position__c}" required="true" label="Position Within The Organization?"/><br/>
+                    </apex:PageBlockSection>
+                </apex:PageBlockSection>
+            </apex:PageBlockSection>
+
+            <apex:PageBlockSection columns="1" rendered="{!survey.Current_Step__c = 8}" id="organization">
+
+                <p>In the calendar year 2018 and year-to-date 2019, do YOU, or an <span class = "notice"> Immediate Family Member</span>, directly own or control an Organization that falls into one of the following categories?</p>
+                
+                <ul>
+                    <li>An organization that does business, or could potentially do business, with CCH</li>
+                    <li>An organization that sponsors your research</li>
+                </ul>
+
+                <p><span class = "notice"> Immediate Family Members</span> include your spouse, domestic partner, and any relative by blood, marriage, or adoption.  This would also include anyone living at the same residence or any person of significant influence.</p>
+
+                <apex:pageBlockSection columns="1">
+                    <apex:actionRegion >
+                        <apex:pageBlockSection columns="1">
+                            <apex:inputField styleClass="PageFullWidth" value="{!survey.Owned_Or_Controled_An_Organization__c}" required="true" label="Did You Own Or Control An Organization?">
+                                <apex:actionsupport event="onchange" rerender="organization" />
+                            </apex:inputField>
+                        </apex:pageBlockSection>
+                    </apex:actionRegion>
+                    
+                    <apex:PageBlockSection columns="1">                                                                                        
+                            <apex:inputField styleClass="PageFullWidth" value="{!survey.Organization_Name__c}" required="true" label="Name Of Organization" rendered="{!survey.Owned_Or_Controled_An_Organization__c = 'Yes'}" /><br/>
+                            <apex:inputField styleClass="PageFullWidth" value="{!survey.Owner_Was_You_Or_Family__c}" required="true" label="Were You The Owner Or A Family Member?" rendered="{!survey.Owned_Or_Controled_An_Organization__c = 'Yes'}" /><br/>
+                            <apex:inputField styleClass="PageFullWidth" value="{!survey.Position_Within_Organization__c}" required="true" label="Position Within The Organization?" rendered="{!survey.Owned_Or_Controled_An_Organization__c = 'Yes'}" />
+                    </apex:PageBlockSection>
+                </apex:pageBlockSection>
+            </apex:PageBlockSection>
+
+            <apex:PageBlockSection columns="1" rendered="{!survey.Current_Step__c = 9}" id="research">
+
+                <p>In the calendar year 2018 and year-to-date 2019, were YOU involved in the design, conduct, or reporting of industry-sponsored research (e.g., principal investigator, co-investigator, or any other member of a research project)?</p>
+
+                <apex:PageBlockSection columns="1">
+
+                    <apex:actionRegion >
+                    <apex:PageBlockSection columns="1">
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Involved_In_Sponsored_Research__c}" required="true" label="Did You Participate In Sponsored Research?">
+                            <apex:actionsupport event="onchange" rerender="research"/>
+                        </apex:inputField>
+                    </apex:PageBlockSection>
+                    </apex:actionRegion>
+
+                    <apex:PageBlockSection columns="1">
+                    
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Involved_In_Sponsored_Research__c = 'Yes'}" value="{!survey.Research_Sponsor_Name__c}" required="true" label="Sponsor Name?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Involved_In_Sponsored_Research__c = 'Yes'}" value="{!survey.Research_Role__c}" required="true" label="Research Role?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Involved_In_Sponsored_Research__c = 'Yes'}" value="{!survey.Research_Project_Title__c}" required="true" label="The Exact Title Of Project?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Involved_In_Sponsored_Research__c = 'Yes'}" value="{!survey.Institutional_Review_Board_Info__c}" required="true" label="IRB # and IRB Agency" />
+                    </apex:PageBlockSection>
+
+                    <apex:actionRegion >
+                    <apex:PageBlockSection columns="1">    
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Involved_In_Sponsored_Research__c = 'Yes'}" value="{!survey.Under_Current_Research_Conflict_Mgt_Plan__c}" required="true" label="Are You Under A Current Research Conflict Management Plan?">
+                            <apex:actionsupport event="onchange" rerender="conflictManagementQuestions"/>
+                        </apex:inputField>
+                    </apex:PageBlockSection>
+                    </apex:actionRegion>
+
+                    <apex:PageBlockSection columns="1" id="conflictManagementQuestions">
+
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Involved_In_Sponsored_Research__c != 'No' && survey.Under_Current_Research_Conflict_Mgt_Plan__c = 'Yes'}" value="{!survey.Conflict_Management_Plan_Assigned_By__c}" required="true" label="Who Placed You On The Conflict Management Plan?" />
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Involved_In_Sponsored_Research__c != 'No' && survey.Under_Current_Research_Conflict_Mgt_Plan__c = 'Yes'}" value="{!survey.Following_Conflict_Mgt_Plans__c}" required="true" label="Do You Follow The Requirements Described In The Plan?" />         
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Involved_In_Sponsored_Research__c != 'No' && survey.Under_Current_Research_Conflict_Mgt_Plan__c = 'Yes'}" value="{!survey.Changes_Required_To_Conflict_Plan__c}" required="true" label="Were There Changes Pertaining To Your Conflict Of Interest Plan That Required Or May Require A Modification Of The Plan?" />                                    
+                        <apex:inputField styleClass="PageFullWidth" rendered="{!survey.Involved_In_Sponsored_Research__c != 'No' && survey.Under_Current_Research_Conflict_Mgt_Plan__c = 'Yes'}" value="{!survey.Notified_Assigning_Organization__c}" required="true" label="Did You Notify The Assigning Organization Of Such Changes?" />
+                    </apex:PageBlockSection>
+                </apex:PageBlockSection>     
+            </apex:PageBlockSection>
+
+            <apex:PageBlockSection columns="1" rendered="{!survey.Current_Step__c = 10}" id="otherConflicts">
+
+                <apex:actionRegion >
+                <apex:PageBlockSection columns="1">
+                <apex:inputField styleClass="PageFullWidth" value="{!survey.Has_Other_Conflicts__c}" required="true" label="In addition to your earlier answers, are there any other activities or interests that may appear to be a CCH conflict of interest?">
+                    <apex:actionsupport event="onchange" rerender="otherConflicts"/>
+                </apex:inputField>
+                </apex:PageBlockSection>
+                </apex:actionRegion>
+
+                <apex:pageBlockSection columns="1">
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Other_Conflicts__c}" required="true" label="Please Explain All Other Conflicts" rendered="{!survey.Has_Other_Conflicts__c = 'Yes'}"/>
+                </apex:PageBlockSection>
+            </apex:PageBlockSection>
+
+            <apex:PageBlockSection columns="1" rendered="{!survey.Current_Step__c = 11}" id="reveiwSubmission">
+
+                <h3 class = "noticereview">Please Review The Information Below:</h3>
+           
+                <p class = "noticereview"><span style = "text-decoration:underline; font-weight: bold; color:orange;">Carefully review</span> your submission before continuing to the next screen.</p> 
+                <p class = "noticereview">By submitting your Annual Dual Employment Survey, you are certifying and confirming that the information is true, accurate, and you recognize that giving false information within this survey shall be cause for disciplinary action up to and including discharge from Cook County employment.</p> 
+
+                <apex:PageBlockSection columns="1">
+                    
+                    <apex:PageBlockSection columns="1">    
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Is_A_Dual_Employee__c}" label="Do You Have Dual Employment?">
+                            <apex:actionSupport event="onchange" rerender="reviewEmploymentJob1, reviewHadSecondJobQuestion, reviewEmploymentJob2, reviewHadThirdJobQuestion, reviewHadThirdJobQuestions,reviewEmploymentJob3, reviewEmploymentJob3, reviewEmploymentJob4, reviewHadForthJobQuestion"/>
+                        </apex:inputField>  
+                    </apex:PageBlockSection>    
+
+                    <apex:PageBlockSection id="reviewEmploymentJob1" columns="1"> 
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.On_Call_Or_Rotate_Shifts__c}" label="Are You On Call Or Rotate Shifts?" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes' && survey.On_Call_Or_Rotate_Shifts__c !=null}"/>       
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Outside_Employer__c}" label="Outside Employer?" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes' && survey.Outside_Employer__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Outside_Employer_Job_Title__c}" label="Outside Employer Job Title?" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes' && survey.Outside_Employer_Job_Title__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Outside_Employer_Address__c}" label="Outside Employer Address?" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes' && survey.Outside_Employer_Address__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Outside_Employer_City__c}" label="Outside Employer City?" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes' && survey.Outside_Employer_City__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Outside_Employer_State__c}" label="Outside Employer State?" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes' && survey.Outside_Employer_State__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Outside_Employer_Zip_Code__c}" label="Outside Employer Zip Code?" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes' && survey.Outside_Employer_Zip_Code__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Outside_Employer_Brief_Job_Description__c}" label="Outside Employer Brief Job Description?" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes' && survey.Outside_Employer_Brief_Job_Description__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Outside_Employer_Job_Status__c}" label="Outside Employer Job Status?" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes' && survey.Outside_Employer_Job_Status__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Outside_Employer_Hire_Date__c}" label="Outside Employer Hire Date?" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes' && survey.Outside_Employer_Hire_Date__c!= null}"/>
+                                            
+                        <apex:PageBlockSection columns="1" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes'}" >
+                            <apex:outputPanel >
+                                <p class = "tableLabel">For An Average Week, Please Enter Your Start And End Time For Outside Employer One.</p>
+                                <table class = "jobHoursMatrix">
+                                        <tr>
+                                            <th></th>
+                                            <th>Monday</th>
+                                            <th>Tuesday</th> 
+                                            <th>Wednesday</th>
+                                            <th>Thursday</th>
+                                            <th>Friday</th>
+                                            <th>Saturday</th>
+                                            <th>Sunday</th>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif;">Start Time</td>
+                                            <td>
+                                                <apex:inputField value="{!survey.OutsideEmployer1MonStartTime__c}" label="" required="false">
+                                                        <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule,totaltotal"/>
+                                                </apex:inputField>
+                                            </td>
+                                            <td>
+                                                <apex:inputField value="{!survey.OutsideEmployer1TueStartTime__c}" label="" required="false">
+                                                        <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule,totaltotal"/>
+                                                </apex:inputField>
+                                            </td>
+                                            <td>
+                                                <apex:inputField value="{!survey.OutsideEmployer1WedStartTime__c}" label="" required="false">
+                                                        <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule,totaltotal"/>
+                                                </apex:inputField>
+                                            </td>
+                                            <td>
+                                                <apex:inputField value="{!survey.OutsideEmployer1ThurStartTime__c}" label="" required="false">
+                                                        <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule,totaltotal"/>
+                                                </apex:inputField>
+                                            </td>
+                                            <td>
+                                                <apex:inputField value="{!survey.OutsideEmployer1FriStartTime__c}" label="" required="false">
+                                                        <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule,totaltotal"/>
+                                                </apex:inputField>
+                                            </td>
+                                            <td>
+                                                <apex:inputField value="{!survey.OutsideEmployer1SatStartTime__c}" label="" required="false">
+                                                        <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule,totaltotal"/>
+                                                </apex:inputField>
+                                            </td>
+                                            <td>
+                                                <apex:inputField value="{!survey.OutsideEmployer1SunStartTime__c}" label="" required="false">
+                                                        <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule,totaltotal"/>
+                                                </apex:inputField>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif;">End Time</td>
+                                            <td>
+                                                <apex:inputField value="{!survey.OutsideEmployer1MonEndTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule,totaltotal"/>
+                                                </apex:inputField>
+                                            </td>
+                                            <td>
+                                                <apex:inputField value="{!survey.OutsideEmployer1TueEndTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule,totaltotal"/>
+                                                </apex:inputField>
+                                            </td>
+                                            <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer1WedEndTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule,totaltotal"/>
+                                                </apex:inputField>
+                                            </td>
+                                            <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer1ThurEndTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule,totaltotal"/>
+                                                </apex:inputField>
+                                            </td>
+                                            <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer1FriEndTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule,totaltotal"/>
+                                                </apex:inputField>
+                                            </td>
+                                            <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer1SatEndTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule,totaltotal"/>
+                                                </apex:inputField>
+                                            </td>
+                                            <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer1SunEndTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcTotal}" rerender="workSchedule,totaltotal"/>
+                                                </apex:inputField>
+                                            </td>
+                                        </tr>
+                                    </table>
+                            </apex:outputPanel>    
+                        </apex:PageBlockSection>
+                        <apex:PageBlockSection columns="2" id="workSchedule">
+                            <apex:outputText value="{!survey.OutsideEmployer1TotalHours__c}" label="Job 1 Total Weekly Hours:" rendered="{!survey.Is_A_Dual_Employee__c = 'Yes'}"/>  
+                        </apex:PageBlockSection> 
+                    </apex:PageBlockSection>
+                    
+                    <apex:PageBlockSection columns="1" id="reviewHadSecondJobQuestion">    
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Has_Second_Outside_Employer__c}" label="Do You Have A Second Outside Employer?" rendered="{!survey.Is_A_Dual_Employee__c != 'No'}">
+                            <apex:actionSupport event="onchange" rerender="reviewEmploymentJob2, reviewHadThirdJobQuestion, reviewEmploymentJob3, reviewEmploymentJob4, reviewHadForthJobQuestion"/>
+                        </apex:inputField>  
+                    </apex:PageBlockSection>   
+
+                    <apex:PageBlockSection id="reviewEmploymentJob2" columns="1">    
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Second_Outside_Employer__c}" label="2nd Outside Employer Name?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes' && survey.Second_Outside_Employer__c != null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Second_Outside_Employer_Job_Title__c}" label="2nd Outside Employer Job Title?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes' && survey.Second_Outside_Employer_Job_Title__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Second_Outside_Employer_Address__c}" label="2nd Outside Employer Address?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes' && survey.Second_Outside_Employer_Address__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Second_Outside_Employer_City__c}" label="2nd Outside Employer City?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes' && survey.Second_Outside_Employer_City__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Second_Outside_Employer_State__c}" label="2nd Outside Employer State?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes' && survey.Second_Outside_Employer_State__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Second_Outside_Employer_Zip_Code__c}" label="2nd Outside Employer Zip Code?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes' && survey.Second_Outside_Employer_Zip_Code__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Second_Outside_Employer_Brief_Job__c}" label="2nd Outside Employer Brief Job Description?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes' && survey.Second_Outside_Employer_Brief_Job__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Second_Outside_Employer_Job_Status__c}" label="2nd Outside Employer Job Status?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes' && survey.Second_Outside_Employer_Job_Status__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Second_Outside_Employer_Hire_Date__c}" label="2nd Outside Employer Hire Date?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes' && survey.Second_Outside_Employer_Hire_Date__c!= null}"/>
+                    
+                        <apex:PageBlockSection columns="1" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c = 'Yes'}">
+                            <apex:outputPanel >
+                                <p class = "tableLabel">For An Average Week, Please Enter Your Start And End Time For Outside Employer For Two.</p>
+                                <table class ="jobHoursMatrix">
+                                    <tr>
+                                        <th></th>
+                                        <th>Monday</th>
+                                        <th>Tuesday</th> 
+                                        <th>Wednesday</th>
+                                        <th>Thursday</th>
+                                        <th>Friday</th>
+                                        <th>Saturday</th>
+                                        <th>Sunday</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif;">Start Time</td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer2MonStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer2TueStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer2WedStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer2ThurStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer2FriStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer2SatStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer2SunStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif;">End Time</td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer2MonEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer2TueEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                        <apex:inputField value="{!survey.OutsideEmployer2WedEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                        <apex:inputField value="{!survey.OutsideEmployer2ThurEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                        <apex:inputField value="{!survey.OutsideEmployer2FriEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                        <apex:inputField value="{!survey.OutsideEmployer2SatEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                        <apex:inputField value="{!survey.OutsideEmployer2SunEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob2Hours}" rerender="employer2TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </apex:outputPanel>
+                            <apex:PageBlockSection columns="2" id="employer2TotalHours">
+                                <apex:outputText value="{!survey.OutsideEmployer2TotalHours__c}" label="Job 2 Total Weekly Hours:" rendered="{!survey.Has_Second_Outside_Employer__c = 'Yes'}"/>  
+                            </apex:PageBlockSection>  
+                        </apex:PageBlockSection>
+                    </apex:PageBlockSection>
+
+                
+                    <apex:PageBlockSection columns="1" id="reviewHadThirdJobQuestion">    
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Has_Third_Outside_Employer__c}" label="Do You Have A Third Outside Employer?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No'}">
+                            <apex:actionSupport event="onchange" rerender="reviewEmploymentJob3, reviewHadForthJobQuestion, reviewEmploymentJob4"/>
+                        </apex:inputField>  
+                    </apex:PageBlockSection>   
+
+                    <apex:PageBlockSection id="reviewEmploymentJob3" columns="1">    
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Third_Outside_Employer__c}" label="3rd Outside Employer Name?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes' && survey.Third_Outside_Employer__c != null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Third_Outside_Employer_Job_Title__c}" label="3rd Outside Employer Job Title?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes' &&  survey.Third_Outside_Employer_Job_Title__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Third_Outside_Employer_Address__c}" label="3rd Outside Employer Address?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes' && survey.Third_Outside_Employer_Address__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Third_Outside_Employer_City__c}" label="3rd Outside Employer City?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes' && survey.Third_Outside_Employer_City__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Third_Outside_Employer_State__c}" label="3rd Outside Employer State?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes' && survey.Third_Outside_Employer_State__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Third_Outside_Employer_Zip_Code__c}" label="3rd Outside Employer Zip Code?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes' && survey.Third_Outside_Employer_Zip_Code__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Third_Outside_Employer_Brief_Job__c}" label="3rd Outside Employer Brief Job Description?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes' && survey.Third_Outside_Employer_Brief_Job__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Third_Outside_Employer_Job_Status__c}" label="3rd Outside Employer Job Status?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes' && survey.Third_Outside_Employer_Job_Status__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Third_Outside_Employer_Hire_Date__c}" label="3rd Outside Employer Hire Date?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes' && survey.Third_Outside_Employer_Hire_Date__c!= null}"/>
+                    
+                        <apex:PageBlockSection columns="1" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c = 'Yes'}">
+                            <apex:outputPanel >
+                                <p class = "tableLabel">For An Average Week, Please Enter Your Start And End Time For Outside Employer For Three.</p>
+                                <table class ="jobHoursMatrix">
+                                    <tr>
+                                        <th></th>
+                                        <th>Monday</th>
+                                        <th>Tuesday</th> 
+                                        <th>Wednesday</th>
+                                        <th>Thursday</th>
+                                        <th>Friday</th>
+                                        <th>Saturday</th>
+                                        <th>Sunday</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif;">Start Time</td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer3MonStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer3TueStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer3WedStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer3ThurStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer3FriStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer3SatStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer3SunStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif;">End Time</td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer3MonEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer3TueEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                        <apex:inputField value="{!survey.OutsideEmployer3WedEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                        <apex:inputField value="{!survey.OutsideEmployer3ThurEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                        <apex:inputField value="{!survey.OutsideEmployer3FriEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                        <apex:inputField value="{!survey.OutsideEmployer3SatEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                        <apex:inputField value="{!survey.OutsideEmployer3SunEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob3Hours}" rerender="employer3TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </apex:outputPanel>
+                            <apex:PageBlockSection columns="2" id="employer3TotalHours">
+                                <apex:outputText value="{!survey.OutsideEmployer3TotalHours__c}" label="Job 3 Total Weekly Hours:" rendered="{!survey.Has_Third_Outside_Employer__c = 'Yes'}"/>  
+                            </apex:PageBlockSection>  
+                        </apex:PageBlockSection>
+                    </apex:PageBlockSection>
+
+
+                    <apex:PageBlockSection columns="1" id="reviewHadForthJobQuestion">    
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Has_Fourth_Outside_Employer__c}" label="Do You Have A Forth Outside Employer?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No'}">
+                            <apex:actionSupport event="onchange" rerender="reviewEmploymentJob4"/>
+                        </apex:inputField>  
+                    </apex:PageBlockSection> 
+                                                
+                    <apex:PageBlockSection id="reviewEmploymentJob4" columns="1">    
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Fourth_Outside_Employer__c}" label="4th Outside Employer Name?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No' && survey.Has_Fourth_Outside_Employer__c = 'Yes' && survey.Fourth_Outside_Employer__c != null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Fourth_Outside_Employer_Job_Title__c}" label="4th Outside Employer Job Title?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No' && survey.Has_Fourth_Outside_Employer__c = 'Yes' && survey.Fourth_Outside_Employer_Job_Title__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Fourth_Outside_Employer_Address__c}" label="4th Outside Employer Address?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No' && survey.Has_Fourth_Outside_Employer__c = 'Yes' && survey.Fourth_Outside_Employer_Address__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Fourth_Outside_Employer_City__c}" label="4th Outside Employer City?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No' && survey.Has_Fourth_Outside_Employer__c = 'Yes' && survey.Fourth_Outside_Employer_City__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Fourth_Outside_Employer_State__c}" label="4th Outside Employer State?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No' && survey.Has_Fourth_Outside_Employer__c = 'Yes' && survey.Fourth_Outside_Employer_State__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Fourth_Outside_Employer_Zip_Code__c}" label="4th Outside Employer Zip Code?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No' && survey.Has_Fourth_Outside_Employer__c = 'Yes' && survey.Fourth_Outside_Employer_Zip_Code__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Fourth_Outside_Employer_Brief_Job__c}" label="4th Outside Employer Brief Job Description?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No' && survey.Has_Fourth_Outside_Employer__c = 'Yes' && survey.Fourth_Outside_Employer_Brief_Job__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Fourth_Outside_Employer_Job_Status__c}" label="4th Outside Employer Job Status?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No' && survey.Has_Fourth_Outside_Employer__c = 'Yes' && survey.Fourth_Outside_Employer_Job_Status__c!= null}"/>
+                        <apex:inputField styleClass="PageFullWidth" value="{!survey.Fourth_Outside_Employer_Hire_Date__c}" label="4th Outside Employer Hire Date?" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No' && survey.Has_Fourth_Outside_Employer__c = 'Yes' && survey.Fourth_Outside_Employer_Hire_Date__c!= null}"/>
+                    
+
+                        <apex:PageBlockSection columns="1" rendered="{!survey.Is_A_Dual_Employee__c != 'No' && survey.Has_Second_Outside_Employer__c != 'No' && survey.Has_Third_Outside_Employer__c != 'No' && survey.Has_Fourth_Outside_Employer__c = 'Yes'}">
+                            <apex:outputPanel >
+                                <p class = "tableLabel">For An Average Week, Please Enter Your Start And End Time For Outside Employer For Four.</p>
+                                <table class ="jobHoursMatrix">
+                                    <tr>
+                                        <th></th>
+                                        <th>Monday</th>
+                                        <th>Tuesday</th> 
+                                        <th>Wednesday</th>
+                                        <th>Thursday</th>
+                                        <th>Friday</th>
+                                        <th>Saturday</th>
+                                        <th>Sunday</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif;">Start Time</td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer4MonStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer4TueStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer4WedStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer4ThurStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer4FriStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer4SatStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer4SunStartTime__c}" label="" required="false">
+                                                    <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif;">End Time</td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer4MonEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!survey.OutsideEmployer4TueEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                        <apex:inputField value="{!survey.OutsideEmployer4WedEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                        <apex:inputField value="{!survey.OutsideEmployer4ThurEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                        <apex:inputField value="{!survey.OutsideEmployer4FriEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                        <apex:inputField value="{!survey.OutsideEmployer4SatEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                        <td>
+                                        <apex:inputField value="{!survey.OutsideEmployer4SunEndTime__c}" label="" required="false">
+                                                <apex:actionSupport event="onchange" action="{!calcJob4Hours}" rerender="employer4TotalHours,totaltotal"/>
+                                            </apex:inputField>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </apex:outputPanel>
+                            <apex:PageBlockSection columns="2" id="employer4TotalHours">
+                                <apex:outputText value="{!survey.OutsideEmployer4TotalHours__c}" label="Job 4 Total Weekly Hours:" rendered="{!survey.Has_Fourth_Outside_Employer__c = 'Yes'}"/>  
+                            </apex:PageBlockSection>  
+                        </apex:PageBlockSection>
+                    </apex:PageBlockSection>
+                    
+                    <apex:outputText id="totaltotal" value="{!TotalTotal}" label="Total Hours For All Outside Jobs:" />
+                  
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Participated_In_The_Procurement_Process__c}" label="Participated In The Decision Making Process?"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Received_Gifts__c}" label="Did You Receive Any Gifts?"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Received_Gifts_From__c}" label="Who Did You Receive Gifts?" rendered="{!survey.Received_Gifts_From__c!= null}"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Description_of_Gifts__c}" label="Description Of The Gift or Gifts?" rendered="{!survey.Description_of_Gifts__c!= null}"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Participated_In_Academic_Activities__c}" label="Participated In Academic Activities?"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Academic_Organizations__c}" label="Name Of Organization?" rendered="{!survey.Academic_Organizations__c!= null}"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Received_Compensation_From_Activities__c}" label="Did You Receive Compensation From These Activities?" rendered="{!survey.Received_Compensation_From_Activities__c!= null}"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Served_In_A_Position_Of_Responsibility__c}" label="Did You Or A Family Member Serve In A Position Of Responsibility?" rendered="true"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Name_Of_Responsibility_Organization__c}" label="Name Of Organization?" rendered="{!survey.Name_Of_Responsibility_Organization__c!= null}"/>        
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Responsibility_Relationship__c}" label="Was It YOU Or A Family Member?" rendered="{!survey.Responsibility_Relationship__c!= null}"/>                                       
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Responsibility_Position__c}" label="Position Within The Organization?" rendered="{!survey.Responsibility_Position__c!= null}"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Owned_Or_Controled_An_Organization__c}" label="Did You Own Or Control An Organization?" rendered="{!survey.Owned_Or_Controled_An_Organization__c != 'No'}"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Organization_Name__c}" label="Organization Name?" rendered="{!survey.Organization_Name__c!= null}"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Owner_Was_You_Or_Family__c}" label="Was It YOU Or A Family Member?" rendered="{!survey.Owner_Was_You_Or_Family__c!= null}"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Position_Within_Organization__c}" label="Position Within The Organization?" rendered="{!survey.Position_Within_Organization__c!= null}"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Involved_In_Sponsored_Research__c}" label="Were You Involved In Sponsored Research?" rendered="{!survey.Involved_In_Sponsored_Research__c != 'No'}"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Research_Sponsor_Name__c}" label="Research Sponsor Name?" rendered="{!survey.Research_Sponsor_Name__c!= null}"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Research_Role__c}" label="Research Role?" rendered="{!survey.Research_Role__c!= null}"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Research_Project_Title__c}" label="Research Project Title?" rendered="{!survey.Research_Project_Title__c!= null}"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Institutional_Review_Board_Info__c}" label="Institutional Review Board Information?" rendered="{!survey.Institutional_Review_Board_Info__c!= null}"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Under_Current_Research_Conflict_Mgt_Plan__c}" label="Are You Under A Current Research Conflict Management Plan?" rendered="{!survey.Under_Current_Research_Conflict_Mgt_Plan__c!= null}"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Conflict_Management_Plan_Assigned_By__c}" label="Who Placed You On The Conflict Management Plan?" rendered="{!survey.Conflict_Management_Plan_Assigned_By__c!= null}"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Changes_Required_To_Conflict_Plan__c}" label="Are Changes Required For Your Conflict Management Plan?" rendered="{!survey.Changes_Required_To_Conflict_Plan__c!= null}"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Following_Conflict_Mgt_Plans__c}" label="Do You Follow The Requirements Described In The Plan?" rendered="{!survey.Following_Conflict_Mgt_Plans__c!= null}"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Notified_Assigning_Organization__c}" label="Did You Notify The Assigning Organization Of Such Changes?" rendered="{!survey.Notified_Assigning_Organization__c!= null}"/>
+                    <apex:inputField styleClass="PageFullWidth" value="{!survey.Other_Conflicts__c}" label="Other Conflicts Of Interest?" rendered="{!survey.Other_Conflicts__c!= null}"/>
+                    
+                </apex:PageBlockSection>
+            </apex:PageBlockSection>
+
+            <apex:pageBlockSection columns="1" rendered="{!survey.Current_Step__c = 12}" id="attestation"> 
+                <h1 class = "noticereview" style = "font-weight:bold; text-decoration: underline;">Attestation:</h1>
+                <p class = "noticereview">The undersigned hereby attests that I have made full disclosure of my dual employment and all other required disclosures referenced on this survey, that my dual employment is and shall remain in full compliance with the requirements of Article 12 of CCH’s Personnel Rules and that I will notify my Department Head and update my responses immediately if a change in my information occurs.  I understand that my execution of this form serves as authorization for CCH to contact my non-CCH employer(s) to verify employment, hours and job duties.  Finally, I understand that my failure to disclose required information or my providing false or materially incomplete information on this form shall be cause for disciplinary action up to and including termination.</p>
+                <apex:PageBlockSection columns="1">
+                <apex:inputField styleClass="PageFullWidth" value="{!survey.Agrees_With_Attestation__c}" label="Do You Agree With The Attestation?" required="true">
+                <apex:actionsupport event="onchange" rerender="attestation" />
+                </apex:inputField>
+                <br/>
+                </apex:PageBlockSection>
+                <apex:outputText value="You must agree to continue the survey. Failure to do so will result in termination." style="color:red;" rendered="{!survey.Agrees_With_Attestation__c = 'Disagree'}"/>
+
+            </apex:pageBlockSection>
+
+            <apex:PageBlockSection columns="1" rendered="{!survey.Current_Step__c = 13}" id="surveySubmission"> 
+                <h1>Thank You {!CurrentUser.Name}!</h1>
+                <h2>Your Survey Has Been Successfully Submitted.</h2> 
+                <h2>Your Confirmation Code Is: {!survey.Id}</h2>
+            </apex:PageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+        
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    
+    <style>
+        .form { width: 1295px; margin:0 auto; }
+        #progress-bar { padding:10px 0; margin:0 -50px; background:#fff; }
+        #progress-bar .w3-container { line-height:; }
+        .w3-container { background-color: #0099a8 !important }
+        .landing { background:url('/resource/1570642849000/DualEmploymentLanding?'); height:720px; width:1280px; padding: 206px 57px !important; font-size: 23px; }
+        .landing p { color:#fff; margin-bottom:30px; }
+        body { background:#0c2340 url('/resource/1564164006000/ComplianceBackground?') !important;}
+        .bottomLink, .FlowName, .FlowContainer, .Container, .docStyle{ width:1280px; padding:25px; margin:0 auto; margin-left: -50px; }
+        .bPageBlock, .pbSubsection, .detailList { border:none !important; }
+        .bPageBlock { padding:0px !important; }
+        .pbSubsection { padding:0 50px !important; }
+        #banner { text-align: center; background: url('/resource/1570644958000/DualEmploymentBanner?'); background-size: cover; background-position: -10px 0; height: 188px; width: 1280px; margin: 0 -50px; position:relative; }
+        #banner img { position: absolute; top: 145px; right: 11px; width: 159px; }
+        label { color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif; }
+        .pbSubsection .pbSubsection { padding:0 !important; }
+        .labelCol { width:20% !important; }
+        a { color:#36c0cd !important; }
+        //.notice {font-weight:bold; color:#orange; text-decoration: underline;}
+        .noticeName {color:orange; font-weight:bold;}
+        .noticereview{font-weight:bold text-decoration: underline; font-size:1.35em; font-family: 'Salesforce Sans',Arial,sans-serif;}
+        .notice {font-weight:bold; color:orange; text-decoration: underline;}
+        .tableLabel{color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif;}
+        th {color: #0c2340 !important; font-size: 14px !important; font-weight: 600 !important; font-family: 'Salesforce Sans',Arial,sans-serif;}
+        h1, h2, h3 {font-family: 'Salesforce Sans',Arial,sans-serif;}
+        p, ol, ul, li {font-family: 'Salesforce Sans',Arial,sans-serif; font-size: 1.1em;}
+        .PageFullWidth {width:100%; align:left;}
+        .jobHoursMatrix {width:100%;}
+        
+
+
+    </style>    
+
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            window.history.replaceState({}, document.title, "/" + "apex/DualEmploymentSurvey");
+        });
+        setInterval(function () {
+            $('option:contains("--None--")').text('');
+        }, 10);
+    </script>
+</apex:page>

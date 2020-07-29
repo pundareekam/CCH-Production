@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EPO_Accused3_Non_Employee__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Accused3 Non-Employee</label>
+    <referenceTo>NonEmployee__c</referenceTo>
+    <relationshipLabel>Cases (Complainant5 Non-Employee)</relationshipLabel>
+    <relationshipName>Cases5</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

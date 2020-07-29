@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Case_Downtown__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check if the case has been/needs to be sent downtown</description>
+    <externalId>false</externalId>
+    <label>Send Case Downtown?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Educational_Institution__c</fullName>
+    <externalId>false</externalId>
+    <label>Educational Institution</label>
+    <picklist>
+        <picklistValues>
+            <fullName>Abilene Christian University</fullName>
+            <default>true</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Aspen University</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Benedictine University</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Chamberlain College of Nursing</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>-- Choose An Option --</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>City Colleges of Chicago</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>DePaul University</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Governors State University</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Grand Canyon</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Herzing University</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Indiana Wesleyan University</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Lewis University</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Loyola University Chicago</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Loyola University School of Nursing</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Maryville University</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>North Park University</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Northwestern University</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Olivet Nazarene University</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>-- Other --</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Purdue Northwest</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Purdue University</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Rasmussen University</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Resurrection University</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Saint Xavier University</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Southern Illinois University Edwardsville</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>UIC (University of Illinois at Chicago)</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>University of Chicago</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>University of Illinois at Chicago</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>University of Phoenix</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>University of St. Francis</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Valparaiso University</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Walden University</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Wesleyan University</fullName>
+            <default>false</default>
+        </picklistValues>
+        <restrictedPicklist>true</restrictedPicklist>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

@@ -1,0 +1,23 @@
+<apex:page controller="FlowLaunchV2_VFC" showHeader="false" sidebar="false">
+    <style>
+        .bttn-section { width:385px; }
+        .bttn { float:left; width:100px; margin: 1px; }
+        .bttn.double { width:100px; }  
+    </style> 
+    <div class="bttn-section">
+        <apex:variable value="{!0}" var="count"/>
+        <apex:repeat value="{!flowsList}" var="fp">
+            <apex:outputPanel layout="block" rendered="{!(fp.Title != 'Space Filler' && fp.Title != 'Request time off, Review Time Card Link to CC time' && fp.Title != 'Manage Your Benefits & Update Personal Details')}">
+                <div class="bttn">
+                    <a href="{!IF((fp.Title='Employee Relations'),'/lightning/n/EEO',IF((fp.Title='Pay Rate Accrual Errors'),'/lightning/n/payrateaccuralerror',IF((fp.Title='Employee Verification'),'/lightning/n/employeeVerification',IF((fp.Title='Separation Exit'),'/lightning/n/employeeSeperation',IF((fp.Title='Ask HR!'),'/lightning/n/AskHR',IF((fp.Title='Legal Aid & Other Benefits Information'),'/lightning/n/Benefits',IF((fp.Title='ADA / FMLA Workflow'),'/lightning/n/fmla',fp.Url)))))))}" class="bttn-default" target="_blank" >
+                        <div class="image">
+                            <img width="100" height="100" src="{!IF((fp.Title='Ask HR!'),$Resource.HR_Self_Help_Icon_Ask_HR_New,fp.Image)}" />
+                        </div>
+                    </a> 
+                </div>
+                <apex:variable var="count" value="{!count+ 1}"/>
+            </apex:outputPanel>
+ 
+        </apex:repeat>
+    </div>
+</apex:page>

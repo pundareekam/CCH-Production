@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_Of_PHI_Involved_in_Breach__c</fullName>
+    <description>Compliance: Sits inside HIPPA Breach dependent fields</description>
+    <externalId>false</externalId>
+    <label>Type Of PHI Involved in Breach</label>
+    <picklist>
+        <picklistValues>
+            <fullName>Clinical</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Demographic</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Financial</fullName>
+            <default>false</default>
+        </picklistValues>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <visibleLines>4</visibleLines>
+</CustomField>

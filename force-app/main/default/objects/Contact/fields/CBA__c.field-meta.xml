@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CBA__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( RIGHT(User__r.UnionID__c,3), &#39;3DM&#39;, User__r.UnionDescription__c &amp; &#39;-3DM&#39;,
+             &#39;3DU&#39;, User__r.UnionDescription__c &amp; &#39;- 3DU&#39;,
+             &#39;3DN&#39;, User__r.UnionDescription__c &amp; &#39;- 3DN&#39;,
+             &#39;3DV&#39;, User__r.UnionDescription__c &amp; &#39;- 3DV&#39;,
+         IF ( User__r.UnionDescription__c = &#39;Non Union&#39;, &#39;&#39;, User__r.UnionDescription__c)
+ )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>CBA</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

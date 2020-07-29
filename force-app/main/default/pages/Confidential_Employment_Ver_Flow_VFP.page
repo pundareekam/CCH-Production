@@ -1,0 +1,59 @@
+<!-- PRO-TIP WHEN COPYING: for everything but the title, you can do a find and replace on the flow name -->
+<!--         change this       \/          -->
+<apex:page controller="Confidential_Employment_Ver_Flow_New" showHeader="false" sidebar="false" standardStylesheets="false">
+
+    <!--                change this \/   -->
+    <c:FlowHeader_VFC FlowName="Employment Verification" IconPath="/resource/1537447716000/HR_Self_Help_Icon_Employee_Verification"/>
+
+    <apex:outputPanel rendered="{!showUpload}">
+        <div class="docStyle">
+            <apex:form id="documentForm">
+                <div class="smallStyle">
+                    <h4>Upload Employment Verification documents</h4>
+                    <p>Please attach your Request for Confidential Employment Verification.</p>
+                    <p>To upload, click the Choose File button and browse for the file on your computer. You may include a description. Then, click the Upload button.</p>
+                </div>
+                <div class="smallStyle">
+                    <apex:inputFile value="{!doc.Body}" fileName="{!doc.Name}" contentType="{!doc.ContentType}"/>
+                </div>
+                <div class="smallStyle">
+                    Description:<br/>
+                    <apex:inputTextarea cols="60" rows="3" value="{!doc.Description}"/>
+                </div>
+                <div class="smallStyle">
+                    <apex:commandButton styleClass="FlowNextBtn" action="{!saveDocument}" value="Upload" />
+                </div>
+                <div class="smallStyle">
+                    <table class="tableStyle">
+                        <thead>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>File Name</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!docs}" var="dw">
+                                <tr>
+                                    <td><a href="javascript:void(0)" onclick="afDeleteDoc('{!dw.doc.Id}')">Delete</a></td>
+                                    <td>{!dw.doc.Name}</td>
+                                    <td>{!dw.doc.Description}</td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                </div>
+            </apex:form>
+            <apex:form >
+                <apex:actionFunction reRender="documentForm,interviewSection" name="afDeleteDoc" action="{!deleteDoc}">
+                    <apex:param name="selectedDoc" assignTo="{!selectedDoc}" value=""/>
+                </apex:actionFunction>
+            </apex:form>
+        </div>
+    </apex:outputPanel>
+
+    <!--           change this \/     -->
+    <flow:interview name="Confidential_Employment_Ver" interview="{!x_flow}" buttonLocation="bottom" finishLocation="{!redirectToCase}"/>
+    <c:FlowFooter_VFC />
+    
+</apex:page>

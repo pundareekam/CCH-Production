@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pay_Sub_CBA__c</fullName>
+    <externalId>false</externalId>
+    <label>Pay Sub CBA</label>
+    <picklist>
+        <controllingField>Pay_CBA__c</controllingField>
+        <picklistValues>
+            <fullName>AFSCME</fullName>
+            <default>false</default>
+            <controllingFieldValues>AFSCME</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Local Lodge #1 International Brotherhood of Boilmakers</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Local #2  Iron Ship Builders</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Blacksmiths</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Forgers &amp; Helpers</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>International Union of Elevator Constructors</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Local #5 Journeymen Plasterers Protective and Benevolent Society</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Chicago Regional Council of Carpenters</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Painters District Council #14</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Local 17 Heat and Frost Insulators &amp; Asbestos Workers</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>United Order of American Bricklayers &amp; Stone Masons Local 21 IUBAC</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Glaziers</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Architectural Metal &amp; Glass Workers Union Local 27</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Architectural &amp; Ornamental Iron Workers Local 63</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>International Association of Sheet Metal</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Air</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Rail</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Transportation Workers Local Union 73</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>International Association of Machinists &amp; Aerospace Workers AFL-CIO Local 126</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Chicago Journeyman Plumbers Union Local 130</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>International Brotherhood of Electrical Workers Local 134 IBEW</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>International Union of Operating Engineers Local 150</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Pipe Fitters Association Local 597</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>State and Municipal Teamsters</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Chauffeurs and Helpers Union Local 700</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Sign and Pictorial Painters Union Local 830</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Construction &amp; General Laborers District Council Local 1092</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>International Brotherhood of Electrical Workers Local 134</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>United Order of American Bricklayers &amp; Stone Masons Local 21</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>International Union of Operation Engineers Local 150</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Illinois Fraternal Order of Police Labor Council/Lodge #238</fullName>
+            <default>false</default>
+            <controllingFieldValues>FOP</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>House Staff Association</fullName>
+            <default>false</default>
+            <controllingFieldValues>House Staff</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>NNOC</fullName>
+            <default>false</default>
+            <controllingFieldValues>NNOC</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Please see your Director</fullName>
+            <default>false</default>
+            <controllingFieldValues>Non Union</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Operating Engineers 399</fullName>
+            <default>false</default>
+            <controllingFieldValues>Operating Engineers</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Local 200 Administrative Staff</fullName>
+            <default>false</default>
+            <controllingFieldValues>RWDSU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Local 200 Administrative Assistants V</fullName>
+            <default>false</default>
+            <controllingFieldValues>RWDSU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Local 200 Pharm and Pharm Tech</fullName>
+            <default>false</default>
+            <controllingFieldValues>RWDSU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>SEIU 20-Doctors Council Cermak</fullName>
+            <default>false</default>
+            <controllingFieldValues>SEIU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>SEIU 20 Doctors Council Stroger &amp; Core</fullName>
+            <default>false</default>
+            <controllingFieldValues>SEIU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>SEIU Doctors Council ACHN</fullName>
+            <default>false</default>
+            <controllingFieldValues>SEIU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>SEIU 20 Doctors Council Provident</fullName>
+            <default>false</default>
+            <controllingFieldValues>SEIU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>SEIU 73 Technologist</fullName>
+            <default>false</default>
+            <controllingFieldValues>SEIU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>SEIU 73 Technicians</fullName>
+            <default>false</default>
+            <controllingFieldValues>SEIU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>SEIU 73 Service &amp; Maintenance</fullName>
+            <default>false</default>
+            <controllingFieldValues>SEIU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>SEIU 73 Healthcare Professionals</fullName>
+            <default>false</default>
+            <controllingFieldValues>SEIU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>SEIU 1 Fireman &amp; Oiler</fullName>
+            <default>false</default>
+            <controllingFieldValues>SEIU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Teamsters_743_Provident_Hospital Employees</fullName>
+            <default>false</default>
+            <controllingFieldValues>Teamsters</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Teamsters Local 700 Hospital Police Sergeants</fullName>
+            <default>false</default>
+            <controllingFieldValues>Teamsters</controllingFieldValues>
+        </picklistValues>
+        <restrictedPicklist>true</restrictedPicklist>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tuition Reimbursement</fullName>
+    <isActive>true</isActive>
+    <values>
+        <fullName>45 Day Awaiting Grade</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Closed</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Employee Notification of no response %284%29</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>In Progress</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>New</fullName>
+        <default>true</default>
+    </values>
+    <values>
+        <fullName>Part 1 Closed</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Part 1 Open</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Part 2 Closed</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Part 2 Open</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Rejected</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Rejected 14 days or Supervisor Rejected</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Review and Approved by Supervisor</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Sent for Supervisor Review %2810%29</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Sent for Supervisor Review %2814%29</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Sent for Supervisor Review %285%29</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

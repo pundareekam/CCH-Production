@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Question_Topics_List__c</fullName>
+    <description>The topics a person can select when asking HR a question</description>
+    <externalId>false</externalId>
+    <label>Category</label>
+    <picklist>
+        <picklistValues>
+            <fullName>Pay related</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Accrual related</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>General</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>EEO</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Benefits</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </picklistValues>
+        <restrictedPicklist>true</restrictedPicklist>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

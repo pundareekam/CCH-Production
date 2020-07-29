@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Under_Current_Research_Conflict_Mgt_Plan__c</fullName>
+    <externalId>false</externalId>
+    <globalPicklist>Yes_No</globalPicklist>
+    <label>Under Current Research Conflict Mgt Plan</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

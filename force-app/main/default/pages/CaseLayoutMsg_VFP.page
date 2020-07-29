@@ -1,0 +1,14 @@
+<apex:page standardController="Case" showHeader="false" sidebar="false">
+    <apex:pageMessage summary="Thank you for filing your {!Case.RecordType.Name}. Your case number is listed above. Below, please find the details of this case." 
+        severity="info" 
+        strength="3" 
+        rendered="{!AND(Case.RecordType.Name != 'Exit Packet',Case.Owner.Profile.Name == 'CCHHS Employee')}" />
+    <apex:pageMessage summary="Supervisor Instructions: Please complete the FOR SUPERVISORS ONLY section below. You may complete sections as applicable. Please remember to save your changes before logging out. Once completed, change the Status to Submit for Review. At this point, Human Resouces will complete the workflow." 
+        severity="info" 
+        strength="3" 
+        rendered="{!AND(Case.RecordType.Name == 'Exit Packet',Case.Owner.Name != 'Exit Packet Queue')}" />
+    <apex:pageMessage summary="If you have other cases, click Cases tab above to review their details. If you need to make any edits to the case, you are required to submit a new case." 
+        severity="info" 
+        strength="3" 
+        rendered="true" />
+</apex:page>

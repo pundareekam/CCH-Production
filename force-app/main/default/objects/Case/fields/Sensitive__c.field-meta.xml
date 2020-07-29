@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sensitive__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used in compliance. Used to mark if the case is sensitive</description>
+    <externalId>false</externalId>
+    <label>Sensitive</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

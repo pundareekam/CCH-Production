@@ -1,0 +1,10 @@
+<!-- PRO-TIP WHEN COPYING: for everything but the title, you can do a find and replace on the flow name -->
+<!--         change this       \/          -->
+<apex:page controller="Pay_Accrual_Error_Flow_VFC" showHeader="false" sidebar="false" standardStylesheets="false">
+
+    <!--                change this \/   -->
+    <c:FlowHeader_VFC FlowName="Pay/Accrual Error"/>
+
+    <!--           change this \/     -->
+    <flow:interview name="Pay_Accrual_Error" interview="{!x_flow}" buttonLocation="bottom" finishLocation="{!URLFOR('/lightning/page/home')}"/>
+</apex:page>

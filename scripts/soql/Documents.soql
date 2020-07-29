@@ -1,0 +1,12 @@
+/**
+ * @File Name          : Documents.soql
+ * @Description        : 
+ * @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @Group              : 
+ * @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @Last Modified On   : 12/18/2019, 1:13:35 PM
+ * @Modification Log   : 
+ * Ver       Date            Author      		    Modification
+ * 1.0    12/18/2019   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+**/
+SELECT Id, Name from Document Where Name = '2019 Cook County Health Brochures'

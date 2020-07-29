@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Age_Bracket__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+NOW() - CreatedDate &lt;= 2,
+&quot;0-30 Days&quot;,
+IF(
+NOW() - CreatedDate &lt; 4,
+&quot;31-60 Days&quot;,
+IF(
+NOW() - CreatedDate &lt; 6,
+&quot;61-90 Days&quot;,
+IF(
+NOW() - CreatedDate &lt; 8,
+&quot;91-120 Days&quot;,
+IF(
+NOW() - CreatedDate &gt; 10,
+&quot;120+ Days&quot;,
+&quot;N/A&quot;
+)
+)
+)
+)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Age Bracket</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

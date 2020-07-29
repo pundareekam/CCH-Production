@@ -1,0 +1,10 @@
+<apex:page standardController="Case" showHeader="false" sidebar="false">
+<!--<apex:pageMessage summary="Thank you for filing your {!Case.RecordType.Name}. Your case number is listed above. Below, please find the details of the grievance. "-->
+<!--severity="info"-->
+<!--strength="3"-->
+rendered="true" />
+<!--<apex:pageMessage summary="If you have other cases, click Cases tab above to review their details."-->
+severity="info" 
+strength="3"
+rendered="true" />
+</apex:page>

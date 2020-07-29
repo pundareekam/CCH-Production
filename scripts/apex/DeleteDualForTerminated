@@ -1,0 +1,17 @@
+List<User> users = new List<User>([Select Id, 
+                                          Name 
+                                          From User 
+                                          Where Id = '0053600000EZE0ZAAX' LIMIT 2 ]);
+List<Id> ids = new List<Id>();
+for (User u : users) {
+    ids.add(u.Id);
+    System.debug(u);
+}
+List<DualEmploymentSurvey__c> duals = new List<DualEmploymentSurvey__c>([Select Id, Survey_Status__c, Owner.Name From DualEmploymentSurvey__c Where OwnerId IN :ids] );
+for (DualEmploymentSurvey__c d : duals) {
+  System.debug('Survey: ' + d);
+
+}
+
+delete duals;
+System.debug('Total Records deleted: '+ duals.size());

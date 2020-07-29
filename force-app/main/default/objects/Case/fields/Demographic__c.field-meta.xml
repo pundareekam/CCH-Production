@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Demographic__c</fullName>
+    <description>Compliance: sits in Type of PHI involved in breach</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Please select all that apply.</inlineHelpText>
+    <label>Demographic</label>
+    <picklist>
+        <picklistValues>
+            <fullName>Address/Zip</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Date of Birth</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Drivers License</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Name</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>SSN</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Other Identifier</fullName>
+            <default>false</default>
+        </picklistValues>
+        <restrictedPicklist>true</restrictedPicklist>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <visibleLines>4</visibleLines>
+</CustomField>

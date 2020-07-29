@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Military_Veteran_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Military/Veteran Status</label>
+    <picklist>
+        <picklistValues>
+            <fullName>Active Duty</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Veteran</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Current Reserve Member</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Unfavorable Military Discharge</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>TBD</fullName>
+            <default>false</default>
+        </picklistValues>
+        <restrictedPicklist>true</restrictedPicklist>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

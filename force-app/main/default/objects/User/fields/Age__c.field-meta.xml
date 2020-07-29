@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Age__c</fullName>
+    <description>Returns null if the date of birth is null. Otherwise, take the difference between today and the date of birth (+1) divided by the average number of days in a year.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+    ISNULL(DateOfBirth__c),
+    null,
+    FLOOR(
+        ( TODAY() - DateOfBirth__c +1 )
+        /
+        365.2425
+    )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>The age of this user derived from the Date Of Birth field</inlineHelpText>
+    <label>Age</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

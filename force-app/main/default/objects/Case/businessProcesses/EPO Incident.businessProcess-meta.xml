@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EPO Incident</fullName>
+    <description>Track EPO Incidents</description>
+    <isActive>true</isActive>
+    <values>
+        <fullName>Closed</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Contact Closed</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Contact Closed - %28File closed without investigation%29</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Drafting Incident Report</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Drafting Memo to Close</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Investigation Closed</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Investigation closed with pending recommendations</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Investigation in progress %28Actively Investigating%29</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>New</fullName>
+        <default>true</default>
+    </values>
+    <values>
+        <fullName>Open</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Parking Lot %28Investigations waiting for other agencies%2C departments%2C or litigation to conclude%29</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Pending EPO Review</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Pending HR Response</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

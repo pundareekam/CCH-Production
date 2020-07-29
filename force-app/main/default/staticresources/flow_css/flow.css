@@ -1,0 +1,373 @@
+/*    Custom CSS for Visual Flows    */
+body {
+	font-family: Helvetica, Arial, Sans-Serif;
+	font-size:1em;
+}
+
+input, textarea {
+	padding:0.5em;
+	font-size:1em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.FlowContainer {
+	padding:1em;
+}
+.FlowText {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.FlowTextArea {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.FlowNumber {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.FlowDate {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.FlowCurrency {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.FlowPassword {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.FlowRadio {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.FlowDropdown {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+
+
+
+.FlowCancelBtn {
+	color: #FFFFFF; 
+	background-color: #017CB7; 
+	border-color: #130269;
+	border-width:1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+} 
+ 
+.FlowCancelBtn:hover, 
+.FlowCancelBtn:focus, 
+.FlowCancelBtn:active, 
+.FlowCancelBtn.active, 
+.open .dropdown-toggle.FlowCancelBtn { 
+	color: #FFFFFF; 
+	background-color: #035798; 
+	border-color: #130269;
+	border-width:1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+} 
+ 
+.FlowCancelBtn:active, 
+.FlowCancelBtn.active, 
+.open .dropdown-toggle.FlowCancelBtn { 
+	background-image: none; 
+} 
+ 
+.FlowCancelBtn.disabled, 
+.FlowCancelBtn[disabled], 
+fieldset[disabled] .FlowCancelBtn, 
+.FlowCancelBtn.disabled:hover, 
+.FlowCancelBtn[disabled]:hover, 
+fieldset[disabled] .FlowCancelBtn:hover, 
+.FlowCancelBtn.disabled:focus, 
+.FlowCancelBtn[disabled]:focus, 
+fieldset[disabled] .FlowCancelBtn:focus, 
+.FlowCancelBtn.disabled:active, 
+.FlowCancelBtn[disabled]:active, 
+fieldset[disabled] .FlowCancelBtn:active, 
+.FlowCancelBtn.disabled.active, 
+.FlowCancelBtn[disabled].active, 
+fieldset[disabled] .FlowCancelBtn.active { 
+	background-color: #017CB7; 
+	border-color: #130269;
+	border-width:1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+} 
+ 
+.FlowCancelBtn .badge {
+	color: #017CB7; 
+	background-color: #FFFFFF; 
+}
+
+.FlowPauseBtn {
+	color: #FFFFFF; 
+	background-color: #017CB7; 
+	border-color: #130269;
+	border-width:1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+} 
+ 
+.FlowPauseBtn:hover, 
+.FlowPauseBtn:focus, 
+.FlowPauseBtn:active, 
+.FlowPauseBtn.active, 
+.open .dropdown-toggle.FlowPauseBtn { 
+	color: #FFFFFF; 
+	background-color: #035798; 
+	border-color: #130269;
+	border-width:1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+} 
+ 
+.FlowPauseBtn:active, 
+.FlowPauseBtn.active, 
+.open .dropdown-toggle.FlowPauseBtn { 
+	background-image: none; 
+} 
+ 
+.FlowPauseBtn.disabled, 
+.FlowPauseBtn[disabled], 
+fieldset[disabled] .FlowPauseBtn, 
+.FlowPauseBtn.disabled:hover, 
+.FlowPauseBtn[disabled]:hover, 
+fieldset[disabled] .FlowPauseBtn:hover, 
+.FlowPauseBtn.disabled:focus, 
+.FlowPauseBtn[disabled]:focus, 
+fieldset[disabled] .FlowPauseBtn:focus, 
+.FlowPauseBtn.disabled:active, 
+.FlowPauseBtn[disabled]:active, 
+fieldset[disabled] .FlowPauseBtn:active, 
+.FlowPauseBtn.disabled.active, 
+.FlowPauseBtn[disabled].active, 
+fieldset[disabled] .FlowPauseBtn.active { 
+	background-color: #017CB7; 
+	border-color: #130269;
+	border-width:1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+} 
+ 
+.FlowPauseBtn .badge { 
+	color: #017CB7; 
+	background-color: #FFFFFF; 
+}
+
+.FlowPreviousBtn {
+	color: #FFFFFF; 
+	background-color: #017CB7; 
+	border-color: #130269;
+	border-width:1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+} 
+ 
+.FlowPreviousBtn:hover, 
+.FlowPreviousBtn:focus, 
+.FlowPreviousBtn:active, 
+.FlowPreviousBtn.active, 
+.open .dropdown-toggle.FlowPreviousBtn { 
+	color: #FFFFFF; 
+	background-color: #035798; 
+	border-color: #130269;
+	border-width:1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+} 
+ 
+.FlowPreviousBtn:active, 
+.FlowPreviousBtn.active, 
+.open .dropdown-toggle.FlowPreviousBtn { 
+	background-image: none; 
+} 
+ 
+.FlowPreviousBtn.disabled, 
+.FlowPreviousBtn[disabled], 
+fieldset[disabled] .FlowPreviousBtn, 
+.FlowPreviousBtn.disabled:hover, 
+.FlowPreviousBtn[disabled]:hover, 
+fieldset[disabled] .FlowPreviousBtn:hover, 
+.FlowPreviousBtn.disabled:focus, 
+.FlowPreviousBtn[disabled]:focus, 
+fieldset[disabled] .FlowPreviousBtn:focus, 
+.FlowPreviousBtn.disabled:active, 
+.FlowPreviousBtn[disabled]:active, 
+fieldset[disabled] .FlowPreviousBtn:active, 
+.FlowPreviousBtn.disabled.active, 
+.FlowPreviousBtn[disabled].active, 
+fieldset[disabled] .FlowPreviousBtn.active { 
+	background-color: #017CB7; 
+	border-color: #130269;
+	border-width:1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+} 
+ 
+.FlowPreviousBtn .badge { 
+	color: #017CB7; 
+	background-color: #FFFFFF; 
+}
+
+.FlowNextBtn {
+	color: #FFFFFF; 
+	background-color: #017CB7; 
+	border-color: #130269;
+	border-width:1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+} 
+ 
+.FlowNextBtn:hover, 
+.FlowNextBtn:focus, 
+.FlowNextBtn:active, 
+.FlowNextBtn.active, 
+.open .dropdown-toggle.FlowNextBtn { 
+	color: #FFFFFF; 
+	background-color: #035798; 
+	border-color: #130269;
+	border-width:1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+} 
+ 
+.FlowNextBtn:active, 
+.FlowNextBtn.active, 
+.open .dropdown-toggle.FlowNextBtn { 
+	background-image: none; 
+} 
+ 
+.FlowNextBtn.disabled, 
+.FlowNextBtn[disabled], 
+fieldset[disabled] .FlowNextBtn, 
+.FlowNextBtn.disabled:hover, 
+.FlowNextBtn[disabled]:hover, 
+fieldset[disabled] .FlowNextBtn:hover, 
+.FlowNextBtn.disabled:focus, 
+.FlowNextBtn[disabled]:focus, 
+fieldset[disabled] .FlowNextBtn:focus, 
+.FlowNextBtn.disabled:active, 
+.FlowNextBtn[disabled]:active, 
+fieldset[disabled] .FlowNextBtn:active, 
+.FlowNextBtn.disabled.active, 
+.FlowNextBtn[disabled].active, 
+fieldset[disabled] .FlowNextBtn.active { 
+	background-color: #017CB7; 
+	border-color: #130269;
+	border-width:1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+} 
+ 
+.FlowNextBtn .badge { 
+	color: #017CB7; 
+	background-color: #FFFFFF; 
+}
+
+.FlowFinishBtn {
+	color: #FFFFFF; 
+	background-color: #017CB7; 
+	border-color: #130269;
+	border-width:1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+} 
+ 
+.FlowFinishBtn:hover, 
+.FlowFinishBtn:focus, 
+.FlowFinishBtn:active, 
+.FlowFinishBtn.active, 
+.open .dropdown-toggle.FlowFinishBtn { 
+	color: #FFFFFF; 
+	background-color: #035798; 
+	border-color: #130269;
+	border-width:1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+}
+.FlowFinishBtn:active, 
+.FlowFinishBtn.active, 
+.open .dropdown-toggle.FlowFinishBtn { 
+	background-image: none; 
+} 
+ 
+.FlowFinishBtn.disabled, 
+.FlowFinishBtn[disabled], 
+fieldset[disabled] .FlowFinishBtn, 
+.FlowFinishBtn.disabled:hover, 
+.FlowFinishBtn[disabled]:hover, 
+fieldset[disabled] .FlowFinishBtn:hover, 
+.FlowFinishBtn.disabled:focus, 
+.FlowFinishBtn[disabled]:focus, 
+fieldset[disabled] .FlowFinishBtn:focus, 
+.FlowFinishBtn.disabled:active, 
+.FlowFinishBtn[disabled]:active, 
+fieldset[disabled] .FlowFinishBtn:active, 
+.FlowFinishBtn.disabled.active, 
+.FlowFinishBtn[disabled].active, 
+fieldset[disabled] .FlowFinishBtn.active { 
+	background-color: #017CB7; 
+	border-color: #130269;
+	border-width:1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+} 
+ 
+.FlowFinishBtn .badge { 
+	color: #017CB7; 
+	background-color: #FFFFFF; 
+}
+
+.labelCol {
+	width: 300px;
+	float: left;
+	margin-bottom: 10px;
+}
+
+.dataCol {
+	float: left;
+}

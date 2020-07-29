@@ -1,0 +1,11 @@
+Select Id, User__c, Name from Contact Where User__c = '005360000047YVXAA2'
+Select Id, Name, User__c From Contact Where User__r.isActive = true And User__c = null Limit 10
+Select Count(Id) From Contact Where User__r.isActive = true 
+Select Id, Employee_ID_Text__c, Employee_Number__c, TR_Employee_ID_Numeric__c 
+      From Contact Where User__r.isActive = true 
+            and Id = '0031Q000027B41FQAS' Limit 10
+Select Id, Name, Union_ID__c, Union_Description__c, CBA__c From Contact Where Is_Union__c = true
+
+SELECT  Count(Id) , CBA__c From Contact Group By CBA__c
+
+Select CBA__c, Id, Supervisor__c, User__c from Contact Where User__c = '005360000047YnZAAU'

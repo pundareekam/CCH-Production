@@ -1,0 +1,13 @@
+Select OwnerId, Count(Id) From DualEmploymentSurvey__c Group By OwnerID HAVING Count(Id) > 1
+select Id, OwnerID, Owner.Name, Owner.isActive From DualEmploymentSurvey__c Where Survey_Status__c = 0
+Select Id, Name From User Where Id IN (SELECT OwnerId From DualEmploymentSurvey__c where Survey_Status__c != 7) AND isActive = false AND Profile_Name__c = 'Cook County Health Employee' LIMIT 100
+Select Id, OwnerId , Owner.Name, Owner.isActive , Survey_Status__c From DualEmploymentSurvey__c where OwnerId = '0053600000EZE0ZAAX'
+Select Id, Owner.Name, OwnerId, Survey_Status__c, Survey_Assigned_To__c From DualEmploymentSurvey__c where Id = 'a0G1Q00000qQFA1'
+Select Id, Owner.Name, SupervisorId__c, SupervisorsSupervisorId__c From DualEmploymentSurvey__c Where SupervisorId__c = null
+Select Id, Owner.Name, SupervisorId__c, SupervisorsSupervisorId__c From DualEmploymentSurvey__c Where Owner.Name = 'Kathleen Dugal'
+Select Id, Owner.Name, Survey_Status__c from DualEmploymentSurvey__c Where SupervisorId__c = '005360000047TbZ'
+Select SUPERVISOR_NAME__C From DualEmploymentSurvey__c Where Survey_Status__c = 0
+Select Survey_Owner_EmployeeID__c, Survey_Status__c From DualEmploymentSurvey__c Where SURVEY_STATUS_DESCRIPTION__C = 'In Progress'
+Select Id, OwnerID, Supervisor_Name__c, SupervisorId__c, SupervisorsSupervisorId__c From DualEmploymentSurvey__c LIMIT 10
+Select Id, Owner_Name__c, Supervisor_Name__c, Level2_Supervisor_Name__c, Survey_Status__c From DualEmploymentSurvey__c Where Survey_Status__c = 7
+Select Count(ID), Survey_Status__c From DualEmploymentSurvey__c Group By Survey_Status__c

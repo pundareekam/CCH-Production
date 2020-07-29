@@ -1,0 +1,62 @@
+<!-- PRO-TIP WHEN COPYING: for everything but the title, you can do a find and replace on the flow name -->
+<!--         change this       \/          -->
+<apex:page controller="Tuition_Reimbursement_Flow_New" showHeader="false" sidebar="false" standardStylesheets="false">
+
+    <!--                change this \/   -->
+    <c:FlowHeader_VFC FlowName="Tuition Reimbursement" IconPath="/resource/1537448796000/HR_Self_Help_Icon_Tuition_App"/>
+    
+    <apex:outputPanel rendered="{!showUpload}">
+        <div class="docStyle">
+            <apex:form id="documentForm">
+                <div class="smallStyle">
+                    <h4>Upload Tuition Reimbursement documents</h4>
+                    <p>Please attach your official <span style="text-decoration: underline;">course curriculum</span> for the entire semester and your <span style="text-decoration: underline;">course schedule</span> which indicates the start and end date of each class. Applications without a course outline and schedule will not be accepted.</p>        
+                    <p>Please also attach your Supervisor's approval email for the class(es). </p>
+                    <p>1) To Upload click the Choose File button and browse for the file on your computer. You may include a description. </p>
+                    <p>2) Click the Upload button.</p>
+                    <p>3) Select Next.</p>
+                </div>
+                <div class="smallStyle">
+                    <apex:inputFile value="{!doc.Body}" fileName="{!doc.Name}" contentType="{!doc.ContentType}"/>
+                </div>
+                <div class="smallStyle">
+                    Description:<br/>
+                    <apex:inputTextarea cols="60" rows="3" value="{!doc.Description}"/>
+                </div>
+                <div class="smallStyle">
+                    <apex:commandButton styleClass="FlowNextBtn" action="{!saveDocument}" value="Upload" />
+                </div>
+                <div class="smallStyle">
+                    <table class="tableStyle">
+                        <thead>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>File Name</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!docs}" var="dw">
+                                <tr>
+                                    <td><a href="javascript:void(0)" onclick="afDeleteDoc('{!dw.doc.Id}')">Delete</a></td>
+                                    <td>{!dw.doc.Name}</td>
+                                    <td>{!dw.doc.Description}</td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                </div>
+            </apex:form>
+            <apex:form >
+                <apex:actionFunction reRender="documentForm,interviewSection" name="afDeleteDoc" action="{!deleteDoc}">
+                    <apex:param name="selectedDoc" assignTo="{!selectedDoc}" value=""/>
+                </apex:actionFunction>
+            </apex:form>
+        </div>
+    </apex:outputPanel>
+
+    <!--           change this \/     -->
+    <flow:interview name="Tuition_Reimbursement" interview="{!x_flow}" buttonLocation="bottom" finishLocation="{!URLFOR('/lightning/page/home')}"/>
+
+    <c:FlowFooter_VFC department="Tuition_Reimbursement" />
+</apex:page>

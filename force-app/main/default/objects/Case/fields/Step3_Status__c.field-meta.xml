@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Step3_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Step3 Status</label>
+    <picklist>
+        <picklistValues>
+            <fullName>Assigned to Counsel TH</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Assigned to Counsel TB</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Granted in Part</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Denied</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Granted</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Assigned to 3rd Step Officer</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Hearing Date Assigned</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Hearing date Rescheduled</fullName>
+            <default>false</default>
+        </picklistValues>
+        <restrictedPicklist>true</restrictedPicklist>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

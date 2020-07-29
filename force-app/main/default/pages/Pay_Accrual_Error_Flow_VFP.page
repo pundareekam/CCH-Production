@@ -1,0 +1,74 @@
+<!-- PRO-TIP WHEN COPYING: for everything but the title, you can do a find and replace on the flow name -->
+<!--         change this       \/          -->
+<apex:page controller="Pay_Accrual_Error_Flow_VFC" showHeader="false" sidebar="false" standardStylesheets="false">
+
+    <c:FlowHeader_VFC FlowName="{!headerText}" IconPath="/resource/1537447997000/HR_Self_Help_Icon_Pay_Rate"/>
+
+    <apex:outputPanel rendered="{!showUpload}">
+        <div class="docStyle">
+            <apex:form id="documentForm">
+                <div class="smallStyle">
+                    <p>
+                        Human Resources requires everyone who is experiencing issues with pay rate or accrual errors to present pay stubs that demonstrate when the pay rate or accrual error began, and your most recent pay stub that demonstrates that the issue is still on-going.
+                    </p>
+                    <p>
+                        Please attach the following using the file uploader:
+                        <ol type="1">
+                            <li>The initial pay stub where the error began</li>
+                            <li>Your current pay stub</li>
+                        </ol>
+                    </p>
+                    <p>
+                        To upload, click the Choose File button and browse for the file on your computer. You may include a description. Then, click the Upload button.
+                    </p>
+                </div>
+                <div class="smallStyle">
+                    <apex:inputFile value="{!doc.Body}" fileName="{!doc.Name}" contentType="{!doc.ContentType}"/>
+                </div>
+                <div class="smallStyle">
+                    Description:<br/>
+                    <apex:inputTextarea cols="60" rows="3" value="{!doc.Description}"/>
+                </div>
+                <div class="smallStyle">
+                    <apex:commandButton action="{!saveDocument}" value="Upload" />
+                </div>
+                <div class="smallStyle">
+                    <table class="tableStyle">
+                        <thead>
+                            <tr>
+                                <th class="headerCell">&nbsp;</th>
+                                <th class="headerCell">File Name</th>
+                                <th class="headerCell">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!docs}" var="dw">
+                                <tr class="hoverRow">
+                                    <td class="normalCell">
+                                        <a href="javascript:void(0)" onclick="afDeleteDoc('{!dw.doc.Id}')">
+                                            Delete
+                                        </a>
+                                    </td>
+                                    <td class="normalCell">{!dw.doc.Name}</td>
+                                    <td class="normalCell">{!dw.doc.Description}</td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                </div>
+            </apex:form>
+            <apex:form >
+                <apex:actionFunction reRender="documentForm,interviewSection" name="afDeleteDoc" action="{!deleteDoc}">
+                    <apex:param name="selectedDoc" assignTo="{!selectedDoc}" value=""/>
+                </apex:actionFunction>
+            </apex:form>
+        </div>
+    </apex:outputPanel>
+
+    <apex:outputPanel id="interviewSection">
+        <!--           change this \/     -->
+        <flow:interview name="Pay_Accrual_Error" interview="{!x_flow}" buttonLocation="bottom" finishLocation="{!URLFOR('/lightning/page/home')}"/>
+    </apex:outputPanel>
+
+    <c:FlowFooter_VFC />
+</apex:page>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Owned_Or_Controled_An_Organization__c</fullName>
+    <externalId>false</externalId>
+    <globalPicklist>Yes_No</globalPicklist>
+    <label>Owned Or Controled An Organization</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

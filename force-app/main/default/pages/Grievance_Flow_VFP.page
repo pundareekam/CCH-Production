@@ -1,0 +1,18 @@
+<!-- PRO-TIP WHEN COPYING: for everything but the title, you can do a find and replace on the flow name -->
+<!--         change this       \/          -->
+<apex:page controller="Grievances_Flow_VFC" showHeader="false" sidebar="false" standardStylesheets="false">
+
+    <!--                change this \/   -->
+   <!--<c:FlowHeader_VFC FlowName="Grievance"/>--> 
+
+   <c:FlowHeader_VFC FlowName="Grievance" IconPath="/resource/1537448796000/HR_Self_Help_Icon_Tuition_App"/>
+
+    <!--           change this \/     -->
+    <flow:interview name="Grievances" interview="{!x_flow}" buttonLocation="bottom" finishLocation="{!redirectToCase}"/>
+<!--
+    <c:FlowFooter_VFC />
+    -->
+  <!--  
+    <c:FlowFooter_VFC department="Grievance" />
+        -->
+</apex:page>

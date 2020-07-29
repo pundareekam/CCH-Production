@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Organization_Required_For_Compliance</fullName>
+    <active>true</active>
+    <description>Created for custom compliance page</description>
+    <errorConditionFormula>AND(RecordType.Name = &#39;Compliance Case&#39;,ISPICKVAL( Compliance_Organization__c , &quot;&quot;))</errorConditionFormula>
+    <errorDisplayField>Compliance_Organization__c</errorDisplayField>
+    <errorMessage>Please select an a value</errorMessage>
+</ValidationRule>

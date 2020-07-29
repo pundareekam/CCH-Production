@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resolution_Needed_To_Close_Case</fullName>
+    <active>true</active>
+    <description>Checks to see if resolution has a value when case is closed.</description>
+    <errorConditionFormula>AND(RecordType.Name = &#39;Compliance Case&#39;, ISPICKVAL( Status , &#39;Closed&#39;), ISPICKVAL( Resolution__c  , &#39;&#39;))</errorConditionFormula>
+    <errorDisplayField>Resolution__c</errorDisplayField>
+    <errorMessage>Case Status is set to closed. Please fill in value for Resolution.</errorMessage>
+</ValidationRule>

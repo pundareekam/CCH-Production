@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Comp_on_admin_leave_need_date</fullName>
+    <active>true</active>
+    <description>If the complainant is on administrative leave, the user must provide a date when that leave started</description>
+    <errorConditionFormula>AND(
+  ComplainantIsOnAdministrativeLeave__c,
+  WhendidLeaveBegin__c == null
+)</errorConditionFormula>
+    <errorDisplayField>WhendidLeaveBegin__c</errorDisplayField>
+    <errorMessage>Provide a date when leave began</errorMessage>
+</ValidationRule>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Genetic_Information__c</fullName>
+    <externalId>false</externalId>
+    <label>Genetic Information</label>
+    <picklist>
+        <picklistValues>
+            <fullName>Progeria</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Uner Tan Syndrome</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Hypertrichosis</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Epidermodysplasia Verruciformis</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>SCID</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Lesch–Nyhan Syndrome</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Ectrodactyly</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Proteus Syndrome</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Trimethylaminuria</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Marfan Syndrome</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>TBD</fullName>
+            <default>false</default>
+        </picklistValues>
+        <restrictedPicklist>true</restrictedPicklist>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

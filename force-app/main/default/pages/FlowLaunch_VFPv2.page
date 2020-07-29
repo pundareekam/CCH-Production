@@ -1,0 +1,61 @@
+<apex:page controller="FlowLaunchV2_VFC" showHeader="false" sidebar="false">
+    <style>
+        .bttn-section { width:685px; }
+        .bttn { float:left; width:150px; margin: 1px;}
+        .bttn.double { width:300px; }
+        
+    </style>
+    
+    <div class="bttn-section">
+        <apex:variable value="{!0}" var="count"/>
+        <apex:repeat value="{!flowsList}" var="fp">
+            <apex:outputPanel layout="block" rendered="{!(fp.Title != 'Ask HR!' && fp.Title != 'Space Filler' && fp.Title != 'Space Filler Single')}">
+                <div class="bttn">
+                    <a href="{!IF((fp.Title='ADA / FMLA Workflow'),'/lightning/n/fmla',IF((fp.Title='Pay Rate Accrual Errors'),'/lightning/n/payrateaccuralerror',fp.Url))}" class="bttn-default" target="_blank" id="link{!count}">
+                        <div class="image">
+                            <img width="150" height="150" src="{!fp.Image}" />
+                        </div>
+                    </a> 
+                </div>
+                <apex:variable var="count" value="{!count+ 1}"/>
+            </apex:outputPanel>
+            <apex:outputPanel layout="block" rendered="{!fp.Title == 'Ask HR!'}">
+                <div class="bttn double">
+                    <a href="{!fp.Url}" class="bttn-default" target="_blank" id="link{!count}">
+                        <div class="image">
+                            <img width="300" height="150" src="{!fp.Image}" />
+                        </div>
+                    </a> 
+                </div>
+                <apex:variable var="count" value="{!count+ 1}"/>
+            </apex:outputPanel>
+            <apex:outputPanel layout="block" rendered="{!fp.Title == 'Space Filler'}">
+                <div class="bttn double" id="test">
+                    <div class="image">
+                        <img width="300" height="150" src="{!fp.Image}" />
+                    </div>
+                </div>
+                <apex:variable var="count" value="{!count+ 1}"/>
+            </apex:outputPanel>
+            <apex:outputPanel layout="block" rendered="{!fp.Title == 'Space Filler Single'}">
+                <div class="bttn" id="test">
+                    <div class="image">
+                        <img width="150" height="150" src="{!fp.Image}" />
+                    </div>
+                </div>
+                <apex:variable var="count" value="{!count+ 1}"/>
+            </apex:outputPanel>
+        </apex:repeat>
+    </div>
+    
+    <script>
+        var el = document.getElementById('link4');
+        el.onclick = showFoo;
+        
+        
+        function showFoo() {
+          window.open('https://ssoprod.cookcountyil.gov/oam/server/obrareq.cgi?encquery%3DD7dX0pwdBYZ%2BAQV%2B8%2FyLqdW3KdmKf%2F6dtf63be9gIvHyzcqcDT6x5G2JOl0DJ9HMQw5J8TAgwwaZX%2FQBAu1Hgl2xi5L3FAPssvv%2FPrG%2BfJaXxjy%2F1GWKLk8O7XicWLq1u3wUBrZTJ1H6iM7PV85ykmiGqUT%2Fk3kqoD8R3WoLJF5hE0ICzJfoDRyG8NGdp3sja0anjcN%2F9rm5Ioy%2F3%2FvUlWMDnfjskoxe6TmOJoh4JLlteE9eVGI9o4n2aJKSWJJmXVPnyfKIGk%2BNoo96sBrKKLAj3WQXBXr3eskwGXOKg2gkSDK0FWysAc5wZ28bmbP%2BeQ70ORx%2FQ9AT2WBYAzSdZptk%2BhHAJwpuYMqDZCinI9g%3D%20agentid%3DZ9XP1AA_ccgprod.ccounty.com_443%20ver%3D1%20crmethod%3D2&ECID-Context=1.000002vyDC46yGq5kNd9iZ00_02e002Sjm%3BkXjE', '_blank');
+          return false;
+        }
+    </script>
+</apex:page>

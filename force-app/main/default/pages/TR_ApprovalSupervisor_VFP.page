@@ -1,0 +1,33 @@
+<apex:page standardController="Case" extensions="TR_ApprovalSupervisor_Controller" showHeader="false">
+    <div style="text-align:center;font-size:20px; font-weight: bold;">
+        <h1>Supervisor Approval Page for Tuition Reimbursement</h1>
+    </div><br/>
+    <div style="text-align:center;">
+        <apex:outputText value="Today Date:  {0, date, MMMM d','  yyyy}">
+            <apex:param value="{!NOW()}" />
+        </apex:outputText>
+    </div>
+    
+    <apex:pageMessages escape="false"/>
+    <apex:outputLink value="{!$Resource.TuitionReimbursementApprovalSupportingDocument}" rendered="{!showCaseDetails}">Supporting Tool Link</apex:outputLink>
+    <apex:form >
+        
+        <apex:pageBlock rendered="{!showCaseDetails}" >
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton action="{!approve}" value="Approve"/>
+                <apex:commandButton action="{!reject}" value="Reject"/>
+                
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection columns="1" title="Case Details" collapsible="false">
+                <apex:outputText value="{!Case.ContactName__c}" label="Employee Name...: "/>
+                <apex:outputText value="{!Case.Contact.User__r.EmployeeID__c}"/>
+                <apex:inputfield value="{!Case.TR_Approve_Reject_Comments__c}" /> 
+            </apex:pageBlockSection>
+            
+            
+        </apex:pageBlock>
+    </apex:form>
+    <apex:relatedList list="CombinedAttachments" title="Course Curriculum and Schedule Documents" pageSize="10" rendered="{!showCaseDetails}"/>
+    
+</apex:page>

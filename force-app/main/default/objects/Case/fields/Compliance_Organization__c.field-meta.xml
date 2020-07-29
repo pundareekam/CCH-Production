@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Compliance_Organization__c</fullName>
+    <description>Compliance: Two separate orgs inside of CCH</description>
+    <externalId>false</externalId>
+    <label>Organization</label>
+    <picklist>
+        <picklistValues>
+            <fullName>Cook County Health</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>CountyCare</fullName>
+            <default>false</default>
+        </picklistValues>
+        <restrictedPicklist>true</restrictedPicklist>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Supervisor__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This is the supervisor who will work on a grievance case</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Supervisor who will work on this grievance case. Must be non-union.</inlineHelpText>
+    <label>Current Supervisor</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Cases_Supervisor</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

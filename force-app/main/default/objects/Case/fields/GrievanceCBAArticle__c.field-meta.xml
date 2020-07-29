@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GrievanceCBAArticle__c</fullName>
+    <externalId>false</externalId>
+    <label>CBA Article</label>
+    <picklist>
+        <controllingField>GrievanceCBA__c</controllingField>
+        <picklistValues>
+            <fullName>I - Recognition</fullName>
+            <default>false</default>
+            <controllingFieldValues>AFSCME</controllingFieldValues>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+            <controllingFieldValues>FOP</controllingFieldValues>
+            <controllingFieldValues>NNOC</controllingFieldValues>
+            <controllingFieldValues>Operating Engineers</controllingFieldValues>
+            <controllingFieldValues>RWDSU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>I - Recognition of Bargaining Agent</fullName>
+            <default>false</default>
+            <controllingFieldValues>HOUSE STAFF</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>I - Recognition and Association Security</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>II - County and Association Rights and Obligations</fullName>
+            <default>false</default>
+            <controllingFieldValues>HOUSE STAFF</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>II - County and NNOC Rights and Obligations</fullName>
+            <default>false</default>
+            <controllingFieldValues>NNOC</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>II - County Authority</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+            <controllingFieldValues>Operating Engineers</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>II - Declaration of Purpose &amp; Authority of the County</fullName>
+            <default>false</default>
+            <controllingFieldValues>AFSCME</controllingFieldValues>
+            <controllingFieldValues>FOP</controllingFieldValues>
+            <controllingFieldValues>RWDSU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>II - Declaration of Rights</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>II - Management Rights</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>III - Hours of Work and Overtime</fullName>
+            <default>false</default>
+            <controllingFieldValues>AFSCME</controllingFieldValues>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+            <controllingFieldValues>FOP</controllingFieldValues>
+            <controllingFieldValues>NNOC</controllingFieldValues>
+            <controllingFieldValues>Operating Engineers</controllingFieldValues>
+            <controllingFieldValues>RWDSU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>III - Housestaff Physicians&apos; Salaries and Hours</fullName>
+            <default>false</default>
+            <controllingFieldValues>HOUSE STAFF</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>III - Personnel Files</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>IV - Grievance Procedure</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>IV - Paid Leaves and Leaves of Absence</fullName>
+            <default>false</default>
+            <controllingFieldValues>HOUSE STAFF</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>IV - Rates of Pay</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+            <controllingFieldValues>Operating Engineers</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>IV - Seniority</fullName>
+            <default>false</default>
+            <controllingFieldValues>AFSCME</controllingFieldValues>
+            <controllingFieldValues>FOP</controllingFieldValues>
+            <controllingFieldValues>NNOC</controllingFieldValues>
+            <controllingFieldValues>RWDSU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>IV - Union Security</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>IX - Additional Benefits</fullName>
+            <default>false</default>
+            <controllingFieldValues>AFSCME</controllingFieldValues>
+            <controllingFieldValues>FOP</controllingFieldValues>
+            <controllingFieldValues>NNOC</controllingFieldValues>
+            <controllingFieldValues>RWDSU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>IX - Grievance Procedure and Discipline</fullName>
+            <default>false</default>
+            <controllingFieldValues>HOUSE STAFF</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>IX - Leaves</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+            <controllingFieldValues>Operating Engineers</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>IX - Reduction in Workforce, Layoff and Recall</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>IX - Sick Leave</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>V - Continuity of Operation</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>V - Grievance Procedure</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>V - Other Benefits</fullName>
+            <default>false</default>
+            <controllingFieldValues>HOUSE STAFF</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>V - Rate of Pay</fullName>
+            <default>false</default>
+            <controllingFieldValues>FOP</controllingFieldValues>
+            <controllingFieldValues>NNOC</controllingFieldValues>
+            <controllingFieldValues>RWDSU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>V - Seniority</fullName>
+            <default>false</default>
+            <controllingFieldValues>AFSCME</controllingFieldValues>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+            <controllingFieldValues>Operating Engineers</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>VI - Holidays</fullName>
+            <default>false</default>
+            <controllingFieldValues>AFSCME</controllingFieldValues>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+            <controllingFieldValues>FOP</controllingFieldValues>
+            <controllingFieldValues>Operating Engineers</controllingFieldValues>
+            <controllingFieldValues>RWDSU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>VI - Hours of Work and Overtime</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>VI - Insurance</fullName>
+            <default>false</default>
+            <controllingFieldValues>HOUSE STAFF</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>VI - Seniority</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>VII - Education</fullName>
+            <default>false</default>
+            <controllingFieldValues>HOUSE STAFF</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>VII - Holidays</fullName>
+            <default>false</default>
+            <controllingFieldValues>AFSCME</controllingFieldValues>
+            <controllingFieldValues>NNOC</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>VII - Vacation</fullName>
+            <default>false</default>
+            <controllingFieldValues>Operating Engineers</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>VII - Vacation Leave</fullName>
+            <default>false</default>
+            <controllingFieldValues>NNOC</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>VII - Vacations</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+            <controllingFieldValues>FOP</controllingFieldValues>
+            <controllingFieldValues>RWDSU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>VIII - Security of Employment</fullName>
+            <default>false</default>
+            <controllingFieldValues>HOUSE STAFF</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>VIII - Vacations</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>VIII - VIII Holidays</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>VIII - Welfare Benefits</fullName>
+            <default>false</default>
+            <controllingFieldValues>AFSCME</controllingFieldValues>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+            <controllingFieldValues>FOP</controllingFieldValues>
+            <controllingFieldValues>NNOC</controllingFieldValues>
+            <controllingFieldValues>Operating Engineers</controllingFieldValues>
+            <controllingFieldValues>RWDSU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>X - Additional Benefits</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+            <controllingFieldValues>Operating Engineers</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>X - Filling Vacancies</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>X - Leave of Absence</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>X - Leaves of Absence</fullName>
+            <default>false</default>
+            <controllingFieldValues>FOP</controllingFieldValues>
+            <controllingFieldValues>NNOC</controllingFieldValues>
+            <controllingFieldValues>RWDSU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>X - Patient Care and Work Environment</fullName>
+            <default>false</default>
+            <controllingFieldValues>HOUSE STAFF</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XI - Compensation</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XI - Continuity of Operations</fullName>
+            <default>false</default>
+            <controllingFieldValues>HOUSE STAFF</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XI - Grievance Procedure</fullName>
+            <default>false</default>
+            <controllingFieldValues>AFSCME</controllingFieldValues>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+            <controllingFieldValues>FOP</controllingFieldValues>
+            <controllingFieldValues>NNOC</controllingFieldValues>
+            <controllingFieldValues>Operating Engineers</controllingFieldValues>
+            <controllingFieldValues>RWDSU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XI - Insurance</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XII - Continuity of Operations</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+            <controllingFieldValues>FOP</controllingFieldValues>
+            <controllingFieldValues>NNOC</controllingFieldValues>
+            <controllingFieldValues>Operating Engineers</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XII - Discipline</fullName>
+            <default>false</default>
+            <controllingFieldValues>AFSCME</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XII - Miscellaneous</fullName>
+            <default>false</default>
+            <controllingFieldValues>HOUSE STAFF</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XII - Seniority</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XII - Welfare Benefits</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XIII - Additional Provisions</fullName>
+            <default>false</default>
+            <controllingFieldValues>NNOC</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XIII - Continuity of Operation</fullName>
+            <default>false</default>
+            <controllingFieldValues>AFSCME</controllingFieldValues>
+            <controllingFieldValues>RWDSU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XIII - Duration</fullName>
+            <default>false</default>
+            <controllingFieldValues>HOUSE STAFF</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XIII - Leaves of Absence</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XIII - Miscellaneous</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+            <controllingFieldValues>FOP</controllingFieldValues>
+            <controllingFieldValues>Operating Engineers</controllingFieldValues>
+            <controllingFieldValues>RWDSU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XIII - Wages</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XIV - Additional Benefits</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XIV - Discipline</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XIV - Duration</fullName>
+            <default>false</default>
+            <controllingFieldValues>COUPE</controllingFieldValues>
+            <controllingFieldValues>Operating Engineers</controllingFieldValues>
+            <controllingFieldValues>RWDSU</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XIV - In-House Registry</fullName>
+            <default>false</default>
+            <controllingFieldValues>NNOC</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XIV - Major Institutional Merger or Affiliation</fullName>
+            <default>false</default>
+            <controllingFieldValues>HOUSE STAFF</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XIV - Miscellaneous</fullName>
+            <default>false</default>
+            <controllingFieldValues>AFSCME</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XIV - Union and Local Lodge Rights</fullName>
+            <default>false</default>
+            <controllingFieldValues>FOP</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XIX - Education and Seminars</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XIX - Savings Clause</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XV - County and Union Relations</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XV - Duration</fullName>
+            <default>false</default>
+            <controllingFieldValues>AFSCME</controllingFieldValues>
+            <controllingFieldValues>FOP</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XV - Professional Practice Committee</fullName>
+            <default>false</default>
+            <controllingFieldValues>NNOC</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XV - Training</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XVI - Miscellaneous</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XVI - Nursing Process Standards</fullName>
+            <default>false</default>
+            <controllingFieldValues>NNOC</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XVI - Uniform Allowances</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XVII - Miscellaneous Provisions</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XVII - Patient Care</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XVII - Patient Staffing</fullName>
+            <default>false</default>
+            <controllingFieldValues>NNOC</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XVIII - Continuing Medical Education (CME) Leave</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XVIII - Duration</fullName>
+            <default>false</default>
+            <controllingFieldValues>NNOC</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XVIII - No Strike/No Lockout</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XX - Duration</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XX - Entire Agreement</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>XXI - Termination</fullName>
+            <default>false</default>
+        </picklistValues>
+        <restrictedPicklist>true</restrictedPicklist>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

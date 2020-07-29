@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Compliance_Entity__c</fullName>
+    <description>Compliance: list of all entities inside CCH</description>
+    <externalId>false</externalId>
+    <label>Entity</label>
+    <picklist>
+        <controllingField>Compliance_Organization__c</controllingField>
+        <picklistValues>
+            <fullName>ACHN</fullName>
+            <default>false</default>
+            <controllingFieldValues>Cook County Health</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Care Management Entities (CMEs)</fullName>
+            <default>false</default>
+            <controllingFieldValues>CountyCare</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Correctional Health</fullName>
+            <default>false</default>
+            <controllingFieldValues>Cook County Health</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>CountyCare Administration</fullName>
+            <default>false</default>
+            <controllingFieldValues>CountyCare</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Dental</fullName>
+            <default>false</default>
+            <controllingFieldValues>CountyCare</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Department of Public Health</fullName>
+            <default>false</default>
+            <controllingFieldValues>Cook County Health</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>John H. Stroger, Jr. Hospital</fullName>
+            <default>false</default>
+            <controllingFieldValues>Cook County Health</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Pharmacy Benefit Manager (PBM)</fullName>
+            <default>false</default>
+            <controllingFieldValues>CountyCare</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Professional Building</fullName>
+            <default>false</default>
+            <controllingFieldValues>Cook County Health</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Provident</fullName>
+            <default>false</default>
+            <controllingFieldValues>Cook County Health</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>System Administration</fullName>
+            <default>false</default>
+            <controllingFieldValues>Cook County Health</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Third Party Administrator (TPA)</fullName>
+            <default>false</default>
+            <controllingFieldValues>CountyCare</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Transportation</fullName>
+            <default>false</default>
+            <controllingFieldValues>CountyCare</controllingFieldValues>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Vision</fullName>
+            <default>false</default>
+            <controllingFieldValues>CountyCare</controllingFieldValues>
+        </picklistValues>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

@@ -1,0 +1,8 @@
+<apex:page showHeader="true" sidebar="true">
+    <!--<div style="padding:3em">-->
+        <!--<h2>You made it to the code landing page... congrats :)</h2>-->
+        <p>
+            <!--<apex:outputLink value="/apex/Grievances">Grievance</apex:outputLink>-->
+        </p>
+    <!--</div>-->
+</apex:page>

@@ -1,0 +1,35 @@
+<apex:page controller="SaveCaseDocs_VFC" showHeader="false" sidebar="false" standardStylesheets="false">
+    <style>
+        .paddThis {
+            padding:1em;
+        }
+    </style>
+    <c:FlowHeader_VFC FlowName="Save Documents"/>
+    <apex:outputPanel styleClass="paddThis" layout="block" id="updateMe">
+        <div id="spinner">
+            Finalizing document uploads...&nbsp;<apex:image value="/img/loading.gif"/>
+        </div>
+        <script>
+            var successes = {!successes};
+            var failures = {!failures};
+        </script>
+    </apex:outputPanel>
+    <apex:form >
+        <apex:actionFunction name="afDoIt" rerender="updateMe" action="{!doIt}" oncomplete="theEnd();"/>
+    </apex:form>
+    <script>
+        function theEnd() {
+            console.log('successes: '+successes);
+            console.log('failures: '+failures);
+            document.getElementById("spinner").style.display = "none";
+            window.location = '/home/home.jsp';
+        }
+        console.log('javascript stuff is doing stuff');
+        function doSomething() {
+            console.log('doing it');
+            afDoIt();
+            console.log('finished doing it');
+        }
+        doSomething();
+    </script>
+</apex:page>

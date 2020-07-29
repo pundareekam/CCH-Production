@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Step_2_Terms_and_Conditions__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Sign-off for the Step 2 Terms and Conditions</description>
+    <externalId>false</externalId>
+    <label>Step 2 Terms and Conditions</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rec_Not_Followed_need_a_reason</fullName>
+    <active>true</active>
+    <description>If the recommendation is not followed, the user needs to provide a reason</description>
+    <errorConditionFormula>AND(
+  RecommendationWasNotFollowed__c,
+  ISBLANK(TEXT(Reason_Recommendation_Was_Not_Followed__c))
+)</errorConditionFormula>
+    <errorDisplayField>Reason_Recommendation_Was_Not_Followed__c</errorDisplayField>
+    <errorMessage>Provide a reason why the recommendation was not followed</errorMessage>
+</ValidationRule>

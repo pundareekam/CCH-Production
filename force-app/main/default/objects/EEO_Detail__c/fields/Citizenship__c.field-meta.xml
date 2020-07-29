@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Citizenship__c</fullName>
+    <externalId>false</externalId>
+    <label>Citizenship</label>
+    <picklist>
+        <picklistValues>
+            <fullName>Citizen of the United States</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Non-Citizen National of the United States</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Lawful Permanent Resident</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Alien authorized to work</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>B1</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>B2</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Green Card</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>H1B</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>H2B</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>L1</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>TBD</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>TN</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Undocumented</fullName>
+            <default>false</default>
+        </picklistValues>
+        <restrictedPicklist>true</restrictedPicklist>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+</CustomField>

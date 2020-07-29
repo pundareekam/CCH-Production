@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>44.0</apiVersion>
+    <availableInTouch>true</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>makes sure that the button is only on the bottom of the page for Ask HR A Question. Can be copied to other flows, JUST MAKE SURE TO CHANGE FLOW NAME IF COPIED</description>
+    <label>Ask HR VFP</label>
+</ApexPage>

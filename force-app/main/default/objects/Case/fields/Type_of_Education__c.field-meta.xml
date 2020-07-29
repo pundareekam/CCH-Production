@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_of_Education__c</fullName>
+    <externalId>false</externalId>
+    <label>Type of Education</label>
+    <picklist>
+        <picklistValues>
+            <fullName>Conference Call</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>e-Learning</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Guidance</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Live/In-Person</fullName>
+            <default>false</default>
+        </picklistValues>
+        <picklistValues>
+            <fullName>Webinar</fullName>
+            <default>false</default>
+        </picklistValues>
+        <restrictedPicklist>true</restrictedPicklist>
+        <sorted>false</sorted>
+    </picklist>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <visibleLines>4</visibleLines>
+</CustomField>
